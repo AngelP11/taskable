@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'Manrope';
+    src: url(./assets/fonts/Manrope-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'Inter-light';
+    src: url(./assets/fonts/Inter-Light-slnt=0.ttf);
+}
+
+@font-face {
+    font-family: 'Inter-regular';
+    src: url(./assets/fonts/Inter-Regular-slnt=0.ttf);
+}
+
+h1, h2, h4, h5 {
+    font-family: 'Inter-light', sans-serif;
+    font-weight: 300;
+}
+
+h3, h6, .subtitle-2 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+}
+
+.body-1, .body-2, .subtitle-1, .caption , .overline {
+    font-family: 'Inter-regular';
+    font-weight: 400;
+}
+
+.subtitle-1, .body-1 {
+    font-size: 16px;
+    letter-spacing: 1.15px;
+}
+
+.subtitle-2 {
+    font-size: 14px;
+    letter-spacing: 1.1px;
+}
+
+.body-2 {
+    font-size: 14px;
+    letter-spacing: 1.15px;
+}
+
+.caption {
+    font-size: 12px;
+    letter-spacing: 0.4px;
+}
+
+h1 {
+    font-size: 96px;
+    letter-spacing: -1.5px;
+}
+
+h2 {
+    font-size: 60px;
+    letter-spacing: -0.5px;
+}
+
+h3 {
+    font-size: 48px;
+    letter-spacing: 0;
+}
+
+h4 {
+    font-size: 34px;
+    letter-spacing: 0.25px;
+}
+
+h5 {
+    font-size: 24px;
+    letter-spacing: 0;
+}
+
+h6 {
+    font-size: 20px;
+    letter-spacing: 1.15px;
+}

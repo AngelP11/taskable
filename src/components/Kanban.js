@@ -67,12 +67,12 @@ function Kanban(props) {
         <div>
             <DragDropContext onDragEnd={result => onDragEnd(result)}>
                 <ReactSortable
-                animation={150}
-                easing="cubic-bezier(0.83, 0, 0.17, 1)"
-                ghostClass="ghost"
-                list={column}
-                setList={setColumn}
-                className={classes.taskContainer}
+                    animation={150}
+                    easing="cubic-bezier(0.83, 0, 0.17, 1)"
+                    ghostClass="ghost"
+                    list={column}
+                    setList={setColumn}
+                    className={classes.taskContainer}
                 >
                 {column.map((column, index) => {
                     return (
