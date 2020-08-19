@@ -1,0 +1,14 @@
+.Header-logoContainer {
+    max-width: 100%;
+    height: 63px;
+    border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+}
+
+.Header-Container {
+    border-bottom: 1px solid grey;
+    height: 63px;
+}
