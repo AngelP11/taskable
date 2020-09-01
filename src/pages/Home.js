@@ -9,7 +9,7 @@ import './styles/Home.css'
 function Home() { 
   return (
     <React.Fragment>
-      Home
+      
     </React.Fragment>
   )
 }

@@ -25,7 +25,7 @@ function Layout ({ children }) {
                 </Grid>
                 <Grid item xs={2}>
                     <div className="Layout-navbarContainer">
-                        Navbar
+                        
                     </div>
                 </Grid>
                 <Grid item xs={10}>

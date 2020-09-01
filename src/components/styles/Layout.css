@@ -1,7 +1,4 @@
 .Layout-navbarContainer {
-    height: calc(100vh - 60px);
-    border-right: 1px solid grey;
-}
-.Layout-Navbar {
+    height: calc(99.6vh - 60px);
     border-right: 1px solid grey;
 }
