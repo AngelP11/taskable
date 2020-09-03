@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 /* Components */
 import Home from '../pages/Home'
 import Login from '../pages/Login'
+import Register from '../pages/Register'
 import Error from '../pages/Error'
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
 	    <Switch>
 	      <Route path="/" component={Home} exact />
 	      <Route path="/login" component={Login} />
+	      <Route path="/register" component={Register} />
 	      <Route component={Error} />
 	    </Switch> 
     </BrowserRouter>

@@ -11,8 +11,8 @@ const useStyles = makeStyles({
 		textAlign: 'center',
 		borderRadius: 16,
 		borderStyle: 'none',
-		paddingRight: 25,
-		paddingLeft: 5,
+		paddingRight: 30,
+		paddingLeft: 30,
 		paddingTop: 5,
 		paddingBottom: 25,
 	},
@@ -29,10 +29,9 @@ const useStyles = makeStyles({
 		fontWeight: 700,
 		color: '#2d2d37'
 	},
-	input: {
+	inputContainer: {
 		marginTop: 24,
 		marginBottom: 40,
-		width: 364,
 	},
 	btn: {
 		width: 364,
@@ -62,10 +61,12 @@ const useStyles = makeStyles({
 		fontSize: 24,
 		fontWeight: 500,
 	},
-	text: {
+	terminos: {
 		color: '#2d2d37',
-		fontSize: 16,
-		fontWeight: 300,
+		fontSize: 10,
+		textAlign: 'center',
+		marginTop: 10,
+		opacity: 0.54
 	},
 	link: {
 		color: '#1a70ff',
@@ -74,7 +75,7 @@ const useStyles = makeStyles({
 	}
 })
 
-function Login() {
+function Register() {
 
 	const classes = useStyles()
 			
@@ -85,22 +86,45 @@ function Login() {
 				<Card className={classes.card} variant="outlined">
 					<CardContent>
 						<Typography variant="h5" className={classes.title} gutterBottom>Taskble <span className={classes.appText}>app</span></Typography>
-						<Typography className={classes.pos}>Iniciar Sesión</Typography>
-						<Typography variant="body2" className={classes.text} component="p">Utiliza tu usuario o correo electrónico</Typography>
 
-						<TextField id="outlined-basic" size="small" className={classes.input} label="Usuario o correo" variant="outlined" />
+						<div className={classes.inputContainer}>
+							
+							<Grid container spacing={3} style={{ marginBottom: 8 }}>
+								<Grid xs={12} sm={6} item >
+									<TextField id="outlined-name" size="small" label="Nombre" variant="outlined" />
+								</Grid>
+								<Grid xs={12} item sm={6}>
+									<TextField id="outlined-lastname" size="small" label="Apellidos" variant="outlined" />
+								</Grid>
+							</Grid>
 
-						<Button variant="contained" className={classes.btn} disableElevation>Iniciar Sesión</Button>
+							<Grid container spacing={3} style={{ marginBottom: 8 }}>
+								<Grid item xs={12}>
+									<TextField fullWidth id="outlined-username" size="small" label="Nombre de usuario" variant="outlined" />
+								</Grid>
+							</Grid>
+
+							<Grid container spacing={3} style={{ marginBottom: 8 }}>
+								<Grid item xs={12}>
+									<TextField fullWidth id="outlined-email" size="small" label="Correo electrónico" variant="outlined" />
+								</Grid>
+							</Grid>
+
+						</div>
+
+
+						<Button variant="contained" className={classes.btn} disableElevation>Crear cuenta</Button>
 					</CardContent>
 
 					<CardActions >
-						<Typography variant="body2" className={classes.footer} component="p">¿Aún no tienes una cuenta Taskble? <Link className={classes.link} to="/register">Crea una cuenta</Link></Typography>
+						<Typography variant="body2" className={classes.footer} component="p">¿Ya tienes una cuenta? <Link className={classes.link} to="/login">Inicia sesión</Link></Typography>
 					</CardActions>
 				</Card>
+				<Typography className={classes.terminos} variant="caption" component="p" gutterBottom>Al dar click en "Crear cuenta" estás aceptando los <Link to="/terminos">términos y condiciones</Link> de Taskble LLC</Typography>
 			
 			</Grid>
 		</Grid>
 	)
 }
 
-export default Login
+export default Register
