@@ -1,3 +1,5 @@
+import { withStyles } from '@material-ui/core/styles'
+
 const buttons = {
   button_high: {
     height: 36,
@@ -73,7 +75,7 @@ const buttons = {
   },
 }
 
-const ripple = theme => ({
+const ripple = theme => ({ 
   child: {
     backgroundColor: 'rgba(186,162,255)',
   }

@@ -1,0 +1,119 @@
+.Header-logoContainer {
+    max-width: 100%;
+    height: 64px;
+    border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+}
+
+.Header-logoContainer p {
+    opacity: 0.56;
+    font-family: Manrope;
+    font-size: 24px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.46;
+    letter-spacing: 0.03px;
+    color: #000000;
+}
+
+.Header-Container {
+    border-bottom: 1px solid grey;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 29px;
+    justify-content: space-between;
+}
+
+.Header-infoContainer {
+    height: 48px;
+    display: flex;
+    align-items: center;
+}
+
+.Header-infoTeamContainer {
+    display: flex;
+}
+
+.Header-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.Header-infoIcono {
+    background-color:#82b0ff;
+    height: 48px;
+    width: 48px;
+    border-radius: 10px;
+}
+
+.Header-userImage {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.Header-infoTitle {
+    max-height: 64px;
+    margin: 0;
+    font-family: Manrope;
+    font-size: 20px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.35;
+    letter-spacing: 0.02px;
+    color: #2d2d37;
+}
+
+.Header-infoCompany {
+    max-height: 64px;
+    margin: 0;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.02px;
+    font-family: Inter-regular;
+    color: rgba(0, 0, 0, .38);
+}
+
+.Header-infoTeam {
+    margin-left: 10px;
+    position: relative;
+}
+
+.Header-infoTeam img {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+#member1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+#member2 {
+    position: absolute;
+    top: 0;
+    left: 13px;
+    z-index: 1;
+}
+
+#member3 {
+    position: absolute;
+    top: 0;
+    left: 27px;
+}

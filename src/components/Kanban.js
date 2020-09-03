@@ -3,6 +3,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import { ReactSortable } from "react-sortablejs"
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 
+/* Assets */
+import './styles/Kanban.css'
+
 const useStyle = makeStyles({
     taskContainer: {
         marginTop: 10,

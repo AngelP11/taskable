@@ -1,0 +1,6 @@
+.ghost {
+	border: none;
+	background-color: grey;
+	color: grey;
+	opacity: .5;
+}

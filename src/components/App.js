@@ -1,11 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 
-/* Components */
+/* Pages */
 import Home from '../pages/Home'
 import Login from '../pages/Login'
 import Register from '../pages/Register'
 import Error from '../pages/Error'
+
+/* Components */
+import Layout from './Layout'
 
 export default function App() {
   return (
