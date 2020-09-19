@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
 import Register from '../pages/Register'
+import Password from '../pages/Password'
 import Error from '../pages/Error'
 
 /* Components */
@@ -13,14 +14,15 @@ import Error from '../pages/Error'
 
 export default function App() {
   return (
-    <BrowserRouter>
-	    <Switch>
-	      <Route path="/taskable" component={Home} exact />
-	      <Route path="/taskable/login" component={Login} />
-	      <Route path="/taskable/register" component={Register} />
-	      <Route component={Error} />
-	    </Switch> 
-    </BrowserRouter>
+	<BrowserRouter>
+		<Switch>
+			<Route path="/taskable" component={Home} exact />
+			<Route path="/taskable/login" component={Login} />
+			<Route path="/taskable/password" component={Password} />
+			<Route path="/taskable/register" component={Register} />
+			<Route component={Error} />
+		</Switch> 
+	</BrowserRouter>
   );
 }
 
