@@ -30,7 +30,7 @@ const buttons = {
     // margin: 10,
     padding: '8px 16px 8px 16px',
     boxShadow: 'none',
-    borderRadius: 4,
+    borderRadius: 6,
     // backgroundColor: '#fff',
     borderColor: '#e1e2e6',
     border: '1px solid',
