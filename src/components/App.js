@@ -8,16 +8,16 @@ import Register from '../pages/Register'
 import Error from '../pages/Error'
 
 /* Components */
-import Layout from './Layout'
-import Guilines from '../pages/Guilines';
+// import Layout from './Layout'
+// import Guilines from '../pages/Guilines';
 
 export default function App() {
   return (
     <BrowserRouter>
 	    <Switch>
-	      <Route path="/" component={Guilines} exact />
-	      <Route path="/login" component={Login} />
-	      <Route path="/register" component={Register} />
+	      <Route path="/taskable" component={Home} exact />
+	      <Route path="/taskable/login" component={Login} />
+	      <Route path="/taskable/register" component={Register} />
 	      <Route component={Error} />
 	    </Switch> 
     </BrowserRouter>
