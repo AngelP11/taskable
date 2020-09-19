@@ -9,12 +9,13 @@ import Error from '../pages/Error'
 
 /* Components */
 import Layout from './Layout'
+import Guilines from '../pages/Guilines';
 
 export default function App() {
   return (
     <BrowserRouter>
 	    <Switch>
-	      <Route path="/" component={Home} exact />
+	      <Route path="/" component={Guilines} exact />
 	      <Route path="/login" component={Login} />
 	      <Route path="/register" component={Register} />
 	      <Route component={Error} />

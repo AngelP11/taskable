@@ -5,11 +5,15 @@ import React from 'react'
 /* Assets */
 import './styles/Home.css'
 
+import Layout from '../components/Layout'
+
 
 function Home() { 
   return (
     <React.Fragment>
-      
+      <Layout>
+        <h4>En construccion</h4>
+      </Layout>
     </React.Fragment>
   )
 }
