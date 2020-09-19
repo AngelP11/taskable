@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "12a46951d8d4e3039bdba482beb6d21e",
+    "revision": "d84435d8c119f2bebee361bfe41fda08",
     "url": "/taskable/index.html"
   },
   {
-    "revision": "ab24659dcf0b2dc1eff6",
+    "revision": "8fcfe350b2010f68021b",
     "url": "/taskable/static/css/2.764ccc25.chunk.css"
   },
   {
-    "revision": "d80bc124bf74365f287c",
+    "revision": "f0fc39a7250db8fa136b",
     "url": "/taskable/static/css/main.ec512dbc.chunk.css"
   },
   {
-    "revision": "ab24659dcf0b2dc1eff6",
-    "url": "/taskable/static/js/2.a51e5e87.chunk.js"
+    "revision": "8fcfe350b2010f68021b",
+    "url": "/taskable/static/js/2.bf594e71.chunk.js"
   },
   {
     "revision": "0749163b59fbee32225059cb60c18af6",
-    "url": "/taskable/static/js/2.a51e5e87.chunk.js.LICENSE.txt"
+    "url": "/taskable/static/js/2.bf594e71.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d80bc124bf74365f287c",
-    "url": "/taskable/static/js/main.da5def2b.chunk.js"
+    "revision": "f0fc39a7250db8fa136b",
+    "url": "/taskable/static/js/main.df91e476.chunk.js"
   },
   {
     "revision": "e376380cd39f82fb899c",
