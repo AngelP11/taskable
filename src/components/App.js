@@ -16,7 +16,7 @@ export default function App() {
   return (
 	<BrowserRouter>
 		<Switch>
-			<Route path="/taskable" component={Home} exact />
+			<Route path="/taskable" component={Login} exact />
 			<Route path="/taskable/login" component={Login} />
 			<Route path="/taskable/password" component={Password} />
 			<Route path="/taskable/register" component={Register} />

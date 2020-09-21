@@ -35,7 +35,7 @@ const useStyles = makeStyles({
 		marginBottom: 26,
 		width: 364,
 		height: 54,
-		borderRadius: 6,
+		borderRadius: 30,
 	},
 	btn: {
 	  width: 364,
@@ -91,7 +91,6 @@ const useStyles = makeStyles({
 })
 
 function Login() {
-
 	const classes = useStyles()
 			
 	return (
