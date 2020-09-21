@@ -10,11 +10,6 @@ const useStyles = makeStyles({
 	...buttons,
 	...globals,
 	btn: {
-<<<<<<< HEAD
-	  	// width: 364,
-	  	marginBottom: 25,
-=======
-	  width: 364,
 	  height: 36,
 	  boxShadow: 'none',
 	  borderRadius: 6,
@@ -32,7 +27,6 @@ const useStyles = makeStyles({
 		backgroundColor: '#2979ff',
 		boxShadow: '0px 8px 9px 0px rgba(0, 0, 0, .24)',
 	  },
->>>>>>> 64638d3f27f7fd027319169606ffa8395d4bddad
 	},
 	footer: {
 	  marginTop: 10,
@@ -81,24 +75,13 @@ function Login() {
 						<Typography className={classes.pos}>Iniciar Sesión</Typography>
 						<Typography variant="body2" className={classes.text} component="p">Utiliza tu usuario o correo electrónico</Typography>
 
-<<<<<<< HEAD
-						<TextField id="outlined-basic" fullWidth className={ classes.input } label="Usuario o correo" variant="outlined" size="normal"/>
+						<TextField id="outlined-basic" fullWidth size="small" className={classes.input} label="Usuario o correo" variant="outlined" size="big"/>
 
-						<Button variant="contained" fullWidth className={[ classes.btn, classes.button_high ]} disableElevation>Iniciar Sesión</Button>
+						<Button variant="contained" fullWidth className={ classes.button_high } disableElevation>Siguiente</Button>
 					</CardContent>
-
-					<CardActions >
-						<Typography variant="body2" className={classes.footer} component="p">¿Aún no tienes una cuenta Taskble? <Link className={classes.link} to="/taskable/register">Crea una cuenta</Link></Typography>
-					</CardActions>
-=======
-						<TextField id="outlined-basic" size="small" className={classes.input} label="Usuario o correo" variant="outlined" size="big"/>
-
-						<Button variant="contained" className={ classes.btn } disableElevation>Siguiente</Button>
-					</CardContent>
->>>>>>> 64638d3f27f7fd027319169606ffa8395d4bddad
 				</Card>
 
-				<Typography variant="body2" className={classes.footer} component="p">Al dar click en crear cuenta esta aceptando los <Link className={classes.link} to="/register">Terminos y condiciones</Link> de Taskble LLC.</Typography>
+				<Typography variant="body2" className={classes.footer} component="p">Al dar click en crear cuenta esta aceptando los <Link className={classes.link} to="/taskable/register">Terminos y condiciones</Link> de Taskble LLC.</Typography>
 			</Grid>
 		</Grid>
 	)

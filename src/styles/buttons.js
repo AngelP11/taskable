@@ -13,11 +13,11 @@ const buttons = {
     fontSize: 14,
     '&:hover': {
       cursor: 'pointer',
-      backgroundColor: '#7A4CFF',
-      boxShadow: '0 1px 3px 2px rgba(122, 76, 255, .2)',
+      backgroundColor: '#2979ff',
+      boxShadow: '0 1px 3px 2px rgba(0, 0, 0, .2)',
     },
     '&:active': {
-      backgroundColor: '#5217FF',
+      backgroundColor: '#2979ff',
       boxShadow: '0px 8px 9px 0px rgba(122, 76, 255, .24)',
     },
     '&:disabled': {
