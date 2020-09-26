@@ -11,6 +11,7 @@ const buttons = {
     fontFamily: 'Manrope',
     textTransform: 'capitalize',
     fontSize: 14,
+    lineHeight: '12px',
     '&:hover': {
       cursor: 'pointer',
       backgroundColor: '#2979ff',
@@ -27,6 +28,7 @@ const buttons = {
   },
   button_normal: {
     height: 40,
+    lineHeight: '15px',
     // margin: 10,
     padding: '8px 16px 8px 16px',
     boxShadow: 'none',
@@ -52,6 +54,7 @@ const buttons = {
     }
   },
   button_low: {
+    lineHeight: '12px',
     height: 36,
     padding: '8px 16px 8px 16px',
     boxShadow: 'none',
