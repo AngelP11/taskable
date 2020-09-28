@@ -42,6 +42,10 @@ export default {
 		paddingBottom: 20,
 	},
 	input: {
-
+		marginTop: 18,
+		marginBottom: 26,
+		// width: 364,
+		height: 54,
+		borderRadius: 6,
 	}
 }

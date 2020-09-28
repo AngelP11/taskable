@@ -341,7 +341,7 @@ function Register() {
 
 						</div>
 
-						<Button variant="contained" fullWidth className={[classes.button, classes.button_normal]} disableElevation>Crear cuenta</Button>
+						<Button variant="contained" fullWidth className={[ classes.button_high]} disableElevation>Crear cuenta</Button>
 
 					</CardContent>
 

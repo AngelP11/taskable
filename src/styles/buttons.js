@@ -5,19 +5,20 @@ const buttons = {
     height: 36,
     padding: '8px 16px 8px 16px',
     boxShadow: 'none',
-    borderRadius: 4,
-    backgroundColor: '#7A4CFF',
+    borderRadius: 6,
+    backgroundColor: '#2979ff',
     color: 'white',
     fontFamily: 'Manrope',
     textTransform: 'capitalize',
     fontSize: 14,
+    lineHeight: '12px',
     '&:hover': {
       cursor: 'pointer',
-      backgroundColor: '#7A4CFF',
-      boxShadow: '0 1px 3px 2px rgba(122, 76, 255, .2)',
+      backgroundColor: '#2979ff',
+      boxShadow: '0 1px 3px 2px rgba(0, 0, 0, .2)',
     },
     '&:active': {
-      backgroundColor: '#5217FF',
+      backgroundColor: '#2979ff',
       boxShadow: '0px 8px 9px 0px rgba(122, 76, 255, .24)',
     },
     '&:disabled': {
@@ -27,6 +28,7 @@ const buttons = {
   },
   button_normal: {
     height: 40,
+    lineHeight: '15px',
     // margin: 10,
     padding: '8px 16px 8px 16px',
     boxShadow: 'none',
@@ -52,6 +54,7 @@ const buttons = {
     }
   },
   button_low: {
+    lineHeight: '12px',
     height: 36,
     padding: '8px 16px 8px 16px',
     boxShadow: 'none',

@@ -81,3 +81,10 @@ h6 {
     font-size: 20px;
     letter-spacing: 1.15px;
 }
+
+
+/**   :|  ****/
+
+.MuiOutlinedInput-root {
+    border-radius: 6px !important;
+}

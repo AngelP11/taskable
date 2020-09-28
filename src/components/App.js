@@ -6,6 +6,7 @@ import Home from '../pages/Home'
 import Login from '../pages/Login'
 import Register from '../pages/Register'
 import Password from '../pages/Password'
+import ExpandedList from '../pages/ExpandedList'
 import Error from '../pages/Error'
 
 /* Components */
@@ -20,6 +21,7 @@ export default function App() {
 			<Route path="/taskable/login" component={Login} />
 			<Route path="/taskable/password" component={Password} />
 			<Route path="/taskable/register" component={Register} />
+			<Route path="/taskable/expanded-list" component={ExpandedList} />
 			<Route component={Error} />
 		</Switch> 
 	</BrowserRouter>

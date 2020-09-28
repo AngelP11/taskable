@@ -7,10 +7,6 @@ import { buttons } from '../styles/buttons.js'
 import globals from '../styles/globals.js'
 
 const useStyles = makeStyles({
-	inputLocal: {
-		marginTop: 24,
-		marginBottom: 30,
-	},
 	btn: {
 		marginBottom: 25,
 	},
@@ -54,9 +50,9 @@ function Password() {
 						<Typography className={classes.pos}>¡Hola, Joan!</Typography>
 						<Typography variant="body2" className={classes.text} component="p">Ingresa tu contraseña de seguridad</Typography>
 
-						<TextField id="outlined-basic" type="password" fullWidth size="small" className={classes.inputLocal} label="Contraseña" variant="outlined" />
+						<TextField id="outlined-basic" type="password" fullWidth className={ classes.input } label="Contraseña" variant="outlined" />
 
-						<Button variant="contained" fullWidth className={[classes.btn, classes.button, classes.button_normal]} disableElevation>Iniciar Sesión</Button>
+						<Button variant="contained" fullWidth className={[classes.btn, classes.button_high]} disableElevation>Iniciar Sesión</Button>
 					</CardContent>
 
 					<CardActions >

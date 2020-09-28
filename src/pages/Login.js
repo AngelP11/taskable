@@ -4,42 +4,12 @@ import { makeStyles, withStyles } from '@material-ui/core/styles'
 import { Link } from "react-router-dom";
 
 import { buttons, ripple } from '../styles/buttons.js'
+import globals from '../styles/globals.js'
 
 const useStyles = makeStyles({
 	...buttons,
-	card: {
-		width: 468,
-		textAlign: 'center',
-		borderRadius: 16,
-		borderStyle: 'none',
-		paddingRight: 25,
-		paddingLeft: 5,
-		paddingTop: 5,
-		paddingBottom: 25,
-	},
-	appText: {
-		fontSize: 9,
-		color: "#2979ff",
-		position: 'relative',
-		bottom: 11,
-		right: 5,
-	},
-	title: {
-		fontSize: 28,
-		opacity: 0.87,
-		fontWeight: 700,
-		color: '#2d2d37'
-	},
-	input: {
-		marginTop: 18,
-		marginBottom: 26,
-		width: 364,
-		height: 54,
-		borderRadius: 30,
-		opacity: .54,
-	},
+	...globals,
 	btn: {
-	  width: 364,
 	  height: 36,
 	  boxShadow: 'none',
 	  borderRadius: 6,
@@ -99,17 +69,17 @@ function Login() {
 				
 				<Card className={classes.card} variant="outlined">
 					<CardContent>
-						<Typography variant="h5" className={classes.title} gutterBottom>Taskble <span className={classes.appText}>app</span></Typography>
+						<Typography variant="h5" className={classes.title} gutterBottom>Taskble <span className={ classes.appText }>app</span></Typography>
 						<Typography className={classes.pos}>Iniciar Sesión</Typography>
 						<Typography variant="body2" className={classes.text} component="p">Utiliza tu usuario o correo electrónico</Typography>
 
-						<TextField id="outlined-basic" size="small" className={classes.input} label="Usuario o correo" variant="outlined" size="big"/>
+						<TextField id="outlined-basic" fullWidth size="small" className={classes.input} label="Usuario o correo" variant="outlined" size="big"/>
 
-						<Button variant="contained" className={ classes.btn } disableElevation>Siguiente</Button>
+						<Button variant="contained" fullWidth className={ classes.button_high } disableElevation>Siguiente</Button>
 					</CardContent>
 				</Card>
 
-				<Typography variant="body2" className={classes.footer} component="p">Al dar click en crear cuenta esta aceptando los <Link className={classes.link} to="/register">Terminos y condiciones</Link> de Taskble LLC.</Typography>
+				<Typography variant="body2" className={classes.footer} component="p">Al dar click en crear cuenta esta aceptando los <Link className={classes.link} to="/taskable/register">Terminos y condiciones</Link> de Taskble LLC.</Typography>
 			</Grid>
 		</Grid>
 	)
