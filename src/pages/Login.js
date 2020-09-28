@@ -36,6 +36,7 @@ const useStyles = makeStyles({
 		width: 364,
 		height: 54,
 		borderRadius: 30,
+		opacity: .54,
 	},
 	btn: {
 	  width: 364,
@@ -44,7 +45,6 @@ const useStyles = makeStyles({
 	  borderRadius: 6,
 	  backgroundColor: '#2979ff',
 	  color: '#fff',
-	  marginBottom: 25,
 	  fontFamily: 'Manrope',
 	  textTransform: 'capitalize',
 	  '&:hover': {

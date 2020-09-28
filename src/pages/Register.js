@@ -13,7 +13,6 @@ import globals from '../styles/globals.js'
 
 
 const useStyles = makeStyles((theme) => ({
-
 	inputContainer: {
 		marginTop: 24,
 		marginBottom: 20,
