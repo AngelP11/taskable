@@ -11,6 +11,8 @@ import { Link } from "react-router-dom";
 import { buttons } from '../styles/buttons.js'
 import globals from '../styles/globals.js'
 
+import background from '../assets/backgrund_checkpassword.png'
+
 
 const useStyles = makeStyles((theme) => ({
 
@@ -46,23 +48,26 @@ const useStyles = makeStyles((theme) => ({
 	},
 	popper: {
 		zIndex: 1,
-		marginBottom: 16,
-		'&[x-placement*="top"] $arrow': {
-			bottom: 0,
-			left: 90,
-			marginBottom: '-1.5em',
-			width: '3.5em',
-			height: '1.5em',
-			'&::before': {
-				borderWidth: '1em 1em 0 1em',
-				borderColor: `#f9f9f9 transparent transparent transparent`,
-			},
-		},
+		marginBottom: 8,
+		// '&[x-placement*="top"] $arrow': {
+		// 	bottom: 0,
+		// 	left: 90,
+		// 	marginBottom: '-1.5em',
+		// 	width: '3.5em',
+		// 	height: '1.5em',
+		// 	'&::before': {
+		// 		borderWidth: '1em 1em 0 1em',
+		// 		borderColor: `#f9f9f9 transparent transparent transparent`,
+		// 	},
+		// },
 	},
 	paper: {
-		backgroundColor: '#f9f9f9',
+		backgroundImage: `url(${background})`,
+		backgroundSize: 'cover',
+		backgroundRepeat: 'no-repeat',
+		backgroundPosition: 'center',
 		border: 'none',
-		boxShadow: '0 0 0 #fff'
+		boxShadow: '0 0 0 #fff',
 	},
 	small: {
 		fontSize: 10
@@ -178,6 +183,8 @@ function Register() {
 	}
 
 	const open = Boolean(anchorEl);
+
+	// <span className={classes.arrow} ref={setArrowRef} />
 			
 	return (
 		<Grid container justify="center" alignItems="center" style={{ height: '97vh' }}>
@@ -281,7 +288,6 @@ function Register() {
 								{({ TransitionProps }) => (
 									<Fade {...TransitionProps} timeout={350}>
 										<Card className={classes.paper} raised={false}>
-											<span className={classes.arrow} ref={setArrowRef} />
 											<CardContent>
 												<Typography className={classes.small} component="p" variant="caption" gutterBottom >
 													Por tu seguridad, la contraseña debe contener:

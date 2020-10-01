@@ -11,7 +11,6 @@ import persona3 from '../assets/imagen-25.png'
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
-      height: 64,
     },
 }));
 

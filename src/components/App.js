@@ -8,6 +8,7 @@ import Register from '../pages/Register'
 import Password from '../pages/Password'
 import ExpandedList from '../pages/ExpandedList'
 import Error from '../pages/Error'
+import Index from '../pages/Index'
 
 /* Components */
 // import Layout from './Layout'
@@ -17,7 +18,8 @@ export default function App() {
   return (
 	<BrowserRouter>
 		<Switch>
-			<Route path="/taskable" component={Home} exact />
+			<Route path="/" component={Index} exact />
+			<Route path="/taskable" component={Home} />
 			<Route path="/taskable/login" component={Login} />
 			<Route path="/taskable/password" component={Password} />
 			<Route path="/taskable/register" component={Register} />
