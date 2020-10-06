@@ -1,6 +1,7 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
+import { NotificationsOutlined, SettingsOutlined } from '@material-ui/icons';
 
 /* Assets */
 import './styles/Header.css'
@@ -12,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
     },
+    mr2: {
+        marginRight: theme.spacing(2)
+    }
 }));
 
 function Header() {
@@ -44,6 +48,8 @@ function Header() {
                         </article>
 
                         <article className="Header-infoContainer">
+                            <NotificationsOutlined className={ classes.mr2 } />
+                            <SettingsOutlined className={ classes.mr2 } />
                             <div className="Header-userImage"></div>
                         </article>
                     </section>
