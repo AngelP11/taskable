@@ -1,18 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse';
-import Button from '@material-ui/core/Button';
+import { Drawer, AppBar, CssBaseline, Paper, Toolbar, List, Box, IconButton, Typography, Divider, ListItem, ListItemIcon, ListItemText, Collapse, Button, Grid } from '@material-ui/core';
 
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
@@ -28,8 +16,10 @@ import AssessmentOutlined from '@material-ui/icons/AssessmentOutlined';
 import SwapVertOutlined from '@material-ui/icons/SwapVertOutlined';
 import FilterListOutlined from '@material-ui/icons/FilterListOutlined';
 import MoreVertOutlined from '@material-ui/icons/MoreVertOutlined';
+import Add from '@material-ui/icons/Add';
 
 import Header from '../components/Header'
+import CardTask from '../components/CardTask'
 
 import { buttons } from '../styles/buttons.js'
 
@@ -63,6 +53,16 @@ const useStyles = makeStyles((theme) => ({
 	active: {
 		color: '#2979ff'
 	},
+	addTaskBtn: {
+		width: '100%',
+		backgroundColor:'#fff',
+		textTransform: 'capitalize',
+		boxShadow: '1px 1px 0px rgba(0, 0, 0, .2)',
+		'&:hover': {
+			backgroundColor: '#fff',
+		},
+	
+	},
 	second_toolbar: {
 		marginLeft: 240,
 		display: 'flex',
@@ -77,14 +77,8 @@ const useStyles = makeStyles((theme) => ({
 		'&:hover': {
 			cursor: 'pointer',
 			backgroundColor: '#f5f5f5',
-			boxShadow: '0 0px 0 0 rgba(0, 0, 0, 0)',
+			boxShadow: 'none',
 		},
-	},
-	menuButton: {
-		marginRight: theme.spacing(2),
-	},
-	title: {
-		flexGrow: 1,
 	},
 }));
 
@@ -211,14 +205,14 @@ export default function Index() {
 							<ListItemIcon>
 								<FolderOutlined />
 							</ListItemIcon>
-							<ListItemText primary="Ventas" />
+							<ListItemText primary="Multiceras" />
 						</ListItem>
 
 						<ListItem button>
 							<ListItemIcon>
-								<GroupOutlined />
+								<Add />
 							</ListItemIcon>
-							<ListItemText primary="Clientes" />
+							<ListItemText primary="Add new team" />
 						</ListItem>  
 					</List>
 				</div>
@@ -226,30 +220,79 @@ export default function Index() {
 			<main className={classes.content}>
 				<Toolbar />
 				<Toolbar />
-				<Typography paragraph>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-					ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-					facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-					gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-					donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-					adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-					Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-					imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-					arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-					donec massa sapien faucibus et molestie ac.
-				</Typography>
-				<Typography paragraph>
-					Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-					facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-					tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-					consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-					vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-					hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-					tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-					nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-					accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
-				</Typography>
+				
+				<Grid container spacing={2}>
+					
+					<Grid container item spacing={2} xs={3}>
+						<Grid item xs={12}>
+							<Button className={[ classes.addTaskBtn ]} startIcon={<Add />}>Nueva Tarea</Button>
+						</Grid>
+
+						<Grid item xs={12}>
+							<CardTask title="Terminar asignaciones pendientes" />
+						</Grid>
+						
+						<Grid item xs={12}>
+							<Paper style={{ padding: 20 }}>ITEM extremadamente largo dividido en 4 columnas queso</Paper>
+						</Grid>
+						
+						<Grid item xs={12}>
+							<Paper style={{ padding: 20 }}>ITEM extremadamente largo dividido en 4 columnas queso</Paper>
+						</Grid>
+
+						<Grid item xs={12}>
+							<Paper style={{ padding: 20 }}>ITEM extremadamente largo dividido en 4 columnas queso</Paper>
+						</Grid>
+
+						<Grid item xs={12}>
+							<Paper style={{ padding: 20 }}>ITEM extremadamente largo dividido en 4 columnas queso</Paper>
+						</Grid>
+					</Grid>
+
+					<Grid container item spacing={2} xs={3} display="flex" alignItems="start">
+						<Grid item xs={12}>
+							<Button className={[ classes.addTaskBtn ]} startIcon={<Add />}>Nueva Tarea</Button>
+						</Grid>
+
+						<Grid item xs={12}>
+							<CardTask title="Terminar asignaciones pendientes" />
+						</Grid>
+						
+						<Grid item xs={12}>
+							<Paper style={{ padding: 20 }}>ITEM extremadamente largo dividido en 4 columnas queso</Paper>
+						</Grid>
+						
+						<Grid item xs={12}>
+							<Paper style={{ padding: 20 }}>ITEM extremadamente largo dividido en 4 columnas queso</Paper>
+						</Grid>
+					</Grid>
+
+					<Grid container item spacing={2} xs={3}>
+						<Grid item xs={12}>
+							<Button className={[ classes.addTaskBtn ]} startIcon={<Add />}>Nueva Tarea</Button>
+						</Grid>
+
+						<Grid item xs={12}>
+							<CardTask title="Terminar asignaciones pendientes" />
+						</Grid>
+						
+						<Grid item xs={12}>
+							<Paper style={{ padding: 20 }}>ITEM extremadamente largo dividido en 4 columnas queso</Paper>
+						</Grid>
+						
+					</Grid>
+					
+
+					<Grid item container xs={3} spacing={2}>
+						<Grid item xs={12}>
+							<Paper style={{ padding: 20 }}>ITEM extremadamente largo dividido en 4 columnas queso</Paper>
+						</Grid>
+					</Grid>
+				</Grid>
+
+
 			</main>
 		</div>
 	);
 }
+

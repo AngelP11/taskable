@@ -19,11 +19,11 @@ export default function App() {
 	<BrowserRouter>
 		<Switch>
 			<Route path="/" component={Index} exact />
-			<Route path="/taskable" component={Home} />
-			<Route path="/taskable/login" component={Login} />
-			<Route path="/taskable/password" component={Password} />
-			<Route path="/taskable/register" component={Register} />
-			<Route path="/taskable/expanded-list" component={ExpandedList} />
+			<Route path="/taskable" component={Home} exact />
+			<Route path="/taskable/login" component={Login} exact />
+			<Route path="/taskable/password" component={Password} exact />
+			<Route path="/taskable/register" component={Register} exact />
+			<Route path="/taskable/expanded-list" component={ExpandedList} exact />
 			<Route component={Error} />
 		</Switch> 
 	</BrowserRouter>
