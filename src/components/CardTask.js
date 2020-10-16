@@ -5,6 +5,11 @@ import { NotificationsOutlined, SettingsOutlined, ScheduleOutlined } from '@mate
 
 import { buttons } from '../styles/buttons'
 
+import './styles/Header.css'
+import persona1 from '../assets/imagen-4.png'
+import persona2 from '../assets/imagen-24.png'
+import persona3 from '../assets/imagen-25.png'
+
 const useStyles = makeStyles((theme) => ({
 	...buttons,
 	btn_priority: {
@@ -24,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 }))
+
 
 export default function CardTask(props){
 
@@ -46,6 +52,16 @@ export default function CardTask(props){
 						<LinearProgress variant="determinate" value="47" />
 					</Box>
 				</div>
+				<div className="Header-infoTeamContainer" style={{ marginTop: 10 }}>
+                    <div className="Header-infoTeam" >
+                    	<img src={persona1} alt="1"/>
+                    </div> 
+                    <div className="Header-infoTeam">
+                        <img id="member1" src={persona1} alt="1"/>
+                        <img id="member2" src={persona2} alt="2"/>
+                        <img id="member3" src={persona3} alt="3"/>
+                    </div>
+                </div>
 			</CardContent>
 		</Card>
 	)

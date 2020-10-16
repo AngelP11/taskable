@@ -17,6 +17,7 @@ import SwapVertOutlined from '@material-ui/icons/SwapVertOutlined';
 import FilterListOutlined from '@material-ui/icons/FilterListOutlined';
 import MoreVertOutlined from '@material-ui/icons/MoreVertOutlined';
 import Add from '@material-ui/icons/Add';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 import Header from '../components/Header'
 import CardTask from '../components/CardTask'
@@ -80,6 +81,18 @@ const useStyles = makeStyles((theme) => ({
 			boxShadow: 'none',
 		},
 	},
+	button_column_name: {
+		textAlign: 'left',
+		textTransform: 'capitalize',
+		boxShadow: 'none',
+		backgroundColor:'transparent',
+		borderBottom: '1px solid grey',
+		color: 'grey',
+		borderRadius: 0,
+		width: '100%',
+		display: 'flex',
+		justifyContent: 'space-between'
+	}
 }));
 
 export default function Index() {
@@ -221,9 +234,17 @@ export default function Index() {
 				<Toolbar />
 				<Toolbar />
 				
-				<Grid container spacing={2}>
+				<Grid container spacing={2} alignItems="flex-start">
 					
 					<Grid container item spacing={2} xs={3}>
+
+						<Grid item xs={12}>
+							<Button className={[ classes.button_column_name ]}>
+								<span>Sin comenzar</span>
+								<MoreHorizIcon />
+							</Button>
+						</Grid>
+
 						<Grid item xs={12}>
 							<Button className={[ classes.addTaskBtn ]} startIcon={<Add />}>Nueva Tarea</Button>
 						</Grid>
@@ -249,7 +270,15 @@ export default function Index() {
 						</Grid>
 					</Grid>
 
-					<Grid container item spacing={2} xs={3} display="flex" alignItems="start">
+					<Grid container item spacing={2} xs={3}>
+
+						<Grid item xs={12}>
+							<Button className={[ classes.button_column_name ]}>
+								<span>En curso</span>
+								<MoreHorizIcon />
+							</Button>
+						</Grid>
+
 						<Grid item xs={12}>
 							<Button className={[ classes.addTaskBtn ]} startIcon={<Add />}>Nueva Tarea</Button>
 						</Grid>
@@ -268,6 +297,14 @@ export default function Index() {
 					</Grid>
 
 					<Grid container item spacing={2} xs={3}>
+
+						<Grid item xs={12}>
+							<Button className={[ classes.button_column_name ]}>
+								<span>Finalizadas</span>
+								<MoreHorizIcon />
+							</Button>
+						</Grid>
+
 						<Grid item xs={12}>
 							<Button className={[ classes.addTaskBtn ]} startIcon={<Add />}>Nueva Tarea</Button>
 						</Grid>
@@ -285,8 +322,13 @@ export default function Index() {
 
 					<Grid item container xs={3} spacing={2}>
 						<Grid item xs={12}>
-							<Paper style={{ padding: 20 }}>ITEM extremadamente largo dividido en 4 columnas queso</Paper>
+							<Button className={[ classes.button_column_name ]}>
+								<div style={{ display:'flex', justifyContent: 'flex-start' }}>
+									<Add /> Añadir sección
+								</div>
+							</Button>
 						</Grid>
+
 					</Grid>
 				</Grid>
 
