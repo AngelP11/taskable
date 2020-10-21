@@ -1,8 +1,6 @@
 .Header-logoContainer {
     max-width: 100%;
     height: 64px;
-    border-right: 1px solid grey;
-    border-bottom: 1px solid grey;
     display: flex;
     align-items: center;
     padding-left: 24px;
@@ -21,7 +19,6 @@
 }
 
 .Header-Container {
-    border-bottom: 1px solid grey;
     height: 64px;
     display: flex;
     align-items: center;

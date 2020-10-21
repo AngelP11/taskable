@@ -8,6 +8,7 @@ import Register from '../pages/Register'
 import Password from '../pages/Password'
 import ExpandedList from '../pages/ExpandedList'
 import Error from '../pages/Error'
+import Index from '../pages/Index'
 
 /* Components */
 // import Layout from './Layout'
@@ -17,11 +18,12 @@ export default function App() {
   return (
 	<BrowserRouter>
 		<Switch>
-			<Route path="/taskable" component={Login} exact />
-			<Route path="/taskable/login" component={Login} />
-			<Route path="/taskable/password" component={Password} />
-			<Route path="/taskable/register" component={Register} />
-			<Route path="/taskable/expanded-list" component={ExpandedList} />
+			<Route path="/" component={Index} exact />
+			<Route path="/taskable" component={Home} exact />
+			<Route path="/taskable/login" component={Login} exact />
+			<Route path="/taskable/password" component={Password} exact />
+			<Route path="/taskable/register" component={Register} exact />
+			<Route path="/taskable/expanded-list" component={ExpandedList} exact />
 			<Route component={Error} />
 		</Switch> 
 	</BrowserRouter>
