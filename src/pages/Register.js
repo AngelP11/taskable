@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
-import { Button, Typography, Grid, Card, CardActions, CardContent, TextField, Select, MenuItem, FormControl, InputLabel, InputAdornment, IconButton, Tooltip, Popper, Fade } from '@material-ui/core'
+import { 
+	Button, Typography, Grid,
+	Card, CardActions, CardContent,
+	TextField, Select,
+	MenuItem, FormControl,
+	InputLabel, InputAdornment, 
+	IconButton, Tooltip, Popper, Fade } from '@material-ui/core'
 
 import { Help, CheckCircleOutline, Visibility, VisibilityOff } from '@material-ui/icons'
 
 import { makeStyles } from '@material-ui/core/styles'
-
 
 import { Link } from "react-router-dom";
 
@@ -30,7 +35,25 @@ const useStyles = makeStyles((theme) => ({
 	formControl: {
 		width: '100%'
 	},
-
+	pos: {
+		marginBottom: 18,
+		marginTop: 30,
+		color: '#2d2d37',
+		opacity: 0.87,
+		fontSize: 24,
+		fontFamily:'Inter-light',
+		fontWeight: 600,
+	},
+	text: {
+		color: '#2d2d37',
+		fontSize: 16,
+		fontWeight: 300,
+	},
+	fechanac: {
+		textAlign: 'left',
+		color: '#a0a0a0',
+		marginBottom: '8px'
+	},
 	arrow: {
 		position: 'absolute',
 		fontSize: 10,
@@ -48,17 +71,6 @@ const useStyles = makeStyles((theme) => ({
 	popper: {
 		zIndex: 1,
 		marginBottom: 8,
-		// '&[x-placement*="top"] $arrow': {
-		// 	bottom: 0,
-		// 	left: 90,
-		// 	marginBottom: '-1.5em',
-		// 	width: '3.5em',
-		// 	height: '1.5em',
-		// 	'&::before': {
-		// 		borderWidth: '1em 1em 0 1em',
-		// 		borderColor: `#f9f9f9 transparent transparent transparent`,
-		// 	},
-		// },
 	},
 	paper: {
 		backgroundImage: `url(${background})`,
@@ -193,6 +205,9 @@ function Register() {
 					<CardContent>
 						<Typography variant="h5" className={classes.title} gutterBottom>Taskble <span className={classes.appText}>app</span></Typography>
 
+						<Typography className={classes.pos}>Crear Cuenta</Typography>
+						<Typography variant="body2" className={classes.text} component="p">Regístrate en Taskble con tus datos</Typography>
+
 						<div className={classes.inputContainer}>
 							
 							<Grid container spacing={2} style={{ marginBottom: 8 }}>
@@ -215,7 +230,9 @@ function Register() {
 									<TextField fullWidth id="outlined-email" size="small" label="Correo electrónico" variant="outlined" />
 								</Grid>
 							</Grid>
-							
+
+
+							<Typography className={ classes.fechanac }>Fecha de nacimiento</Typography>
 							<Grid container spacing={2} style={{ marginBottom: 8 }}>
 								
 								<Grid item xs={3}>
