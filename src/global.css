@@ -93,19 +93,24 @@ h6 {
     border-color: #2979ff !important;
     border-width: 1px !important;
 }
-
 .MuiFormLabel-root {
     color: #a0a0a0 !important
 }
-
 .MuiFormLabel-root.Mui-focused {
     color: #2979ff !important
 }
-
 .MuiOutlinedInput-input, .MuiInputLabel-formControl{
     font-family: 'Inter-regular' !important;
-    font-size: 14px
+    font-size: 14px !important
 }
+/*.MuiOutlinedInput-root {
+    height: 42px !important
+}*/
+
+/* SELECT */
+/*.MuiInputBase-formControl {
+    height: 42px !important;
+}*/
 
 /* INPUT LABELS */
 .MuiInputLabel-formControl {
