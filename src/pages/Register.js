@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
 	formControl: {
 		width: '100%'
 	},
+	content: {
+		margin: '30px'
+	},
 	pos: {
 		marginBottom: 18,
 		marginTop: 30,
@@ -52,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
 	fechanac: {
 		textAlign: 'left',
 		color: '#a0a0a0',
-		marginBottom: '8px'
+		marginBottom: '2px'
 	},
 	arrow: {
 		position: 'absolute',
@@ -199,7 +202,7 @@ function Register() {
 			
 	return (
 		<Grid container justify="center" alignItems="center" style={{ height: '97vh' }}>
-			<Grid item>
+			<Grid item className={classes.content}>
 				
 				<Card className={classes.card} variant="outlined">
 					<CardContent>
@@ -210,22 +213,22 @@ function Register() {
 
 						<div className={classes.inputContainer}>
 							
-							<Grid container spacing={2} style={{ marginBottom: 8 }}>
+							<Grid container spacing={3} style={{ marginBottom: 8 }}>
 								<Grid xs={12} sm={6} item >
-									<TextField id="outlined-name" size="small" label="Nombre" variant="outlined" />
+									<TextField fullWidth id="outlined-name" size="small" label="Nombre" variant="outlined" />
 								</Grid>
-								<Grid xs={12} item sm={6}>
-									<TextField id="outlined-lastname" size="small" label="Apellidos" variant="outlined" />
+								<Grid xs={12} sm={6} item >
+									<TextField fullWidth id="outlined-lastname" size="small" label="Apellidos" variant="outlined" />
 								</Grid>
 							</Grid>
 
-							<Grid container spacing={2} style={{ marginBottom: 8 }}>
+							<Grid container spacing={3} style={{ marginBottom: 8 }}>
 								<Grid item xs={12}>
 									<TextField fullWidth id="outlined-username" size="small" label="Nombre de usuario" variant="outlined" />
 								</Grid>
 							</Grid>
 
-							<Grid container spacing={2} style={{ marginBottom: 8 }}>
+							<Grid container spacing={3} style={{ marginBottom: 8 }}>
 								<Grid item xs={12}>
 									<TextField fullWidth id="outlined-email" size="small" label="Correo electrónico" variant="outlined" />
 								</Grid>
@@ -233,7 +236,7 @@ function Register() {
 
 
 							<Typography className={ classes.fechanac }>Fecha de nacimiento</Typography>
-							<Grid container spacing={2} style={{ marginBottom: 8 }}>
+							<Grid container spacing={3} style={{ marginBottom: 8 }}>
 								
 								<Grid item xs={3}>
 									<FormControl variant="outlined" className={classes.formControl}>
@@ -358,13 +361,13 @@ function Register() {
 									/>
 								</Grid>
 								<Grid xs={1} item>
-									<IconButton size="small" onClick={ () => setShowPassword(!showPassword) }>{ showPassword ? <Visibility /> : <VisibilityOff /> }</IconButton>
+									<IconButton size="small" onClick={ () => setShowPassword(!showPassword) }>{ showPassword ? <VisibilityOff /> : <Visibility /> }</IconButton>
 								</Grid>
 							</Grid>
 
 						</div>
 
-						<Button variant="contained" fullWidth className={[ classes.button_high]} disableElevation>Crear cuenta</Button>
+						<Button variant="contained" fullWidth className={[ classes.button_high ]} disableElevation>Crear cuenta</Button>
 
 					</CardContent>
 
