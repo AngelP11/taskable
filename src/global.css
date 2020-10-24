@@ -108,9 +108,9 @@ h6 {
 }*/
 
 /* SELECT */
-/*.MuiInputBase-formControl {
+.MuiInputBase-formControl {
     height: 42px !important;
-}*/
+}
 
 /* INPUT LABELS */
 .MuiInputLabel-formControl {
