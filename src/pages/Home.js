@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
 	root: {
 		display: 'flex',
 	},
-	
 	drawer: {
 		width: drawerWidth,
 		flexShrink: 0,
@@ -51,6 +50,8 @@ export default function Home() {
 	return (
 		<div className={classes.root}>
 			<CssBaseline />
+
+			{/* HEADER  */}
 			<Header />
 			
 			<Drawer
@@ -63,12 +64,15 @@ export default function Home() {
 				<Toolbar />
 				<Toolbar />
 
+				{/* SIDEBAR */}
 				<SideBarContent />
+
 			</Drawer>
 			<main className={classes.content}>
 				<Toolbar />
 				<Toolbar />
 				
+				{/* TABLERO CONTENIDO DE LA PAGINA */}
 				<Tablero />
 
 			</main>

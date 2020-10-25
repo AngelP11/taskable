@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 	addTaskBtn: {
 		width: '100%',
 		backgroundColor:'#fff',
+		color: 'grey',
 		textTransform: 'capitalize',
 		boxShadow: '1px 1px 0px rgba(0, 0, 0, .2)',
 		'&:hover': {

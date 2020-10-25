@@ -17,7 +17,6 @@
     letter-spacing: 0.03px;
     color: #000000;
 }
-
 .Header-Container {
     height: 64px;
     display: flex;
@@ -25,30 +24,33 @@
     padding: 0 29px;
     justify-content: space-between;
 }
-
 .Header-infoContainer {
     height: 48px;
     display: flex;
     align-items: center;
 }
-
 .Header-infoTeamContainer {
     display: flex;
+    justify-content: space-between;
 }
-
+.team_container {
+    display: flex;
+    justify-content: flex-start;
+}
+.ml_10 {
+    margin-left: 10px !important
+}
 .Header-info {
     display: flex;
     flex-direction: column;
     margin-left: 10px;
 }
-
 .Header-infoIcono {
     background-color:#82b0ff;
     height: 48px;
     width: 48px;
     border-radius: 10px;
 }
-
 .Header-userImage {
     height: 48px;
     width: 48px;
@@ -84,8 +86,10 @@
 }
 
 .Header-infoTeam {
-    margin-left: 10px;
     position: relative;
+}
+.persona1 {
+    margin-right: 10px
 }
 
 .Header-infoTeam img {
@@ -113,4 +117,9 @@
     position: absolute;
     top: 0;
     left: 27px;
+}
+#member4 {
+    position: absolute;
+    top: 0;
+    left: 50px;
 }
