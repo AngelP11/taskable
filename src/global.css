@@ -15,6 +15,7 @@
 
 body {
     background-color: #f7f7f9;
+    font-family: 'Inter-regular'
 }
 
 h1, h2, h4, h5 {
@@ -83,7 +84,7 @@ h6 {
 }
 
 
-/**   :|  ****/
+/****  :|  ****/
 
 /* INPUTS */
 .MuiOutlinedInput-root {
@@ -107,10 +108,10 @@ h6 {
     height: 42px !important
 }*/
 
-/* SELECT
+/* SELECT */
 .MuiInputBase-formControl {
     height: 42px !important;
-} */
+}
 
 /* INPUT LABELS */
 .MuiInputLabel-formControl {
