@@ -5,7 +5,8 @@ import {
 	TextField, Select,
 	MenuItem, FormControl,
 	InputLabel, InputAdornment, 
-	IconButton, Tooltip, Popper, Fade } from '@material-ui/core'
+	IconButton, Tooltip, Popper, Fade
+} from '@material-ui/core'
 
 import { Help, CheckCircleOutline, Visibility, VisibilityOff } from '@material-ui/icons'
 
@@ -207,7 +208,7 @@ function Register() {
 				
 				<Card className={classes.card} variant="outlined">
 					<CardContent>
-						<Typography variant="h5" className={classes.title} gutterBottom>Taskble <span className={classes.appText}>app</span></Typography>
+						<Typography variant="h5" className={classes.title} gutterBottom>Taskable <span className={classes.appText}>app</span></Typography>
 
 						<Typography className={classes.pos}>Crear Cuenta</Typography>
 						<Typography variant="body2" className={classes.text} component="p">Regístrate en Taskble con tus datos</Typography>

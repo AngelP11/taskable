@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, AppBar, Toolbar, Button } from '@material-ui/core'
+import { Grid, AppBar, Toolbar, Button, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { NavLink } from 'react-router-dom'
 
@@ -9,6 +9,7 @@ import { NotificationsOutlined, SettingsOutlined,
 } from '@material-ui/icons';
 
 import { buttons } from '../styles/buttons.js'
+import globals from '../styles/globals.js'
 
 /* Assets */
 import './styles/Header.css'
@@ -45,7 +46,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 	active: {
 		color: '#2979ff',
-	}
+	},
+	...globals
 }));
 
 function Header() {
@@ -60,7 +62,7 @@ function Header() {
 					<Grid container>
 						<Grid item xs={2}>
 							<div className="Header-logoContainer">
-								<p>Taskable</p>
+								<Typography variant="h5" className={classes.title} gutterBottom>Taskable <span className={ classes.appText }>app</span></Typography>
 							</div>
 						</Grid>
 						<Grid item xs={10}>
