@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid, AppBar, Toolbar, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import { NavLink } from 'react-router-dom'
 
 import { NotificationsOutlined, SettingsOutlined, 
 	ViewListOutlined, AssessmentOutlined, SwapVertOutlined,
@@ -41,6 +42,9 @@ const useStyles = makeStyles((theme) => ({
 			backgroundColor: '#f5f5f5',
 			boxShadow: 'none',
 		},
+	},
+	active: {
+		color: '#2979ff',
 	}
 }));
 
@@ -92,8 +96,24 @@ function Header() {
 			
 			<Toolbar disableGutters="true" className={ classes.second_toolbar } >
 				<div>
-					<Button className={[ classes.button_high, classes.button_high_local ]} startIcon={ <ViewListOutlined />} >Listas</Button>
-					<Button className={[ classes.button_high, classes.button_high_local ]} style={{ color: '#2979ff' }} startIcon={ <AssessmentOutlined className={ classes.active } />} >Tablero</Button>
+					<Button 
+						to="/taskable/listas" 
+						className={[ classes.button_high, classes.button_high_local ]} 
+						component={NavLink}
+						startIcon={ <ViewListOutlined />}
+						activeClassName={ classes.active }
+					>
+						Listas
+					</Button>
+					<Button
+						to="/taskable/tablero"
+						className={[ classes.button_high, classes.button_high_local ]}
+						component={NavLink}
+						startIcon={ <AssessmentOutlined />}
+						activeClassName={ classes.active }
+					>
+						Tablero
+					</Button>
 				</div>
 				<div> 
 					<Button className={[ classes.button_high, classes.button_high_local ]} startIcon={ <SwapVertOutlined />} >Ordenar</Button>

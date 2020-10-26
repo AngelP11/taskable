@@ -1,41 +1,81 @@
-import React from 'react'
-import Grid from '@material-ui/core/Grid'
-import { makeStyles } from '@material-ui/core/styles'
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { Drawer, CssBaseline, Paper, Box, IconButton, 
+	Typography, Divider, ListItem, ListItemText, 
+	Collapse, Button, Grid, Toolbar
+} from '@material-ui/core';
 
-/* Assests */
-import './styles/Layout.css'
+import Add from '@material-ui/icons/Add';
 
-/* Components */
 import Header from './Header'
+import SideBarContent from './SideBarContent'
+
+
+import { buttons } from '../styles/buttons.js'
+
+const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-    },
+	root: {
+		display: 'flex',
+	},
+	drawer: {
+		width: drawerWidth,
+		flexShrink: 0,
+	},
+	drawerPaper: {
+		width: drawerWidth,
+	},
+	drawerContainer: {
+		overflow: 'auto',
+	},
+	content: {
+		flexGrow: 1,
+		padding: theme.spacing(3),
+	},
+	nested: {
+		paddingLeft: theme.spacing(4),
+	},
+	active: {
+		color: '#2979ff'
+	},
+	
 }));
 
-function Layout ({ children }) {
-    const classes = useStyles()
+export default function Layout({ children }) {
+	
+	const classes = useStyles();
 
-    return (
-        <div className={classes.root}>
-            <Grid container>
-                <Grid item xs={12}>
-                    <Header />
-                </Grid>
-                <Grid item xs={2}>
-                    <div className="Layout-navbarContainer">
-                        
-                    </div>
-                </Grid>
-                <Grid item xs={10}>
-                    <div className="Layout-Container">
-                        { children }
-                    </div>
-                </Grid>
-            </Grid>
-        </div>
-    )
+	return (
+		<div className={classes.root}>
+			<CssBaseline />
+
+			{/* HEADER  */}
+			<Header />
+			
+			<Drawer
+				className={classes.drawer}
+				variant="permanent"
+				classes={{
+					paper: classes.drawerPaper,
+				}}
+			>
+				<Toolbar />
+				<Toolbar />
+
+				{/* SIDEBAR */}
+				<SideBarContent />
+
+			</Drawer>
+			<main className={classes.content}>
+				<Toolbar />
+				<Toolbar />
+				
+				{/* ONTENIDO DE LA PAGINA */}
+				{ children }
+
+			</main>
+		</div>
+	);
 }
 
-export default Layout
