@@ -11,7 +11,22 @@ import ArrowRightOutlined from '@material-ui/icons/ArrowRightOutlined'
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 
 const useStyles = makeStyles((theme) => ({
-
+	listText: {
+		color: '#8f92a1',
+		fontSize: 14,
+		fontFamily: 'Inter-regular',
+	},
+	listItemIcon: {
+		paddingLeft: 20,
+		color: '#8f92a1'
+	},
+	listItemIcon2: {
+		paddingLeft: 35,
+	},
+	listabtn: {
+		borderRadius: 8,
+		backgroundColor: 'lightgrey',
+	}
 }))
 
 export default function SideBarContent(){
@@ -19,27 +34,35 @@ export default function SideBarContent(){
 	const classes = useStyles();
 
 	const [open, setOpen] = React.useState(false);
+	const [selectedIndex, setSelectedIndex] = React.useState(0);
 
 	const handleClick = () => {
 		setOpen(!open);
 	}
 
+	const handleListItemClick = (event, index) => {
+		setSelectedIndex(index);
+	};
+
 	return (
 		<div className={classes.drawerContainer}>
 			<List>
 
-				<ListItem button>
-					<ListItemIcon>
+				<ListItem button
+					selected={ selectedIndex === 0 }
+					onClick={ (event) => handleListItemClick(event, 0) }
+				>
+					<ListItemIcon className={ classes.listItemIcon }>
 						<HomeOutlinedIcon />
 					</ListItemIcon>
-					<ListItemText primary="Inicio" />
+					<ListItemText classes={{ primary: classes.listText }} primary="Inicio" />
 				</ListItem>
 				
 				<ListItem button onClick={handleClick}>
-					<ListItemIcon>
+					<ListItemIcon className={ classes.listItemIcon }>
 						<CheckBoxOutlined />
 					</ListItemIcon>
-					<ListItemText primary="Proyectos" />
+					<ListItemText classes={{ primary: classes.listText }} primary="Proyectos" />
 					{ open ? <ExpandLess /> : <ExpandMore /> }
 				</ListItem>
 				<Collapse in={open} timeout="auto" unmountOnExit>
@@ -47,75 +70,87 @@ export default function SideBarContent(){
 					<List component="div" disablePadding>
 						
 						<ListItem button className={classes.nested}>
-							<ListItemIcon>
+							<ListItemIcon className={ classes.listItemIcon2 }>
 								<ArrowRightOutlined />
 							</ListItemIcon>
-							<ListItemText primary="Multiceras" />
+							<ListItemText classes={{ primary: classes.listText }} primary="Multiceras" />
 						</ListItem>
 						
 						<ListItem button className={classes.nested}>
-							<ListItemIcon>
+							<ListItemIcon className={ classes.listItemIcon2 }>
 								<ArrowRightOutlined />
 							</ListItemIcon>
-							<ListItemText primary="Producción" />
+							<ListItemText classes={{ primary: classes.listText }} primary="Producción" />
 						</ListItem>
 
 						<ListItem button className={classes.nested}>
-							<ListItemIcon>
+							<ListItemIcon className={ classes.listItemIcon2 }>
 								<ArrowRightOutlined />
 							</ListItemIcon>
-							<ListItemText primary="Gerencia" />
+							<ListItemText classes={{ primary: classes.listText }} primary="Gerencia" />
 						</ListItem>
 					
 					</List>
 
 				</Collapse>
 
-				<ListItem button>
-					<ListItemIcon>
+				<ListItem button
+					selected={ selectedIndex === 1 }
+					onClick={ (event) => handleListItemClick(event, 1) }
+				>
+					<ListItemIcon className={ classes.listItemIcon }>
 						<DashboardOutlined />
 					</ListItemIcon>
-					<ListItemText primary="Dashboard" />
+					<ListItemText classes={{ primary: classes.listText }} primary="Dashboard" />
 				</ListItem>
 
-				<ListItem button>
-					<ListItemIcon>
+				<ListItem button
+					selected={ selectedIndex === 2 }
+					onClick={ (event) => handleListItemClick(event, 2) }
+				>
+					<ListItemIcon className={ classes.listItemIcon }>
 						<ListAltOutlined />
 					</ListItemIcon>
-					<ListItemText primary="Inventario" />
+					<ListItemText classes={{ primary: classes.listText }} primary="Inventario" />
 				</ListItem>
 
-				<ListItem button>
-					<ListItemIcon>
+				<ListItem button
+					selected={ selectedIndex === 3 }
+					onClick={ (event) => handleListItemClick(event, 3) }
+				>
+					<ListItemIcon className={ classes.listItemIcon }>
 						<FolderOutlined />
 					</ListItemIcon>
-					<ListItemText primary="Ventas" />
+					<ListItemText classes={{ primary: classes.listText }} primary="Ventas" />
 				</ListItem>
 
-				<ListItem button>
-					<ListItemIcon>
+				<ListItem button
+					selected={ selectedIndex === 4 }
+					onClick={ (event) => handleListItemClick(event, 4) }
+				>
+					<ListItemIcon className={ classes.listItemIcon }>
 						<GroupOutlined />
 					</ListItemIcon>
-					<ListItemText primary="Clientes" />
+					<ListItemText classes={{ primary: classes.listText }} primary="Clientes" />
 				</ListItem>
 
 			</List>
 			
-			<Typography variant="overline" gutterBottom style={{ marginLeft: 10 }}>TEAMS</Typography>
+			<Typography variant="overline" gutterBottom style={{ marginLeft: 20 }}>TEAMS</Typography>
 			
 			<List>
 				<ListItem button>
-					<ListItemIcon>
+					<ListItemIcon className={ classes.listItemIcon }>
 						<FolderOutlined />
 					</ListItemIcon>
-					<ListItemText primary="Multiceras" />
+					<ListItemText classes={{ primary: classes.listText }} primary="Multiceras" />
 				</ListItem>
 
 				<ListItem button>
-					<ListItemIcon>
+					<ListItemIcon className={ classes.listItemIcon }>
 						<Add />
 					</ListItemIcon>
-					<ListItemText primary="Add new team" />
+					<ListItemText classes={{ primary: classes.listText }} primary="Add new team" />
 				</ListItem>  
 			</List>
 		</div>

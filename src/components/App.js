@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 
 /* Pages */
 import Login from '../pages/Login'
@@ -19,12 +19,14 @@ const paraBorrar = () => {
 	return (
 		<>
 			<p>Crear una pagina de inicio para mostrar aquí. Las rutas disponibles son:</p>
-			<p>/taskable/login</p>
-			<p>/taskable/register</p>
-			<p>/taskable/password</p>
-			<p>/taskable/listas</p>
-			<p>/taskable/tablero</p>
-			<p>/taskable/expanded-list</p>
+			<ul>
+				<li><Link to="/taskable/login">/taskable/login</Link></li>
+				<li><Link to="/taskable/register">/taskable/register</Link></li>
+				<li><Link to="/taskable/password">/taskable/password</Link></li>
+				<li><Link to="/taskable/listas">/taskable/listas</Link></li>
+				<li><Link to="/taskable/tablero">/taskable/tablero</Link></li>
+				<li><Link to="/taskable/expanded-list">/taskable/expanded-list</Link></li>
+			</ul>
 		</>
 	)
 }

@@ -18,6 +18,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
 	root: {
 		display: 'flex',
+		backgroundColor: 'white'
 	},
 	drawer: {
 		width: drawerWidth,
@@ -31,7 +32,11 @@ const useStyles = makeStyles((theme) => ({
 	},
 	content: {
 		flexGrow: 1,
-		padding: theme.spacing(3),
+	},
+	container: {
+		borderTopLeftRadius: 40,
+		padding: 30,
+		backgroundColor: '#fafafa',
 	},
 	nested: {
 		paddingLeft: theme.spacing(4),
@@ -72,7 +77,9 @@ export default function Layout({ children }) {
 				<Toolbar />
 				
 				{/* ONTENIDO DE LA PAGINA */}
-				{ children }
+				<div className={classes.container}>
+					{ children }
+				</div>
 
 			</main>
 		</div>
