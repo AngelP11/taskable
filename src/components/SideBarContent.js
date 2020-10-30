@@ -16,6 +16,13 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: 14,
 		fontFamily: 'Inter-regular',
 	},
+	textTeam: {
+		color: '#8f92a1',
+		fontSize: 11,
+		fontWeight: 600,
+		fontFamily: 'Inter-regular',
+		marginLeft: 20
+	},
 	listItemIcon: {
 		paddingLeft: 20,
 		color: '#8f92a1'
@@ -136,7 +143,7 @@ export default function SideBarContent(){
 
 			</List>
 			
-			<Typography variant="overline" gutterBottom style={{ marginLeft: 20 }}>TEAMS</Typography>
+			<p className={ classes.textTeam }>TEAMS</p>
 			
 			<List>
 				<ListItem button>

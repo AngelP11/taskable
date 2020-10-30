@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	...buttons,
 	
-	button_high_local:{
+	button_high_local: {
 		backgroundColor: 'transparent',
 		color: 'black',
 		'&:hover': {
@@ -59,40 +59,36 @@ function Header() {
 				
 			<Toolbar disableGutters="true" style={{ borderBottom: '1px solid lightgrey' }}>
 				<div className={classes.root}>
-					<Grid container>
-						<Grid item xs={2}>
-							<div className="Header-logoContainer">
-								<Typography variant="h5" className={classes.title} gutterBottom>Taskable <span className={ classes.appText }>app</span></Typography>
-							</div>
-						</Grid>
-						<Grid item xs={10}>
-							<section className="Header-Container">
-								<article className="Header-infoContainer">
-									<div className="Header-infoIcono"></div>
-									<div className="Header-info">
-										<p className="Header-infoTitle">Ventas y administracion</p>
+					<div class="container">
+						<div  className="Header-logoContainer">
+							<Typography variant="h5" className={classes.title} gutterBottom>Taskable <span className={ classes.appText }>app</span></Typography>
+						</div>
+						<div className="Header-Container" >
+							<article className="Header-infoContainer" >
+								<div className="Header-infoIcono"></div>
+								<div className="Header-info">
+									<p className="Header-infoTitle">Ventas y administracion</p>
 
-										<div className="Header-infoTeamContainer">
-											<div className="team_container">
-												<p className="Header-infoCompany">Multiceras</p>
-												<div className="Header-infoTeam ml_10">
-													<img id="member1" src={persona1} alt="1"/>
-													<img id="member2" src={persona2} alt="2"/>
-													<img id="member3" src={persona3} alt="3"/>
-												</div>
+									<div className="Header-infoTeamContainer">
+										<div className="team_container">
+											<p className="Header-infoCompany">Multiceras</p>
+											<div className="Header-infoTeam ml_10">
+												<img id="member1" src={persona1} alt="1"/>
+												<img id="member2" src={persona2} alt="2"/>
+												<img id="member3" src={persona3} alt="3"/>
 											</div>
 										</div>
 									</div>
-								</article>
+								</div>
+							</article>
 
-								<article className="Header-infoContainer">
-									<NotificationsOutlined className={ classes.mr2 } />
-									<SettingsOutlined className={ classes.mr2 } />
-									<div className="Header-userImage"></div>
-								</article>
-							</section>
-						</Grid>
-					</Grid>
+							<article className="Header-infoContainer" >
+								<NotificationsOutlined className={ classes.mr2 } />
+								<SettingsOutlined className={ classes.mr2 } />
+								<div className="Header-userImage"></div>
+							</article>
+						</div>
+					</div>
 				</div>
 			</Toolbar>
 			

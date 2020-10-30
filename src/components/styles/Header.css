@@ -1,5 +1,5 @@
 .Header-logoContainer {
-    max-width: 100%;
+    width: 250px;
     height: 64px;
     display: flex;
     align-items: center;
@@ -20,8 +20,9 @@
 .Header-Container {
     height: 64px;
     display: flex;
+    width: 100%;
     align-items: center;
-    padding: 0 29px;
+    padding: 0 25px;
     justify-content: space-between;
 }
 .Header-infoContainer {
@@ -122,4 +123,9 @@
     position: absolute;
     top: 0;
     left: 50px;
+}
+
+.container {
+    display: flex;
+    justify-content: flex-start;
 }
