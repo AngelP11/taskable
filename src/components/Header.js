@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 
 import { NotificationsOutlined, SettingsOutlined, 
 	ViewListOutlined, AssessmentOutlined, SwapVertOutlined,
-	FilterListOutlined, MoreVertOutlined
+	FilterListOutlined, MoreVertOutlined, TodayOutlined, AssignmentOutlined
 } from '@material-ui/icons';
 
 import { buttons } from '../styles/buttons.js'
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 	
 	button_high_local: {
 		backgroundColor: 'transparent',
-		color: 'black',
+		color: 'grey',
 		'&:hover': {
 			cursor: 'pointer',
 			backgroundColor: '#f5f5f5',
@@ -83,8 +83,8 @@ function Header() {
 							</article>
 
 							<article className="Header-infoContainer" >
-								<NotificationsOutlined className={ classes.mr2 } />
-								<SettingsOutlined className={ classes.mr2 } />
+								<NotificationsOutlined style={{ color: 'grey' }} className={ classes.mr2 } />
+								<SettingsOutlined style={{ color: 'grey' }} className={ classes.mr2 } />
 								<div className="Header-userImage"></div>
 							</article>
 						</div>
@@ -111,6 +111,24 @@ function Header() {
 						activeClassName={ classes.active }
 					>
 						Tablero
+					</Button>
+					<Button
+						to="/taskable/calendario"
+						className={[ classes.button_high, classes.button_high_local ]}
+						component={NavLink}
+						startIcon={ <TodayOutlined />}
+						activeClassName={ classes.active }
+					>
+						Calendario
+					</Button>
+					<Button
+						to="/taskable/cronograma"
+						className={[ classes.button_high, classes.button_high_local ]}
+						component={NavLink}
+						startIcon={ <AssignmentOutlined />}
+						activeClassName={ classes.active }
+					>
+						Cronograma
 					</Button>
 				</div>
 				<div> 

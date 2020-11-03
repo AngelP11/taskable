@@ -90,7 +90,7 @@ export default function Tablero(){
 					</Grid>
 
 					<Grid item xs={12}>
-						<CardTask title="Terminar asignaciones pendientes" />
+						<CardTask title="Conseguir un nuevo trabajo" isCompleted={true} />
 					</Grid>
 					
 					<Grid item xs={12}>
@@ -116,7 +116,11 @@ export default function Tablero(){
 					</Grid>
 
 					<Grid item xs={12}>
-						<CardTask title="Terminar asignaciones pendientes" />
+						<CardTask title="Aprender inglés" />
+					</Grid>
+
+					<Grid item xs={12}>
+						<CardTask title="Aprender Finanzas" />
 					</Grid>
 					
 					<Grid item xs={12}>
