@@ -1,13 +1,15 @@
 import React from 'react'
-import { Grid, AppBar, Toolbar, Button } from '@material-ui/core'
+import { Grid, AppBar, Toolbar, Button, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import { NavLink } from 'react-router-dom'
 
 import { NotificationsOutlined, SettingsOutlined, 
 	ViewListOutlined, AssessmentOutlined, SwapVertOutlined,
-	FilterListOutlined, MoreVertOutlined
+	FilterListOutlined, MoreVertOutlined, TodayOutlined, AssignmentOutlined
 } from '@material-ui/icons';
 
 import { buttons } from '../styles/buttons.js'
+import globals from '../styles/globals.js'
 
 /* Assets */
 import './styles/Header.css'
@@ -33,15 +35,19 @@ const useStyles = makeStyles((theme) => ({
 	},
 	...buttons,
 	
-	button_high_local:{
+	button_high_local: {
 		backgroundColor: 'transparent',
-		color: 'black',
+		color: 'grey',
 		'&:hover': {
 			cursor: 'pointer',
 			backgroundColor: '#f5f5f5',
 			boxShadow: 'none',
 		},
-	}
+	},
+	active: {
+		color: '#2979ff',
+	},
+	...globals
 }));
 
 function Header() {
@@ -53,47 +59,77 @@ function Header() {
 				
 			<Toolbar disableGutters="true" style={{ borderBottom: '1px solid lightgrey' }}>
 				<div className={classes.root}>
-					<Grid container>
-						<Grid item xs={2}>
-							<div className="Header-logoContainer">
-								<p>Taskable</p>
-							</div>
-						</Grid>
-						<Grid item xs={10}>
-							<section className="Header-Container">
-								<article className="Header-infoContainer">
-									<div className="Header-infoIcono"></div>
-									<div className="Header-info">
-										<p className="Header-infoTitle">Ventas y administracion</p>
+					<div class="container">
+						<div  className="Header-logoContainer">
+							<Typography variant="h5" className={classes.title} gutterBottom>Taskable <span className={ classes.appText }>app</span></Typography>
+						</div>
+						<div className="Header-Container" >
+							<article className="Header-infoContainer" >
+								<div className="Header-infoIcono"></div>
+								<div className="Header-info">
+									<p className="Header-infoTitle">Ventas y administracion</p>
 
-										<div className="Header-infoTeamContainer">
-											<div className="team_container">
-												<p className="Header-infoCompany">Multiceras</p>
-												<div className="Header-infoTeam ml_10">
-													<img id="member1" src={persona1} alt="1"/>
-													<img id="member2" src={persona2} alt="2"/>
-													<img id="member3" src={persona3} alt="3"/>
-												</div>
+									<div className="Header-infoTeamContainer">
+										<div className="team_container">
+											<p className="Header-infoCompany">Multiceras</p>
+											<div className="Header-infoTeam ml_10">
+												<img id="member1" src={persona1} alt="1"/>
+												<img id="member2" src={persona2} alt="2"/>
+												<img id="member3" src={persona3} alt="3"/>
 											</div>
 										</div>
 									</div>
-								</article>
+								</div>
+							</article>
 
-								<article className="Header-infoContainer">
-									<NotificationsOutlined className={ classes.mr2 } />
-									<SettingsOutlined className={ classes.mr2 } />
-									<div className="Header-userImage"></div>
-								</article>
-							</section>
-						</Grid>
-					</Grid>
+							<article className="Header-infoContainer" >
+								<NotificationsOutlined style={{ color: 'grey' }} className={ classes.mr2 } />
+								<SettingsOutlined style={{ color: 'grey' }} className={ classes.mr2 } />
+								<div className="Header-userImage"></div>
+							</article>
+						</div>
+					</div>
 				</div>
 			</Toolbar>
 			
 			<Toolbar disableGutters="true" className={ classes.second_toolbar } >
 				<div>
-					<Button className={[ classes.button_high, classes.button_high_local ]} startIcon={ <ViewListOutlined />} >Listas</Button>
-					<Button className={[ classes.button_high, classes.button_high_local ]} style={{ color: '#2979ff' }} startIcon={ <AssessmentOutlined className={ classes.active } />} >Tablero</Button>
+					<Button 
+						to="/taskable/listas" 
+						className={[ classes.button_high, classes.button_high_local ]} 
+						component={NavLink}
+						startIcon={ <ViewListOutlined />}
+						activeClassName={ classes.active }
+					>
+						Listas
+					</Button>
+					<Button
+						to="/taskable/tablero"
+						className={[ classes.button_high, classes.button_high_local ]}
+						component={NavLink}
+						startIcon={ <AssessmentOutlined />}
+						activeClassName={ classes.active }
+					>
+						Tablero
+					</Button>
+					<Button
+						to="/taskable/calendario"
+						className={[ classes.button_high, classes.button_high_local ]}
+						component={NavLink}
+						startIcon={ <TodayOutlined />}
+						activeClassName={ classes.active }
+					>
+						Calendario
+					</Button>
+					<Button
+						to="/taskable/cronograma"
+						className={[ classes.button_high, classes.button_high_local ]}
+						component={NavLink}
+						startIcon={ <AssignmentOutlined />}
+						activeClassName={ classes.active }
+					>
+						Cronograma
+					</Button>
 				</div>
 				<div> 
 					<Button className={[ classes.button_high, classes.button_high_local ]} startIcon={ <SwapVertOutlined />} >Ordenar</Button>

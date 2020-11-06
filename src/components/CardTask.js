@@ -57,6 +57,9 @@ const useStyles = makeStyles((theme) => ({
 	},
 	barColorPrimary: {
 		backgroundColor: '#36ecae'
+	},
+	completed: {
+		opacity: '0.54'
 	}
 }))
 
@@ -66,13 +69,15 @@ export default function CardTask(props){
 	const classes = useStyles()
 
 	return (
-		<Card className={classes.card}>
+		<Card className={ props.isCompleted ? [ classes.card, classes.completed ] : classes.card }>
 			<CardContent>
 				<div style={{ marginBottom: 5 }}>
 					<h2 className={ classes.cardTitle }>{ props.title }</h2>
 					<Button className={[ classes.btn_priority ]} >Alta</Button>
 					<ScheduleOutlined style={{ fontSize: 14, margin: '-3px  5px', color: '#ff8d8d' }} />
-					<small className={ classes.caption }>2 días restantes</small>
+					{
+						props.isCompleted ? ( <small className={ classes.caption }>Finalizado</small> ) : ( <small className={ classes.caption }>2 días restantes</small> )
+					}
 				</div>
 				<div style={{ width: '100%', }}>
 					<Box style={{ display: 'flex', justifyContent: 'flex-end' }} minWidth={35}>
