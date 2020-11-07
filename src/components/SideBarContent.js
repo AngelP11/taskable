@@ -33,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
 	listabtn: {
 		borderRadius: 8,
 		backgroundColor: 'lightgrey',
+	},
+	width: {
+		width: '85%'
 	}
 }))
 
@@ -53,7 +56,7 @@ export default function SideBarContent(){
 
 	return (
 		<div className={classes.drawerContainer}>
-			<List>
+			<List className={ classes.width }>
 
 				<ListItem button
 					selected={ selectedIndex === 0 }
@@ -65,7 +68,10 @@ export default function SideBarContent(){
 					<ListItemText classes={{ primary: classes.listText }} primary="Inicio" />
 				</ListItem>
 				
-				<ListItem button onClick={handleClick}>
+				<ListItem 
+					button 
+					onClick={handleClick}
+				>
 					<ListItemIcon className={ classes.listItemIcon }>
 						<CheckBoxOutlined />
 					</ListItemIcon>

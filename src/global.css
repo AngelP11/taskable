@@ -1,86 +1,86 @@
 @font-face {
-    font-family: 'Manrope';
-    src: url(./assets/fonts/Manrope-Medium.ttf);
+	font-family: 'Manrope';
+	src: url(./assets/fonts/Manrope-Medium.ttf);
 }
 
 @font-face {
-    font-family: 'Inter-light';
-    src: url(./assets/fonts/Inter-Light-slnt=0.ttf);
+	font-family: 'Inter-light';
+	src: url(./assets/fonts/Inter-Light-slnt=0.ttf);
 }
 
 @font-face {
-    font-family: 'Inter-regular';
-    src: url(./assets/fonts/Inter-Regular-slnt=0.ttf);
+	font-family: 'Inter-regular';
+	src: url(./assets/fonts/Inter-Regular-slnt=0.ttf);
 }
 
 body {
-    background-color: #f7f7f9;
-    font-family: 'Inter-regular'
+	background-color: #f7f7f9;
+	font-family: 'Inter-regular'
 }
 
 h1, h2, h4, h5 {
-    font-family: 'Inter-light', sans-serif;
-    font-weight: 300;
+	font-family: 'Inter-light', sans-serif;
+	font-weight: 300;
 }
 
 h3, h6, .subtitle-2 {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 500;
+	font-family: 'Manrope', sans-serif;
+	font-weight: 500;
 }
 
 .body-1, .body-2, .subtitle-1, .caption , .overline {
-    font-family: 'Inter-regular';
-    font-weight: 400;
+	font-family: 'Inter-regular';
+	font-weight: 400;
 }
 
 .subtitle-1, .body-1 {
-    font-size: 16px;
-    letter-spacing: 1.15px;
+	font-size: 16px;
+	letter-spacing: 1.15px;
 }
 
 .subtitle-2 {
-    font-size: 14px;
-    letter-spacing: 1.1px;
+	font-size: 14px;
+	letter-spacing: 1.1px;
 }
 
 .body-2 {
-    font-size: 14px;
-    letter-spacing: 1.15px;
+	font-size: 14px;
+	letter-spacing: 1.15px;
 }
 
 .caption {
-    font-size: 12px;
-    letter-spacing: 0.4px;
+	font-size: 12px;
+	letter-spacing: 0.4px;
 }
 
 h1 {
-    font-size: 96px;
-    letter-spacing: -1.5px;
+	font-size: 96px;
+	letter-spacing: -1.5px;
 }
 
 h2 {
-    font-size: 60px;
-    letter-spacing: -0.5px;
+	font-size: 60px;
+	letter-spacing: -0.5px;
 }
 
 h3 {
-    font-size: 48px;
-    letter-spacing: 0;
+	font-size: 48px;
+	letter-spacing: 0;
 }
 
 h4 {
-    font-size: 34px;
-    letter-spacing: 0.25px;
+	font-size: 34px;
+	letter-spacing: 0.25px;
 }
 
 h5 {
-    font-size: 24px;
-    letter-spacing: 0;
+	font-size: 24px;
+	letter-spacing: 0;
 }
 
 h6 {
-    font-size: 20px;
-    letter-spacing: 1.15px;
+	font-size: 20px;
+	letter-spacing: 1.15px;
 }
 
 *::-webkit-scrollbar {
@@ -97,60 +97,61 @@ h6 {
   background-color: #a0a0a0;
 }
 
+p {
+	color: #2d2d37;
+	font-size: 14px
+}
+
 
 /****  :|  ****/
 
 /* INPUTS */
 .MuiOutlinedInput-root {
-    border-radius: 6px !important;
+	border-radius: 6px !important;
 }
 .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    border-color: #2979ff !important;
-    border-width: 1px !important;
+	border-color: #2979ff !important;
+	border-width: 1px !important;
 }
 .MuiFormLabel-root {
-    color: #a0a0a0 !important
+	color: #a0a0a0 !important
 }
 .MuiFormLabel-root.Mui-focused {
-    color: #2979ff !important
+	color: #2979ff !important
 }
 .MuiOutlinedInput-input, .MuiInputLabel-formControl{
-    font-family: 'Inter-regular' !important;
-    font-size: 14px !important
+	font-family: 'Inter-regular' !important;
+	font-size: 14px !important
 }
 /*.MuiOutlinedInput-root {
-    height: 42px !important
+	height: 42px !important
 }*/
 
 /* SELECT */
 .MuiInputBase-formControl {
-    height: 42px !important;
+	height: 42px !important;
 }
 
 /* DRAWER */
 .MuiDrawer-paperAnchorDockedLeft {
-    border-right: none !important
+	border-right: none !important
 }
 
 .MuiListItem-root.Mui-selected, .MuiListItem-root.Mui-selected:hover {
-    background-color : rgba(41, 121, 255, .12) !important; 
+	background-color : rgba(41, 121, 255, .12) !important; 
 }
 
 .MuiListItem-root.Mui-selected {
-    border-left: 4px solid #2979ff !important;
+	border-left: 4px solid #2979ff !important;
 } 
 
 .MuiListItem-root.Mui-selected, 
 .MuiListItem-root:hover {
-    border-top-right-radius: 40px;
-    border-bottom-right-radius: 40px;
+	border-top-right-radius: 40px;
+	border-bottom-right-radius: 40px;
 }
 
 .MuiListItem-root.Mui-selected > .MuiListItemIcon-root, 
 .MuiListItem-root.Mui-selected > .MuiListItemText-root span {
-    color : #2979ff !important;
-}
-
-.MuiListItem-root {
-    width: 85% !important;
+	color : #2979ff !important;
 }
