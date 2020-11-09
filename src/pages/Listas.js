@@ -5,10 +5,13 @@ import {
 	List, ListItem, ListItemSecondaryAction, ListItemText, Checkbox
 } from '@material-ui/core';
 
+import { ScheduleOutlined } from '@material-ui/icons';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 
-
+import '../components/styles/Header.css'
+import Team from '../components/Team'
+import BarraProgreso from '../components/BarraProgreso'
 import Layout from '../components/Layout'
 
 const useStyles = makeStyles((theme) => ({
@@ -54,7 +57,35 @@ const useStyles = makeStyles((theme) => ({
 		'&:last-child': {
 			borderRight: 0,
 	    },
-	    paddingLeft: 10
+	    paddingLeft: 5,
+	    paddingRight: 5,
+	},
+	caption: {
+		color: '#ff5861',
+		fontWeight: 300,
+		fontSize: '10px',
+		fontFamily: 'Inter-regular',
+	},
+	btn_priority: {
+		backgroundColor: '#ffd3d4',
+		height: 20,
+		color: '#ff5861',
+		fontSize:10,
+		textTransform: 'capitalize',
+		minWidth: 20,
+		lineHeight: '0px',
+		padding: 10,
+		borderRadius: '4px',
+		boxShadow: 'none',
+		'&:hover': {
+			cursor: 'pointer',
+			backgroundColor: '#ffbdbd',
+			boxShadow: 'none',
+		},
+	},
+	div: {
+		paddingTop: 15,
+		textAlign: 'center'
 	}
 }))
 
@@ -84,7 +115,32 @@ export default function Lista(){
 		setChecked(newChecked);
 	};
 
-	let arr = [0, 1, 2, 3]
+	let arr = [
+		{
+			nombre: 'Tarea name',
+			personas: ['fulanito', 'menganito'],
+			progreso: 68,
+			timeLeft: true,
+			priority: 'Alta',
+			tag: null
+		},
+		{
+			nombre: 'Tarea name',
+			personas: ['fulanito', 'menganito'],
+			progreso: 68,
+			timeLeft: true,
+			priority: 'Alta',
+			tag: null
+		},
+		{
+			nombre: 'Otra tarea con nombre distintro',
+			personas: ['fulanito', 'menganito', 'pedrito'],
+			progreso: 68,
+			timeLeft: false,
+			priority: 'Alta',
+			tag: null
+		}
+	]
 
 	return (
 		<Layout>
@@ -124,7 +180,7 @@ export default function Lista(){
 							<AccordionDetails style={{ padding: 0 }}>
 								
 								<List className={classes.raiz}>
-									{arr.map((value, index) => {
+									{ arr.map((value, index) => {
 										const labelId = `checkbox-list-label-${value}`;
 
 										return (
@@ -146,19 +202,32 @@ export default function Lista(){
 												</ListItemIcon>
 												<Grid container>
 													<Grid item className={ classes.br } xs={5}>
-														<p>Tareas</p>
+														<p>{ value.nombre }</p>
 													</Grid>
 													<Grid item className={ classes.br } xs>
-														<p>Personas</p>
+														<div className={ classes.div }>
+															<Team />
+														</div>
 													</Grid>
 													<Grid item className={ classes.br } xs>
-														<p>Progeso</p>
+														<div className={ classes.div }>
+															<BarraProgreso />
+														</div>
 													</Grid>
 													<Grid item className={ classes.br } xs>
-														<p>Tiempo</p>
+														<div className={ classes.div }>
+															<ScheduleOutlined style={{ fontSize: 13, margin: '-3px  3px', color: '#ff8d8d' }} />
+															{ value.timeLeft ? 
+																( <small className={ classes.caption }>Finalizado</small> )
+																: 
+																( <small className={ classes.caption }>2 días restantes</small> ) 
+															}
+														</div>
 													</Grid>
 													<Grid item className={ classes.br } xs>
-														<p>Prioridad</p>
+														<div className={ classes.div }>
+															<Button className={ classes.btn_priority } >Alta</Button>
+														</div>
 													</Grid>
 													<Grid item className={ classes.br } xs>
 														<p>Etiqueta</p>

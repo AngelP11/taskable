@@ -55,11 +55,11 @@ function Header() {
 
 	return (
 
-		<AppBar position="fixed" className={classes.appBar} color="white">
+		<AppBar position="fixed" className={classes.appBar} color="transparent">
 				
-			<Toolbar disableGutters="true" style={{ borderBottom: '1px solid lightgrey' }}>
+			<Toolbar disableGutters={true} style={{ borderBottom: '1px solid lightgrey' }}>
 				<div className={classes.root}>
-					<div class="container">
+					<div className="container">
 						<div  className="Header-logoContainer">
 							<Typography variant="h5" className={classes.title} gutterBottom>Taskable <span className={ classes.appText }>app</span></Typography>
 						</div>
@@ -92,7 +92,7 @@ function Header() {
 				</div>
 			</Toolbar>
 			
-			<Toolbar disableGutters="true" className={ classes.second_toolbar } >
+			<Toolbar disableGutters={true} className={ classes.second_toolbar } >
 				<div>
 					<Button 
 						to="/taskable/listas" 
