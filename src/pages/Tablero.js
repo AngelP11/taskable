@@ -26,7 +26,8 @@ const useStyles = makeStyles((theme) => ({
 		backgroundColor:'#fff',
 		color: 'grey',
 		textTransform: 'capitalize',
-		boxShadow: '1px 1px 0px rgba(0, 0, 0, .2)',
+		borderRadius: '8px',
+		boxShadow: '0 1px 3px 0 rgba(45, 45, 55, 0.12);',
 		'&:hover': {
 			backgroundColor: '#fff',
 		},

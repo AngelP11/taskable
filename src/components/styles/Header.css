@@ -37,7 +37,7 @@
 }
 .team_container {
     display: flex;
-    justify-content: flex-start;;
+    justify-content: flex-center;
 }
 .ml_10 {
     margin-left: 10px !important
