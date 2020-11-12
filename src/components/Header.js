@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, AppBar, Toolbar, Button, Typography } from '@material-ui/core'
+import { Grid, AppBar, Toolbar, Button, Typography, Link } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { NavLink } from 'react-router-dom'
 
@@ -57,11 +57,13 @@ function Header() {
 
 		<AppBar position="fixed" className={classes.appBar} color="white">
 				
-			<Toolbar disableGutters="true" style={{ borderBottom: '1px solid lightgrey' }}>
+			<Toolbar disableGutters={true} style={{ borderBottom: '1px solid lightgrey' }}>
 				<div className={classes.root}>
-					<div class="container">
+					<div className="container">
 						<div  className="Header-logoContainer">
-							<Typography variant="h5" className={classes.title} gutterBottom>Taskable <span className={ classes.appText }>app</span></Typography>
+							<Link href="http://localhost:3000/taskable/" underline="none">
+								<Typography variant="h5" className={classes.title} gutterBottom>Taskable <span className={ classes.appText }>app</span></Typography>
+							</Link>
 						</div>
 						<div className="Header-Container" >
 							<article className="Header-infoContainer" >
@@ -92,7 +94,7 @@ function Header() {
 				</div>
 			</Toolbar>
 			
-			<Toolbar disableGutters="true" className={ classes.second_toolbar } >
+			<Toolbar disableGutters={true} className={ classes.second_toolbar } >
 				<div>
 					<Button 
 						to="/taskable/listas" 
