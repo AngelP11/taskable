@@ -1,7 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import AccordionSummary from '@material-ui/core/AccordionDetails';
 import { 
-	Paper, Button, Grid, Accordion, AccordionDetails, Typography, Collapse, Box, IconButton, AccordionSummary, 
+	Paper, Button, Grid, Typography, Collapse, Box, IconButton, 
 	List, ListItem, ListItemSecondaryAction, ListItemText, Checkbox, FormControlLabel
 } from '@material-ui/core';
 
