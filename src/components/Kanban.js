@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { ReactSortable } from "react-sortablejs"
+//import { ReactSortable } from "react-sortablejs"
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 
 /* Assets */
@@ -69,14 +69,14 @@ function Kanban(props) {
     return (
         <div>
             <DragDropContext onDragEnd={result => onDragEnd(result)}>
-                <ReactSortable
+                {/* <ReactSortable
                     animation={150}
                     easing="cubic-bezier(0.83, 0, 0.17, 1)"
                     ghostClass="ghost"
                     list={column}
                     setList={setColumn}
                     className={classes.taskContainer}
-                >
+                > */}
                 {column.map((column, index) => {
                     return (
                     <div
@@ -147,7 +147,7 @@ function Kanban(props) {
                     </div>
                     )
                 })}
-                </ReactSortable>
+                {/* </ReactSortable> */}
             </DragDropContext>
         </div>
     )
