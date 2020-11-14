@@ -1,13 +1,16 @@
 import React from 'react'
-import { Button, Typography, Divider, Grid, TextField, Dialog, DialogActions, ListItemIcon, ListItemText, Checkbox, ListItemSecondaryAction, List, ListItem, Icon, IconButton, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core'
+import { Button, Typography, Divider, Grid, TextField, Dialog, ListItemIcon, 
+	ListItemText, Checkbox, ListItemSecondaryAction, List, ListItem, 
+	Icon, IconButton, DialogContent, DialogContentText } from '@material-ui/core'
+import Add from '@material-ui/icons/Add';
 
+import { makeStyles } from '@material-ui/core/styles'
 
-import { makeStyles, withStyles } from '@material-ui/core/styles'
-// import {  } from '@material-ui/icons'
-import { Link } from "react-router-dom";
+import { buttons } from '../styles/buttons.js'
 
-import { buttons, ripple } from '../styles/buttons.js'
-import globals from '../styles/globals.js'
+import imagen1 from "../assets/imagen-4@3x.png"
+import imagen2 from "../assets/imagen-24@2x.png"
+import imagen3 from "../assets/imagen-25@2x.png"
 
 const useStyles = makeStyles((theme) => ({
 	...buttons,
@@ -24,7 +27,9 @@ const useStyles = makeStyles((theme) => ({
 		color: '#000'
 	},
 	imgcircle: {
-		borderRadius: '50%'
+		borderRadius: '50%',
+		width: 33,
+		height: 30
 	},
 	btn_priority: {
 		backgroundColor: '#ffbdbd',
@@ -111,43 +116,46 @@ function ExpandedList() {
 								</Typography>
 							</Grid>
 						</Grid>
-						<Grid container alignItems="center" spacing={3} >
+						<Grid container alignItems="center" spacing={1} >
 							<Grid item >
-								<Typography variant="body2" component="p" gutterBottom >Responsable</Typography>
+								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Responsable</Typography>
 							</Grid>
 							<Grid item >
-								<img src="../assets/imagen-4@3x.png" className={ classes.imgcircle } />
+								<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
 							</Grid>
 							<Grid item >
 								<Typography variant="caption" className={ classes.black } component="span" gutterBottom >Richard Jimenez</Typography>
 							</Grid>
 						</Grid>
-						<Grid container alignItems="center" spacing={3} >
+						<Grid container alignItems="center" spacing={1} >
 							<Grid item >
-								<Typography variant="body2" component="p" gutterBottom >Colaboradores</Typography>
+								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Colaboradores</Typography>
 							</Grid>
 							<Grid item >
-								<img src="../assets/imagen-4@3x.png" className={ classes.imgcircle } />
+								<img alt="404" src={ imagen2 } className={ classes.imgcircle } />
 							</Grid>
 							<Grid item >
-								<img src="../assets/imagen-4@3x.png" className={ classes.imgcircle } />
+								<img alt="404" src={ imagen3 } className={ classes.imgcircle } />
 							</Grid>
 							<Grid item >
-								<img src="../assets/imagen-4@3x.png" className={ classes.imgcircle } />
+								<img alt="404" src={ imagen2 } className={ classes.imgcircle } />
 							</Grid>
 							<Grid item >
-								<img src="../assets/imagen-4@3x.png" className={ classes.imgcircle } />
+								<img alt="404" src={ imagen3 } className={ classes.imgcircle } />
 							</Grid>
 							<Grid item >
-								<img src="../assets/imagen-4@3x.png" className={ classes.imgcircle } />
+								<img alt="404" src={ imagen2 } className={ classes.imgcircle } />
 							</Grid>
 							<Grid item >
-								<img src="../assets/imagen-4@3x.png" className={ classes.imgcircle } />
+								<img alt="404" src={ imagen3 } className={ classes.imgcircle } />
+							</Grid>
+							<Grid item >
+								<Add />
 							</Grid>
 						</Grid>
 						<Grid container alignItems="center" style={{ margin: '15px 0px' }}>
 							<Grid item >
-								<Typography variant="body2" component="p" gutterBottom >Fecha de entrega</Typography>
+								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Fecha de entrega</Typography>
 							</Grid>
 							<Grid item style={{ marginLeft: 15, marginRight: 5 }}>
 								<Icon >event_note</Icon>
@@ -158,7 +166,7 @@ function ExpandedList() {
 						</Grid>
 						<Grid container alignItems="center" spacing={3}>
 							<Grid item >
-								<Typography variant="body2" component="p" gutterBottom >Prioridad</Typography>
+								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Prioridad</Typography>
 							</Grid>
 							<Grid item >
 								<Button size="small" className={[ classes.button_high, classes.btn_priority ]} variant="contained">Alta</Button>
@@ -166,7 +174,7 @@ function ExpandedList() {
 						</Grid>
 						<Grid container alignItems="center" spacing={3}>
 							<Grid item >
-								<Typography variant="body2" component="p" gutterBottom >Descripción</Typography>
+								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Descripción</Typography>
 							</Grid>
 							<Grid item >
 								<Typography variant="caption" component="small" gutterBottom >Añade mas detalles a esta actividad...</Typography>
@@ -174,7 +182,7 @@ function ExpandedList() {
 						</Grid>
 						<Grid container alignItems="center" style={{ margin: '15px 0px 15px 0px' }}>
 							<Grid item xs={12} >
-								<Typography variant="body2" component="p" gutterBottom >Subtareas</Typography>
+								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Subtareas</Typography>
 							</Grid>
 							<Grid item xs={12} >
 								<List className={classes.root}>
@@ -195,7 +203,7 @@ function ExpandedList() {
 												</ListItemIcon>
 												<ListItemText id={labelId} primary={`List item ${value + 1}`} />
 												<ListItemSecondaryAction>
-													<img src="../assets/imagen-4@3x.png" className={ classes.imgcircle } />
+													<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
 												</ListItemSecondaryAction>
 											</ListItem>
 										);
@@ -205,14 +213,14 @@ function ExpandedList() {
 						</Grid>
 						<Grid container spacing={3} style={{ backgroundColor: '#f5f5f5' }} >
 							<Grid xs={1} item >
-								<img src="../assets/imagen-4@3x.png" className={ classes.imgcircle } />
+								<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
 							</Grid>
 							<Grid xs={11} item >
 								<TextField
 									multiline
 									placeholder="Realiza una pregunta pública"
 									fullWidth
-									rows={8}
+									rows={5}
 									variant="outlined" 
 									style={{ fontSize: 12, backgroundColor: '#fff', borderRadius: 5 }}
 								/>

@@ -1,16 +1,16 @@
 import React from 'react'
-import { Grid, Card, CardContent, Box, Typography, Button } from '@material-ui/core'
+import { Card, CardContent, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { NotificationsOutlined, SettingsOutlined, ScheduleOutlined, AssignmentTurnedIn, AttachFile } from '@material-ui/icons';
+import { ScheduleOutlined, AssignmentTurnedIn, AttachFile } from '@material-ui/icons';
 
 import './styles/Header.css'
 import { buttons } from '../styles/buttons'
 import Team from '../components/Team'
 import BarraProgreso from '../components/BarraProgreso'
 
-import persona1 from '../assets/imagen-4.png'
-import persona2 from '../assets/imagen-24.png'
-import persona3 from '../assets/imagen-25.png'
+// import persona1 from '../assets/imagen-4.png'
+// import persona2 from '../assets/imagen-24.png'
+// import persona3 from '../assets/imagen-25.png'
 
 const useStyles = makeStyles((theme) => ({
 	...buttons,

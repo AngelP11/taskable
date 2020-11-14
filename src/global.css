@@ -129,7 +129,7 @@ p {
 
 /* SELECT */
 .MuiInputBase-formControl {
-	height: 42px !important;
+	/*height: 42px !important;*/
 }
 
 /* DRAWER */

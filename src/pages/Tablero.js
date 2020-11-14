@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper, Button, Grid } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import Add from '@material-ui/icons/Add';
@@ -57,24 +57,13 @@ export default function Tablero(){
 					</Grid>
 
 					<Grid item xs={12}>
-						<CardTask title="Terminar asignaciones pendientes" />
-					</Grid>
-					
-					<Grid item xs={12}>
-						<Paper style={{ padding: 20 }}>ITEM extremadamente largo dividido en 4 columnas queso</Paper>
-					</Grid>
-					
-					<Grid item xs={12}>
-						<Paper style={{ padding: 20 }}>ITEM extremadamente largo dividido en 4 columnas queso</Paper>
+						<CardTask title="Refactorizar todo el código" />
 					</Grid>
 
 					<Grid item xs={12}>
-						<Paper style={{ padding: 20 }}>ITEM extremadamente largo dividido en 4 columnas queso</Paper>
+						<CardTask title="Aplicarle lógica a las vistas" />
 					</Grid>
-
-					<Grid item xs={12}>
-						<Paper style={{ padding: 20 }}>ITEM extremadamente largo dividido en 4 columnas queso</Paper>
-					</Grid>
+					
 				</Grid>
 
 				<Grid container item spacing={2} xs={3}>
@@ -91,16 +80,17 @@ export default function Tablero(){
 					</Grid>
 
 					<Grid item xs={12}>
-						<CardTask title="Conseguir un nuevo trabajo" isCompleted={true} />
+						<CardTask title="Terminar asignaciones pendientes" />
+					</Grid>
+
+					<Grid item xs={12}>
+						<CardTask title="Terminar la vista de listas extendidas" />
+					</Grid>
+
+					<Grid item xs={12}>
+						<CardTask title="Ser feliz :')" />
 					</Grid>
 					
-					<Grid item xs={12}>
-						<Paper style={{ padding: 20 }}>ITEM extremadamente largo dividido en 4 columnas queso</Paper>
-					</Grid>
-					
-					<Grid item xs={12}>
-						<Paper style={{ padding: 20 }}>ITEM extremadamente largo dividido en 4 columnas queso</Paper>
-					</Grid>
 				</Grid>
 
 				<Grid container item spacing={2} xs={3}>
@@ -117,15 +107,15 @@ export default function Tablero(){
 					</Grid>
 
 					<Grid item xs={12}>
-						<CardTask title="Aprender inglés" />
+						<CardTask title="Vista del login" isCompleted={true} />
 					</Grid>
 
 					<Grid item xs={12}>
-						<CardTask title="Aprender Finanzas" />
+						<CardTask title="Vista de register" isCompleted={true} />
 					</Grid>
-					
+
 					<Grid item xs={12}>
-						<Paper style={{ padding: 20 }}>ITEM extremadamente largo dividido en 4 columnas queso</Paper>
+						<CardTask title="Vista de contraseña" isCompleted={true} />
 					</Grid>
 					
 				</Grid>

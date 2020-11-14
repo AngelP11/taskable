@@ -1,17 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Drawer, CssBaseline, Paper, Box, IconButton, 
-	Typography, Divider, ListItem, ListItemText, 
-	Collapse, Button, Grid, Toolbar
-} from '@material-ui/core';
-
-import Add from '@material-ui/icons/Add';
+import { Drawer, CssBaseline, Toolbar } from '@material-ui/core';
 
 import Header from './Header'
 import SideBarContent from './SideBarContent'
-
-
-import { buttons } from '../styles/buttons.js'
 
 const drawerWidth = 240;
 

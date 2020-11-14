@@ -129,8 +129,8 @@ function Register() {
 	// const [rule4, setRule4] = useState(false);
 	
 	const [anchorEl, setAnchorEl] = useState(null);
-	const anchorRef = React.useRef(null)
-	const [arrowRef, setArrowRef] = React.useState(null)
+	// const anchorRef = React.useRef(null)
+	// const [arrowRef, setArrowRef] = React.useState(null)
 
 	const handleDia = (ev) => {
 		setDia(ev.target.value)
@@ -184,7 +184,7 @@ function Register() {
 
 		let value = ev.target.value
 
-		if (value != password) {
+		if (value !== password) {
 			setPassword_confirm_error(true)
 		}
 		else {

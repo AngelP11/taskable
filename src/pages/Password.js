@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button, Box, Typography, Grid, Card, CardActions, CardContent, TextField } from '@material-ui/core'
-import { makeStyles, withStyles } from '@material-ui/core/styles'
+import { Button, Typography, Grid, Card, CardActions, CardContent, TextField } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 import { Link } from "react-router-dom";
 
 import { buttons } from '../styles/buttons.js'
@@ -50,7 +50,7 @@ function Password() {
 						<Typography className={classes.pos}>¡Hola, Joan!</Typography>
 						<Typography variant="body2" className={classes.text} component="p">Ingresa tu contraseña de seguridad</Typography>
 
-						<TextField id="outlined-basic" type="password" fullWidth className={ classes.input } label="Contraseña" variant="outlined" />
+						<TextField id="outlined-basic" type="password" size="small" fullWidth className={ classes.input } label="Contraseña" variant="outlined" />
 
 						<Button variant="contained" fullWidth className={[classes.btn, classes.button_high]} disableElevation>Iniciar Sesión</Button>
 					</CardContent>

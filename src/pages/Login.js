@@ -1,9 +1,9 @@
 import React from 'react'
-import { Button, Box, Typography, Grid, Card, CardActions, CardContent, TextField } from '@material-ui/core'
-import { makeStyles, withStyles } from '@material-ui/core/styles'
+import { Button, Typography, Grid, Card, CardContent, TextField } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 import { Link } from "react-router-dom";
 
-import { buttons, ripple } from '../styles/buttons.js'
+import { buttons } from '../styles/buttons.js'
 import globals from '../styles/globals.js'
 
 const useStyles = makeStyles({
@@ -75,7 +75,7 @@ function Login() {
 						<Typography className={classes.pos}>Iniciar Sesión</Typography>
 						<Typography variant="body2" className={classes.text} component="p">Utiliza tu usuario o correo electrónico</Typography>
 
-						<TextField id="outlined-basic" fullWidth size="small" className={classes.input} label="Usuario o correo" variant="outlined" size="big"/>
+						<TextField id="outlined-basic" fullWidth size="small" className={classes.input} label="Usuario o correo" variant="outlined"/>
 
 						<Button variant="contained" fullWidth className={ classes.button_high } disableElevation>Siguiente</Button>
 					</CardContent>

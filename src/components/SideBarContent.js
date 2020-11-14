@@ -1,5 +1,5 @@
 import React from 'react'
-import { List, ListItem, ListItemIcon, ListItemText, Collapse, Typography } from '@material-ui/core'
+import { List, ListItem, ListItemIcon, ListItemText, Collapse } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { CheckBoxOutlined, ExpandLess, 

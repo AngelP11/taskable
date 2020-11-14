@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 import Login from '../pages/Login'
 import Register from '../pages/Register'
 import Password from '../pages/Password'
-import ExpandedList from '../pages/ExpandedList'
+import ExpandedList from './ExpandedList'
 import Error from '../pages/Error'
 
 import Tablero from '../pages/Tablero'
