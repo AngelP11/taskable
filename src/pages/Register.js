@@ -21,7 +21,6 @@ import background from '../assets/backgrund_checkpassword.png'
 
 
 const useStyles = makeStyles((theme) => ({
-
 	inputContainer: {
 		marginTop: 24,
 		marginBottom: 20,

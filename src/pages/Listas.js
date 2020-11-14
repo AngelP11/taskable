@@ -1,9 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { 
-	Paper, Button, Grid, Accordion, AccordionDetails, Typography, 
+import {
+	Paper, Accordion, Button, Grid, Typography, AccordionDetails,
 	List, ListItem, Checkbox, FormControlLabel, TextField, Dialog,
-	ListItemSecondaryAction, AccordionSummary, ListItemIcon,
+	ListItemSecondaryAction, ListItemIcon, AccordionSummary,
 	Icon, IconButton, DialogContent, DialogContentText,
 	Divider, ListItemText
 } from '@material-ui/core';

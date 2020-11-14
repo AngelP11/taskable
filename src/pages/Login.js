@@ -15,7 +15,6 @@ const useStyles = makeStyles({
 	  borderRadius: 6,
 	  backgroundColor: '#2979ff',
 	  color: '#fff',
-	  marginBottom: 25,
 	  fontFamily: 'Manrope',
 	  textTransform: 'capitalize',
 	  '&:hover': {
@@ -62,7 +61,6 @@ const useStyles = makeStyles({
 })
 
 function Login() {
-
 	const classes = useStyles()
 			
 	return (
