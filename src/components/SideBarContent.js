@@ -1,14 +1,18 @@
 import React from 'react'
 import { List, ListItem, ListItemIcon, ListItemText, Collapse } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import styled from 'styled-components';
+// import { styled } from '@material-ui/core/styles';
+
 
 import { CheckBoxOutlined, ExpandLess, 
 	ExpandMore, DashboardOutlined, FolderOutlined,
 	GroupOutlined, Add, ListAltOutlined
 } from '@material-ui/icons';
-
 import ArrowRightOutlined from '@material-ui/icons/ArrowRightOutlined'
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+
+import './styles/sidebarStyles.css'
 
 const useStyles = makeStyles((theme) => ({
 	listText: {
@@ -39,6 +43,26 @@ const useStyles = makeStyles((theme) => ({
 	}
 }))
 
+const StyledListItem = styled(ListItem)`
+	.MuiListItem-root.Mui-selected {
+		border-left: 4px solid #2979ff;
+
+		
+	}
+`
+
+// const StyledListItem = styled(ListItem)({
+
+// 	root: {
+// 		'&$selected': {
+// 			borderLeft: '4px solid #2979ff',
+// 			'&$hover': {
+// 				backgroundColor: 'rgba(41, 121, 255, .12)',
+// 			}
+// 		},
+// 	},
+// })
+
 export default function SideBarContent(){
 
 	const classes = useStyles();
@@ -58,7 +82,7 @@ export default function SideBarContent(){
 		<div className={classes.drawerContainer}>
 			<List className={ classes.width }>
 
-				<ListItem button
+				<StyledListItem button
 					selected={ selectedIndex === 0 }
 					onClick={ (event) => handleListItemClick(event, 0) }
 				>
@@ -66,7 +90,7 @@ export default function SideBarContent(){
 						<HomeOutlinedIcon />
 					</ListItemIcon>
 					<ListItemText classes={{ primary: classes.listText }} primary="Inicio" />
-				</ListItem>
+				</StyledListItem>
 				
 				<ListItem 
 					button 
