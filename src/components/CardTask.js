@@ -33,7 +33,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 	card: {
 		borderRadius: '8px',
-		boxShadow: '0 1px 3px 0 rgba(45, 45, 55, 0.12);'
+		boxShadow: '0 1px 3px 0 rgba(45, 45, 55, 0.12);',
+		cursor: 'pointer'
 	},
 	icons: {
 		fontSize: '10px',
@@ -63,7 +64,7 @@ export default function CardTask(props){
 	const classes = useStyles()
 
 	return (
-		<Card className={ props.isCompleted ? [ classes.card, classes.completed ] : classes.card }>
+		<Card { ...props } className={ props.isCompleted ? [ classes.card, classes.completed ] : classes.card }>
 			<CardContent>
 				<div style={{ marginBottom: 5 }}>
 					<h2 className={ classes.cardTitle }>{ props.title }</h2>
@@ -80,11 +81,11 @@ export default function CardTask(props){
 					<Team />
 					<div className="team_container">
 						<div style={{ marginRight: '5px' }}>
-							<spam className={classes.icons}>0/2 </spam>
+							<span className={classes.icons}>0/2 </span>
 							<AssignmentTurnedIn className={classes.icons} />
 						</div>
 						<div >
-							<spam className={classes.icons}>1 </spam>
+							<span className={classes.icons}>1 </span>
 							<AttachFile className={classes.icons} />
 						</div>
 					</div>

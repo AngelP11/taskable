@@ -2,27 +2,19 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {
 	Paper, Accordion, Button, Grid, Typography, AccordionDetails,
-	List, ListItem, Checkbox, FormControlLabel, TextField, Dialog,
-	ListItemSecondaryAction, ListItemIcon, AccordionSummary,
-	Icon, IconButton, DialogContent, DialogContentText,
-	Divider, ListItemText
+	List, ListItem, Checkbox, FormControlLabel, AccordionSummary,
 } from '@material-ui/core';
 
 import { ScheduleOutlined } from '@material-ui/icons';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import ViewList from '@material-ui/icons/ViewList'
 import Add from '@material-ui/icons/Add';
-
-import imagen1 from "../assets/imagen-4@3x.png"
-import imagen2 from "../assets/imagen-24@2x.png"
-import imagen3 from "../assets/imagen-25@2x.png"
+import DragIndicator from '@material-ui/icons/DragIndicator';
 
 import '../components/styles/Header.css'
 import Team from '../components/Team'
 import BarraProgreso from '../components/BarraProgreso'
 import Layout from '../components/Layout'
-
-import { buttons } from '../styles/buttons.js'
+import ExpandedList from '../components/ExpandedList'
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -50,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: theme.typography.pxToRem(20),
 		flexBasis: '33.33%',
 		flexShrink: 0,
-		color: '#424242',
+		color: '#4f4f4f',
 	},
 	grid_borders: {
 		borderTop: '1px solid #e1e2e6',
@@ -103,50 +95,9 @@ const useStyles = makeStyles((theme) => ({
 		paddingTop: 6
 	},
 	ml: {
-		marginLeft: 0
+		marginLeft: 0,
+		color: 'grey'
 	},
-
-	...buttons,
-	btn: {
-		backgroundColor: '#fff',
-		color: '#2979ff',
-		'&:hover': {
-			cursor: 'pointer',
-			backgroundColor: '#fafafa',
-			boxShadow: '0 0px 0px 0px rgba(0, 0, 0, 0)',
-		},
-	},
-	black: {
-		color: '#000'
-	},
-	imgcircle: {
-		borderRadius: '50%',
-		width: 33,
-		height: 30
-	},
-	btn_priority_dialog: {
-		backgroundColor: '#ffbdbd',
-		height: 25,
-		color: 'ff8d8d',
-		'&:hover': {
-			cursor: 'pointer',
-			backgroundColor: '#ff9b9b',
-			boxShadow: '0 0px 0px 0px rgba(0, 0, 0, 0)',
-		},
-	},
-	rootDialog: {
-		width: '100%',
-		backgroundColor: theme.palette.background.paper,
-	},
-	button_reject_task: {
-		color: 'grey',
-		backgroundColor: 'transparent',
-		'&:hover': {
-			cursor: 'pointer',
-			backgroundColor: '#fafafa',
-			boxShadow: '0 0px 0px 0px rgba(0, 0, 0, 0)',
-		},
-	}
 }))
 
 export default function Lista(){
@@ -156,8 +107,9 @@ export default function Lista(){
 	const [expanded, setExpanded] = React.useState(false);
 	const [isShowedDetailedList, setIsShowedDetailedList] = React.useState(false);
 	const [listWidth, setListWidth] = React.useState(12);
+	const [value, setValue] = React.useState(null);
 
-	const [open, setOpen] = React.useState(false)
+	// const [open, setOpen] = React.useState(false)
 	const [checked, setChecked] = React.useState([0]);
 	
 	const handleChange = (panel) => (event, isExpanded) => {
@@ -211,11 +163,13 @@ export default function Lista(){
 	const openDetailedList = (value) => {
 		setIsShowedDetailedList(true)
 		setListWidth(6)
+		setValue(value)
 	}
 
 	const closeDetailedList = () => {
 		setIsShowedDetailedList(false)
 		setListWidth(12)
+		setValue(null)
 	}
 
 	return (
@@ -269,15 +223,17 @@ export default function Lista(){
 													<Grid 
 														onClick={ () => openDetailedList(value) } 
 														item
+														style={{ cursor: 'pointer' }}
 														className={ classes.br }
 														xs={ (isShowedDetailedList) ? 12 : 5 }
 													>
+														<DragIndicator style={{ color: 'grey' }}></DragIndicator>
 														<FormControlLabel
 															aria-label="Acknowledge"
 															className={ classes.ml }
 															onClick={ handleToggle(index) }
 															onFocus={(event) => event.stopPropagation()}
-															control={ <Checkbox checked={checked.indexOf(index) !== -1} /> }
+															control={ <Checkbox color="lightgrey" checked={checked.indexOf(index) !== -1} /> }
 															label={ value.nombre }
 														/>
 													</Grid>
@@ -310,9 +266,7 @@ export default function Lista(){
 															</Grid>
 															<Grid item className={ classes.br } xs>
 																<div className={ classes.divCenter }>
-																	<IconButton onClick={ () => setOpen(true) }>
-																		<ViewList />
-																	</IconButton>
+																	Etiqueta
 																</div>
 															</Grid>
 														</> ) : null
@@ -321,6 +275,19 @@ export default function Lista(){
 											</ListItem>
 										);
 									})}
+									<ListItem
+										alignItems="center"
+										className={ classes.border }
+										role={undefined}
+										dense
+									>
+										<Grid container style={{ opacity: 0.6, padding: 6 }}>
+											<Grid item className={ classes.br } container xs>
+												<Add style={{ color: 'grey', fontSize: 16, marginRight: 4 }}></Add>
+												<span>Añadir tarea</span>
+											</Grid>
+										</Grid>
+									</ListItem>
 								</List>
 							</AccordionDetails>
 						</Accordion>
@@ -384,9 +351,7 @@ export default function Lista(){
 													</Grid>
 													<Grid item className={ classes.br } xs>
 														<div className={ classes.divCenter }>
-															<IconButton onClick={ () => setOpen(true) }>
-																<ViewList />
-															</IconButton>
+															asd
 														</div>
 													</Grid>
 												</Grid>
@@ -457,9 +422,7 @@ export default function Lista(){
 													</Grid>
 													<Grid item className={ classes.br } xs>
 														<div className={ classes.divCenter }>
-															<IconButton onClick={ () => setOpen(true) }>
-																<ViewList />
-															</IconButton>
+															asd
 														</div>
 													</Grid>
 												</Grid>
@@ -530,9 +493,7 @@ export default function Lista(){
 													</Grid>
 													<Grid item className={ classes.br } xs>
 														<div className={ classes.divCenter }>
-															<IconButton onClick={ () => setOpen(true) }>
-																<ViewList />
-															</IconButton>
+															asd
 														</div>
 													</Grid>
 												</Grid>
@@ -547,304 +508,12 @@ export default function Lista(){
 
 						<Grid item container style={{ padding: 13, borderLeft: '1px solid lightgrey' }} xs={6}>
 							
-							<Grid container item justify="space-between" alignItems="center" style={{ marginBottom: '20px' }}>
-								<IconButton><Icon onClick={ () => closeDetailedList() } fontSize="small">close</Icon></IconButton>
-								<Button 
-									variant="outlined" 
-									color="primary"
-									className={[ classes.button_high, classes.btn ]}
-									startIcon={ <Icon fontSize="small">check</Icon> }
-								>
-									Marcar como realizada
-								</Button>
-							</Grid>
-							<Grid container spacing={2}>
-								<Grid item>
-									<Typography className={ classes.black } variant="h5" component="h5" gutterBottom >
-										Emitir factura
-									</Typography>
-								</Grid>
-							</Grid>
-							<Grid container alignItems="center" spacing={1} >
-								<Grid item >
-									<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Responsable</Typography>
-								</Grid>
-								<Grid item >
-									<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
-								</Grid>
-								<Grid item >
-									<Typography variant="caption" className={ classes.black } component="span" gutterBottom >Richard Jimenez</Typography>
-								</Grid>
-							</Grid>
-							<Grid container alignItems="center" spacing={1} >
-								<Grid item >
-									<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Colaboradores</Typography>
-								</Grid>
-								<Grid item >
-									<img alt="404" src={ imagen2 } className={ classes.imgcircle } />
-								</Grid>
-								<Grid item >
-									<img alt="404" src={ imagen3 } className={ classes.imgcircle } />
-								</Grid>
-								<Grid item >
-									<img alt="404" src={ imagen2 } className={ classes.imgcircle } />
-								</Grid>
-								<Grid item >
-									<img alt="404" src={ imagen3 } className={ classes.imgcircle } />
-								</Grid>
-								<Grid item >
-									<img alt="404" src={ imagen2 } className={ classes.imgcircle } />
-								</Grid>
-								<Grid item >
-									<img alt="404" src={ imagen3 } className={ classes.imgcircle } />
-								</Grid>
-								<Grid item >
-									<Add />
-								</Grid>
-							</Grid>
-							<Grid container alignItems="center" style={{ margin: '15px 0px' }}>
-								<Grid item >
-									<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Fecha de entrega</Typography>
-								</Grid>
-								<Grid item style={{ marginLeft: 15, marginRight: 5 }}>
-									<Icon >event_note</Icon>
-								</Grid>
-								<Grid item >
-									<Typography style={{ marginBottom: 3 }} variant="caption" component="p">17 Jul</Typography>
-								</Grid>
-							</Grid>
-							<Grid container alignItems="center" spacing={3}>
-								<Grid item >
-									<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Prioridad</Typography>
-								</Grid>
-								<Grid item >
-									<Button size="small" className={[ classes.button_high, classes.btn_priority_dialog ]} variant="contained">Alta</Button>
-								</Grid>
-							</Grid>
-							<Grid container alignItems="center" spacing={3}>
-								<Grid item >
-									<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Descripción</Typography>
-								</Grid>
-								<Grid item >
-									<Typography variant="caption" component="small" gutterBottom >Añade mas detalles a esta actividad...</Typography>
-								</Grid>
-							</Grid>
-							<Grid container alignItems="center" style={{ margin: '15px 0px 15px 0px' }}>
-								<Grid item xs={12} >
-									<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Subtareas</Typography>
-								</Grid>
-								<Grid item xs={12} >
-									<List className={classes.rootDialog}>
-										<Divider />
-										{[0, 1].map((value) => {
-											const labelId = `checkbox-list-label-${value}`;
-
-											return (
-												<ListItem key={value} role={undefined} dense divider alignItems="center" onClick={ handleToggle(value) }>
-													<ListItemIcon>
-														<Checkbox
-															edge="start"
-															checked={checked.indexOf(value) !== -1}
-															tabIndex={-1}
-															disableRipple
-															inputProps={{ 'aria-labelledby': labelId }}
-														/>
-													</ListItemIcon>
-													<ListItemText id={labelId} primary={`List item ${value + 1}`} />
-													<ListItemSecondaryAction>
-														<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
-													</ListItemSecondaryAction>
-												</ListItem>
-											);
-										})}
-									</List>
-								</Grid>
-							</Grid>
-							<Grid container spacing={3} style={{ backgroundColor: '#f5f5f5' }} >
-								<Grid xs={1} item >
-									<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
-								</Grid>
-								<Grid xs={11} item >
-									<TextField
-										multiline
-										placeholder="Realiza una pregunta pública"
-										fullWidth
-										rows={5}
-										variant="outlined" 
-										style={{ fontSize: 12, backgroundColor: '#fff', borderRadius: 5 }}
-									/>
-								</Grid>
-								<Grid xs={12} alignItems="center" item  justify="flex-end" container>
-									<Grid item>
-										<Button
-											className={[ classes.button_high, classes.button_reject_task ]}
-											size="small"
-									        startIcon={ <Icon>remove_circle</Icon> }
-									    >
-									        Abandonar la tarea
-									    </Button>
-									</Grid>
-								</Grid>
-							</Grid>
+							<ExpandedList onCerrar={ () => closeDetailedList() } value={ value } />
 
 						</Grid> ) : null
 					}
 				</Grid>
 			</Paper>
-
-			<Dialog
-				open={open}
-				onClose={ () => setOpen(false) }
-				fullWidth={true}
-				scroll="body"
-				maxWidth="sm"
-				aria-labelledby="alert-dialog-title"
-				aria-describedby="alert-dialog-description"
-			>
-				<DialogContent>
-					<DialogContentText id="alert-dialog-description">
-						<Grid container justify="space-between" alignItems="center" style={{ marginBottom: '20px' }}>
-							<IconButton><Icon fontSize="small">close</Icon></IconButton>
-							<Button 
-								variant="outlined" 
-								color="primary"
-								className={[ classes.button_high, classes.btn ]}
-								startIcon={ <Icon fontSize="small">check</Icon> }
-							>
-								Marcar como realizada
-							</Button>
-						</Grid>
-						<Grid container spacing={2}>
-							<Grid item>
-								<Typography className={ classes.black } variant="h5" component="h5" gutterBottom >
-									Emitir factura
-								</Typography>
-							</Grid>
-						</Grid>
-						<Grid container alignItems="center" spacing={1} >
-							<Grid item >
-								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Responsable</Typography>
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<Typography variant="caption" className={ classes.black } component="span" gutterBottom >Richard Jimenez</Typography>
-							</Grid>
-						</Grid>
-						<Grid container alignItems="center" spacing={1} >
-							<Grid item >
-								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Colaboradores</Typography>
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen2 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen3 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen2 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen3 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen2 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen3 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<Add />
-							</Grid>
-						</Grid>
-						<Grid container alignItems="center" style={{ margin: '15px 0px' }}>
-							<Grid item >
-								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Fecha de entrega</Typography>
-							</Grid>
-							<Grid item style={{ marginLeft: 15, marginRight: 5 }}>
-								<Icon >event_note</Icon>
-							</Grid>
-							<Grid item >
-								<Typography style={{ marginBottom: 3 }} variant="caption" component="p">17 Jul</Typography>
-							</Grid>
-						</Grid>
-						<Grid container alignItems="center" spacing={3}>
-							<Grid item >
-								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Prioridad</Typography>
-							</Grid>
-							<Grid item >
-								<Button size="small" className={[ classes.button_high, classes.btn_priority_dialog ]} variant="contained">Alta</Button>
-							</Grid>
-						</Grid>
-						<Grid container alignItems="center" spacing={3}>
-							<Grid item >
-								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Descripción</Typography>
-							</Grid>
-							<Grid item >
-								<Typography variant="caption" component="small" gutterBottom >Añade mas detalles a esta actividad...</Typography>
-							</Grid>
-						</Grid>
-						<Grid container alignItems="center" style={{ margin: '15px 0px 15px 0px' }}>
-							<Grid item xs={12} >
-								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Subtareas</Typography>
-							</Grid>
-							<Grid item xs={12} >
-								<List className={classes.rootDialog}>
-									<Divider />
-									{[0, 1].map((value) => {
-										const labelId = `checkbox-list-label-${value}`;
-
-										return (
-											<ListItem key={value} role={undefined} dense divider alignItems="center" onClick={ handleToggle(value) }>
-												<ListItemIcon>
-													<Checkbox
-														edge="start"
-														checked={checked.indexOf(value) !== -1}
-														tabIndex={-1}
-														disableRipple
-														inputProps={{ 'aria-labelledby': labelId }}
-													/>
-												</ListItemIcon>
-												<ListItemText id={labelId} primary={`List item ${value + 1}`} />
-												<ListItemSecondaryAction>
-													<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
-												</ListItemSecondaryAction>
-											</ListItem>
-										);
-									})}
-								</List>
-							</Grid>
-						</Grid>
-						<Grid container spacing={3} style={{ backgroundColor: '#f5f5f5' }} >
-							<Grid xs={1} item >
-								<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid xs={11} item >
-								<TextField
-									multiline
-									placeholder="Realiza una pregunta pública"
-									fullWidth
-									rows={5}
-									variant="outlined" 
-									style={{ fontSize: 12, backgroundColor: '#fff', borderRadius: 5 }}
-								/>
-							</Grid>
-							<Grid xs={12} alignItems="center" item  justify="flex-end" container>
-								<Grid item>
-									<Button
-										className={[ classes.button_high, classes.button_reject_task ]}
-										size="small"
-								        startIcon={ <Icon>remove_circle</Icon> }
-								    >
-								        Abandonar la tarea
-								    </Button>
-								</Grid>
-							</Grid>
-						</Grid>
-					</DialogContentText>
-				</DialogContent>
-			</Dialog>
 
 
 		</Layout>

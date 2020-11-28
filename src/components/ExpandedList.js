@@ -1,7 +1,7 @@
 import React from 'react'
-import { Button, Typography, Divider, Grid, TextField, Dialog, ListItemIcon, 
-	ListItemText, Checkbox, ListItemSecondaryAction, List, ListItem, 
-	Icon, IconButton, DialogContent, DialogContentText } from '@material-ui/core'
+import { Button, Typography, Divider, Grid, TextField,
+	ListItemText, Checkbox, ListItemSecondaryAction, ListItem, 
+	Icon, IconButton, ListItemIcon, List } from '@material-ui/core'
 import Add from '@material-ui/icons/Add';
 
 import { makeStyles } from '@material-ui/core/styles'
@@ -57,9 +57,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-function ExpandedList() {
-
-	const [open, setOpen] = React.useState(false)
+function ExpandedList(props) {
 
 	const classes = useStyles()
 	
@@ -81,165 +79,145 @@ function ExpandedList() {
 	return (
 		
 		<>
-			<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '95vh' }}>
-				<Button variant="contained" color="primary" onClick={ () => setOpen(true) }>
-					Open simple dialog
+			<Grid container justify="space-between" alignItems="center" style={{ marginBottom: '20px' }}>
+				<IconButton onClick={ () => props.onCerrar() }><Icon fontSize="small">close</Icon></IconButton>
+				<Button 
+					variant="outlined" 
+					color="primary"
+					className={[ classes.button_high, classes.btn ]}
+					startIcon={ <Icon fontSize="small">check</Icon> }
+				>
+					Marcar como realizada
 				</Button>
-			</div>
+			</Grid>
+			<Grid container spacing={2}>
+				<Grid item>
+					<Typography className={ classes.black } variant="h5" component="h5" gutterBottom >
+						Emitir factura
+					</Typography>
+				</Grid>
+			</Grid>
+			<Grid container alignItems="center" spacing={1} >
+				<Grid item >
+					<Typography variant="body2"  style={{ color: 'grey' }} gutterBottom >Responsable</Typography>
+				</Grid>
+				<Grid item >
+					<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
+				</Grid>
+				<Grid item >
+					<Typography variant="caption" component="span" gutterBottom >Richard Jimenez</Typography>
+				</Grid>
+			</Grid>
+			<Grid container alignItems="center" spacing={1} >
+				<Grid item >
+					<Typography variant="body2"  style={{ color: 'grey' }} gutterBottom >Colaboradores</Typography>
+				</Grid>
+				<Grid item >
+					<img alt="404" src={ imagen2 } className={ classes.imgcircle } />
+				</Grid>
+				<Grid item >
+					<img alt="404" src={ imagen3 } className={ classes.imgcircle } />
+				</Grid>
+				<Grid item >
+					<img alt="404" src={ imagen2 } className={ classes.imgcircle } />
+				</Grid>
+				<Grid item >
+					<img alt="404" src={ imagen3 } className={ classes.imgcircle } />
+				</Grid>
+				<Grid item >
+					<img alt="404" src={ imagen2 } className={ classes.imgcircle } />
+				</Grid>
+				<Grid item >
+					<img alt="404" src={ imagen3 } className={ classes.imgcircle } />
+				</Grid>
+				<Grid item >
+					<Add style={{ color: 'grey' }} />
+				</Grid>
+			</Grid>
+			<Grid container alignItems="center" style={{ margin: '15px 0px' }}>
+				<Grid item >
+					<Typography variant="body2"  style={{ color: 'grey' }} gutterBottom >Fecha de entrega</Typography>
+				</Grid>
+				<Grid item style={{ marginLeft: 15, marginRight: 5 }}>
+					<Icon style={{ color: 'grey' }}>event_note</Icon>
+				</Grid>
+				<Grid item >
+					<Typography style={{ marginBottom: 3 }} variant="caption" >17 Jul</Typography>
+				</Grid>
+			</Grid>
+			<Grid container alignItems="center" spacing={3}>
+				<Grid item >
+					<Typography variant="body2"  style={{ color: 'grey' }} gutterBottom >Prioridad</Typography>
+				</Grid>
+				<Grid item >
+					<Button size="small" className={[ classes.button_high, classes.btn_priority ]} variant="contained">Alta</Button>
+				</Grid>
+			</Grid>
+			<Grid container alignItems="center" spacing={3}>
+				<Grid item >
+					<Typography variant="body2"  style={{ color: 'grey' }} gutterBottom >Descripción</Typography>
+				</Grid>
+				<Grid item >
+					<Typography variant="caption" component="small" gutterBottom >Añade mas detalles a esta actividad...</Typography>
+				</Grid>
+			</Grid>
+			<Grid container alignItems="center" style={{ margin: '15px 0px 15px 0px' }}>
+				<Grid item xs={12} >
+					<Typography variant="body2"  style={{ color: 'grey' }} gutterBottom >Subtareas</Typography>
+				</Grid>
+				<Grid item xs={12} >
+					<List className={classes.root}>
+						<Divider />
+						{[0, 1].map((value) => {
+							const labelId = `checkbox-list-label-${value}`;
 
-			<Dialog
-				open={open}
-				onClose={ () => setOpen(false) }
-				fullWidth={true}
-				scroll="body"
-				maxWidth="sm"
-				aria-labelledby="alert-dialog-title"
-				aria-describedby="alert-dialog-description"
-			>
-				<DialogContent>
-					<DialogContentText id="alert-dialog-description">
-						<Grid container justify="space-between" alignItems="center" style={{ marginBottom: '20px' }}>
-							<IconButton><Icon fontSize="small">close</Icon></IconButton>
-							<Button 
-								variant="outlined" 
-								color="primary"
-								className={[ classes.button_high, classes.btn ]}
-								startIcon={ <Icon fontSize="small">check</Icon> }
-							>
-								Marcar como realizada
-							</Button>
-						</Grid>
-						<Grid container spacing={2}>
-							<Grid item>
-								<Typography className={ classes.black } variant="h5" component="h5" gutterBottom >
-									Emitir factura
-								</Typography>
-							</Grid>
-						</Grid>
-						<Grid container alignItems="center" spacing={1} >
-							<Grid item >
-								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Responsable</Typography>
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<Typography variant="caption" className={ classes.black } component="span" gutterBottom >Richard Jimenez</Typography>
-							</Grid>
-						</Grid>
-						<Grid container alignItems="center" spacing={1} >
-							<Grid item >
-								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Colaboradores</Typography>
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen2 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen3 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen2 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen3 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen2 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen3 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<Add />
-							</Grid>
-						</Grid>
-						<Grid container alignItems="center" style={{ margin: '15px 0px' }}>
-							<Grid item >
-								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Fecha de entrega</Typography>
-							</Grid>
-							<Grid item style={{ marginLeft: 15, marginRight: 5 }}>
-								<Icon >event_note</Icon>
-							</Grid>
-							<Grid item >
-								<Typography style={{ marginBottom: 3 }} variant="caption" component="p">17 Jul</Typography>
-							</Grid>
-						</Grid>
-						<Grid container alignItems="center" spacing={3}>
-							<Grid item >
-								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Prioridad</Typography>
-							</Grid>
-							<Grid item >
-								<Button size="small" className={[ classes.button_high, classes.btn_priority ]} variant="contained">Alta</Button>
-							</Grid>
-						</Grid>
-						<Grid container alignItems="center" spacing={3}>
-							<Grid item >
-								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Descripción</Typography>
-							</Grid>
-							<Grid item >
-								<Typography variant="caption" component="small" gutterBottom >Añade mas detalles a esta actividad...</Typography>
-							</Grid>
-						</Grid>
-						<Grid container alignItems="center" style={{ margin: '15px 0px 15px 0px' }}>
-							<Grid item xs={12} >
-								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Subtareas</Typography>
-							</Grid>
-							<Grid item xs={12} >
-								<List className={classes.root}>
-									<Divider />
-									{[0, 1].map((value) => {
-										const labelId = `checkbox-list-label-${value}`;
-
-										return (
-											<ListItem key={value} role={undefined} dense divider alignItems="center" onClick={ handleToggle(value) }>
-												<ListItemIcon>
-													<Checkbox
-														edge="start"
-														checked={checked.indexOf(value) !== -1}
-														tabIndex={-1}
-														disableRipple
-														inputProps={{ 'aria-labelledby': labelId }}
-													/>
-												</ListItemIcon>
-												<ListItemText id={labelId} primary={`List item ${value + 1}`} />
-												<ListItemSecondaryAction>
-													<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
-												</ListItemSecondaryAction>
-											</ListItem>
-										);
-									})}
-								</List>
-							</Grid>
-						</Grid>
-						<Grid container spacing={3} style={{ backgroundColor: '#f5f5f5' }} >
-							<Grid xs={1} item >
-								<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid xs={11} item >
-								<TextField
-									multiline
-									placeholder="Realiza una pregunta pública"
-									fullWidth
-									rows={5}
-									variant="outlined" 
-									style={{ fontSize: 12, backgroundColor: '#fff', borderRadius: 5 }}
-								/>
-							</Grid>
-							<Grid xs={12} item  justify="flex-end" container>
-								<Grid item alignItems="center">
-									<Button
-										className={[ classes.button_high, classes.button_reject_task ]}
-										size="small"
-								        startIcon={ <Icon>remove_circle</Icon> }
-								    >
-								        Abandonar la tarea
-								    </Button>
-								</Grid>
-							</Grid>
-						</Grid>
-					</DialogContentText>
-				</DialogContent>
-			</Dialog>
+							return (
+								<ListItem key={value} role={undefined} dense divider alignItems="center" onClick={ handleToggle(value) }>
+									<ListItemIcon>
+										<Checkbox
+											edge="start"
+											checked={checked.indexOf(value) !== -1}
+											tabIndex={-1}
+											disableRipple
+											inputProps={{ 'aria-labelledby': labelId }}
+										/>
+									</ListItemIcon>
+									<ListItemText id={labelId} primary={`List item ${value + 1}`} />
+									<ListItemSecondaryAction>
+										<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
+									</ListItemSecondaryAction>
+								</ListItem>
+							);
+						})}
+					</List>
+				</Grid>
+			</Grid>
+			<Grid container spacing={3} style={{ backgroundColor: '#f5f5f5' }} >
+				<Grid xs={1} item >
+					<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
+				</Grid>
+				<Grid xs={11} item >
+					<TextField
+						multiline
+						placeholder="Realiza una pregunta pública"
+						fullWidth
+						rows={5}
+						variant="outlined" 
+						style={{ fontSize: 12, backgroundColor: '#fff', borderRadius: 5 }}
+					/>
+				</Grid>
+				<Grid xs={12} item  justify="flex-end" container>
+					<Grid item>
+						<Button
+							className={[ classes.button_high, classes.button_reject_task ]}
+							size="small"
+					        startIcon={ <Icon>remove_circle</Icon> }
+					    >
+					        Abandonar la tarea
+					    </Button>
+					</Grid>
+				</Grid>
+			</Grid>
 		</>
 	)
 }

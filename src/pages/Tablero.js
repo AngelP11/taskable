@@ -1,12 +1,13 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Grid } from '@material-ui/core';
+import { Button, Grid, Dialog, DialogContent, DialogContentText } from '@material-ui/core';
 
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import Add from '@material-ui/icons/Add';
 
 import Layout from '../components/Layout';
 import CardTask from '../components/CardTask'
+import ExpandedList from '../components/ExpandedList'
 
 const useStyles = makeStyles((theme) => ({
 	button_column_name: {
@@ -39,9 +40,26 @@ export default function Tablero(){
 	
 	const classes = useStyles();
 
+	const [open, setOpen]       = React.useState(false)
+	const [value, setValue]     = React.useState(false)
+	const [checked, setChecked] = React.useState([0]);
+
+	const handleToggle = (value) => () => {
+		const currentIndex = checked.indexOf(value);
+		const newChecked = [...checked];
+
+		if (currentIndex === -1) {
+			newChecked.push(value);
+		} else {
+			newChecked.splice(currentIndex, 1);
+		}
+
+		setChecked(newChecked);
+	};
+
 	return (
 		<Layout>
-			<Grid container spacing={2} alignItems="flex-start">
+			<Grid container spacing={2} alignItems="flex-start" >
 						
 				<Grid container item spacing={2} xs={3}>
 
@@ -57,7 +75,7 @@ export default function Tablero(){
 					</Grid>
 
 					<Grid item xs={12}>
-						<CardTask title="Refactorizar todo el código" />
+						<CardTask onClick={ () => setOpen(true) } title="Refactorizar todo el código" />
 					</Grid>
 
 					<Grid item xs={12}>
@@ -132,6 +150,25 @@ export default function Tablero(){
 
 				</Grid>
 			</Grid>
+
+			<Dialog
+				open={open}
+				onClose={ () => setOpen(false) }
+				fullWidth={true}
+				scroll="body"
+				maxWidth="sm"
+				aria-labelledby="alert-dialog-title"
+				aria-describedby="alert-dialog-description"
+			>
+				<DialogContent>
+					<DialogContentText id="alert-dialog-description">
+
+						<ExpandedList onCerrar={() => setOpen(false)} value={value} />
+
+					</DialogContentText>
+				</DialogContent>
+			</Dialog>
+
 		</Layout>
 	)
 }
