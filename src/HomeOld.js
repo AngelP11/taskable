@@ -21,24 +21,24 @@ const items = [
 
 const columns = [
   {
-    id: uuid(), 
+    id: uuid(),
     name: "Requested",
     items: items
   },
   {
-    id: uuid(), 
+    id: uuid(),
     name: "To do",
     items: []
   },
   {
-    id: uuid(), 
+    id: uuid(),
     name: "Doing",
     items: []
   },
 ]
 
 
-function HomeOld() { 
+function HomeOld() {
   return (
     <React.Fragment>
       <Layout>

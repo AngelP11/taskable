@@ -35,22 +35,22 @@ const paraBorrar = () => {
 
 
 export default function App() {
-  return (
-	<BrowserRouter>
-		<Switch>
-			<Route path="/taskable" component={paraBorrar} exact />
-			<Route path="/taskable/login" component={Login} exact />
-			<Route path="/taskable/password" component={Password} exact />
-			<Route path="/taskable/register" component={Register} exact />
-			<Route path="/taskable/expanded-list" component={ExpandedList} exact />
-			
-			<Route path="/taskable/listas" component={Listas} exact />
-			<Route path="/taskable/tablero" component={Tablero} exact />
+	return (
+		<BrowserRouter>
+			<Switch>
+				<Route path="/taskable" component={paraBorrar} exact />
+				<Route path="/taskable/login" component={Login} exact />
+				<Route path="/taskable/password" component={Password} exact />
+				<Route path="/taskable/register" component={Register} exact />
+				<Route path="/taskable/expanded-list" component={ExpandedList} exact />
 
-			<Route path="/taskable/kanban" component={HomeOld} exact />
-			<Route component={Error} />
-		</Switch> 
-	</BrowserRouter>
-  );
+				<Route path="/taskable/listas" component={Listas} exact />
+				<Route path="/taskable/tablero" component={Tablero} exact />
+
+				<Route path="/taskable/kanban" component={HomeOld} exact />
+				<Route component={Error} />
+			</Switch>
+		</BrowserRouter>
+  	);
 }
 
