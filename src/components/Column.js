@@ -1,12 +1,13 @@
 import React from 'react'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 import { makeStyles } from '@material-ui/core/styles'
-import { Button, Grid } from '@material-ui/core'
+import { Button, Grid, Dialog, DialogContentText, DialogContent } from '@material-ui/core'
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 import Add from '@material-ui/icons/Add';
 
 /* Components */
 import CardTask from '../components/CardTask'
+import ExpandedList from '../components/ExpandedList'
 
 const useStyles = makeStyles((theme) => ({
 	button_column_name: {
@@ -20,8 +21,8 @@ const useStyles = makeStyles((theme) => ({
 		width: '100%',
 		display: 'flex',
 		justifyContent: 'space-between'
-    },
-    addTaskBtn: {
+	},
+	addTaskBtn: {
 		width: '100%',
 		backgroundColor:'#fff',
 		color: 'grey',
@@ -31,56 +32,95 @@ const useStyles = makeStyles((theme) => ({
 		'&:hover': {
 			backgroundColor: '#fff',
 		},
-    },
-    isDraggingOverClass: {
-        backgroundColor: "lightgrey"
-    }
+	},
+	isDraggingOverClass: {
+		backgroundColor: "lightgrey"
+	}
 }))
 
 export default function Column (props) {
-    const classes = useStyles()
+	const classes = useStyles()
 
-    return (
-        <Draggable draggableId={props.column.id} index={props.index}>
-            {(provided) => (
-                <Grid
-                    container
-                    item
-                    spacing={2}
-                    xs={3}
-                    {...provided.draggableProps}
-                    innerRef={provided.innerRef}
-                >
-                    {/* Titulo */}
-                    <Grid item xs={12}>
-                        <Button className={[ classes.button_column_name ]} {...provided.dragHandleProps}>
-                            <span>{props.column.title}</span>
-                            <MoreHorizIcon />
-                        </Button>
-                    </Grid>
+	const [open, setOpen]       = React.useState(false)
+	const [value, setValue]     = React.useState(false)
+	const [checked, setChecked] = React.useState([0]);
 
-                    {/* Agregar tarea */}
-                    <Grid item xs={12}>
-                        <Button className={[ classes.addTaskBtn ]} startIcon={<Add />}>Nueva Tarea</Button>
-                    </Grid>
+	const handleToggle = (value) => () => {
+		const currentIndex = checked.indexOf(value);
+		const newChecked = [...checked];
 
-                    {/* Tareas */}
-                    <Droppable droppableId={props.column.id} type="task">
-                        {(provided, snapshot) => (
-                            <Grid
-                                item
-                                xs={12}
-                                {...provided.droppableProps}
-                                innerRef={provided.innerRef}
-                                className={  snapshot.isDraggingOver ? [classes.isDraggingOverClass] : "" }
-                            >
-                                {props.tasks.map((task, index) => { return <CardTask key={task.id} task={task} index={index}/> })}
-                                {provided.placeholder}
-                            </Grid>
-                        )}
-                    </Droppable>
-                </Grid>
-            )}
-        </Draggable>
-    )
+		if (currentIndex === -1) {
+			newChecked.push(value);
+		} else {
+			newChecked.splice(currentIndex, 1);
+		}
+
+		setChecked(newChecked);
+	};
+
+	return (
+		<Draggable draggableId={props.column.id} index={props.index}>
+			{(provided) => (
+				<>
+					<Grid
+						container
+						item
+						spacing={2}
+						xs={3}
+						{...provided.draggableProps}
+						innerRef={provided.innerRef}
+					>
+						{/* Titulo */}
+						<Grid item xs={12}>
+							<Button className={[ classes.button_column_name ]} {...provided.dragHandleProps}>
+								<span>{props.column.title}</span>
+								<MoreHorizIcon />
+							</Button>
+						</Grid>
+
+						{/* Agregar tarea */}
+						<Grid item xs={12}>
+							<Button className={[ classes.addTaskBtn ]} startIcon={<Add />}>Nueva Tarea</Button>
+						</Grid>
+
+						{/* Tareas */}
+						<Droppable droppableId={props.column.id} type="task">
+							{(provided, snapshot) => (
+								<Grid
+									item
+									xs={12}
+									{...provided.droppableProps}
+									innerRef={provided.innerRef}
+									className={  snapshot.isDraggingOver ? [classes.isDraggingOverClass] : "" }
+								>
+									{ props.tasks.map((task, index) => { 
+										return <CardTask onClick={ () => setOpen(true) } key={task.id} task={task} index={index}/> }) 
+									}
+									{ provided.placeholder }
+								</Grid>
+							)}
+						</Droppable>
+					</Grid>
+
+					<Dialog
+						open={open}
+						onClose={ () => setOpen(false) }
+						fullWidth={true}
+						scroll="body"
+						maxWidth="sm"
+						aria-labelledby="alert-dialog-title"
+						aria-describedby="alert-dialog-description"
+					>
+						<DialogContent>
+							<DialogContentText id="alert-dialog-description">
+
+								<ExpandedList onCerrar={() => setOpen(false)} value={value} />
+
+							</DialogContentText>
+						</DialogContent>
+					</Dialog>
+				</>
+			)}
+		</Draggable>
+	)
 }
