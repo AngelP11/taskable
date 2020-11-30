@@ -32,7 +32,9 @@ const useStyles = makeStyles((theme) => ({
 		borderRadius: '8px',
 		boxShadow: '0 1px 3px 0 rgba(45, 45, 55, 0.12);',
 		cursor: 'pointer',
-		marginBottom: 12
+		marginBottom: 12,
+		width: 260,
+		margin: 8
 	},
 	icons: {
 		fontSize: '10px',

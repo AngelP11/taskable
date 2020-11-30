@@ -28,6 +28,11 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex',
 		justifyContent: 'space-between'
 	},
+	divContainer: {
+		width: '100%',
+		display: 'flex',
+		justifyContent: 'flex-start'
+	}
 }))
 
 export default function Tablero(){
@@ -113,12 +118,10 @@ export default function Tablero(){
 		<Layout>
 
 			<DragDropContext onDragEnd={onDragEnd}>
-				<Droppable droppableId="all-columns" direction="horizontal" type="column">
+				<Droppable droppableId="all-columns" direction="horizontal" type="column" >
 					{(provided) => (
-						<Grid
-							container
-							spacing={2}
-							alignItems="flex-start"
+						<div
+							className={ classes.divContainer }
 							{...provided.droppableProps}
 							innerRef={provided.innerRef}
 						>
@@ -129,16 +132,16 @@ export default function Tablero(){
 								return <Column key={column.id} column={column} tasks={tasks} index={index} />
 							})}
 							{provided.placeholder}
-							<Grid item container xs={3} spacing={2}>
-								<Grid item xs={12}>
+							<div style={{ width: 260, margin: 8 }}>
+								<div style={{ width: '100%' }}>
 									<Button className={[ classes.button_column_name ]}>
 										<div style={{ display:'flex', justifyContent: 'flex-start' }}>
 											<Add /> Añadir sección
 										</div>
 									</Button>
-								</Grid>
-							</Grid>
-						</Grid>
+								</div>
+							</div>
+						</div>
 					)}
 				</Droppable>
 			</DragDropContext>

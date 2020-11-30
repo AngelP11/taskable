@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
 	},
 	isDraggingOverClass: {
 		backgroundColor: "lightgrey"
+	},
+	m8: {
+		margin: 8
 	}
 }))
 
@@ -62,26 +65,23 @@ export default function Column (props) {
 		<Draggable draggableId={props.column.id} index={props.index}>
 			{(provided) => (
 				<>
-					<Grid
-						container
-						item
-						spacing={2}
-						xs={3}
+					<div
+						style={{ width: 260 }}
 						{...provided.draggableProps}
 						innerRef={provided.innerRef}
 					>
 						{/* Titulo */}
-						<Grid item xs={12}>
+						<div className={ classes.m8 }>
 							<Button className={[ classes.button_column_name ]} {...provided.dragHandleProps}>
 								<span>{props.column.title}</span>
 								<MoreHorizIcon />
 							</Button>
-						</Grid>
+						</div>
 
 						{/* Agregar tarea */}
-						<Grid item xs={12}>
+						<div className={ classes.m8 }>
 							<Button className={[ classes.addTaskBtn ]} startIcon={<Add />}>Nueva Tarea</Button>
-						</Grid>
+						</div>
 
 						{/* Tareas */}
 						<Droppable droppableId={props.column.id} type="task">
@@ -100,7 +100,7 @@ export default function Column (props) {
 								</Grid>
 							)}
 						</Droppable>
-					</Grid>
+					</div>
 
 					<Dialog
 						open={open}

@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 import Login from '../pages/Login'
 import Register from '../pages/Register'
 import Password from '../pages/Password'
-import ExpandedList from './ExpandedList'
 import Error from '../pages/Error'
 
 import Tablero from '../pages/Tablero'
@@ -26,7 +25,6 @@ const paraBorrar = () => {
 				<li><Link to="/taskable/password">/taskable/password</Link></li>
 				<li><Link to="/taskable/listas">/taskable/listas</Link></li>
 				<li><Link to="/taskable/tablero">/taskable/tablero</Link></li>
-				<li><Link to="/taskable/expanded-list">/taskable/expanded-list</Link></li>
 				<li><Link to="/taskable/kanban">/taskable/kanban</Link></li>
 			</ul>
 		</>
@@ -42,7 +40,6 @@ export default function App() {
 				<Route path="/taskable/login" component={Login} exact />
 				<Route path="/taskable/password" component={Password} exact />
 				<Route path="/taskable/register" component={Register} exact />
-				<Route path="/taskable/expanded-list" component={ExpandedList} exact />
 
 				<Route path="/taskable/listas" component={Listas} exact />
 				<Route path="/taskable/tablero" component={Tablero} exact />
