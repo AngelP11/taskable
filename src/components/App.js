@@ -10,7 +10,6 @@ import Error from '../pages/Error'
 
 import Tablero from '../pages/Tablero'
 import Listas from '../pages/Listas'
-import HomeOld from '../HomeOld';
 
 /* Components */
 // import Layout from './Layout'
@@ -27,7 +26,6 @@ const paraBorrar = () => {
 				<li><Link to="/taskable/listas">/taskable/listas</Link></li>
 				<li><Link to="/taskable/tablero">/taskable/tablero</Link></li>
 				<li><Link to="/taskable/expanded-list">/taskable/expanded-list</Link></li>
-				<li><Link to="/taskable/kanban">/taskable/kanban</Link></li>
 			</ul>
 		</>
 	)
@@ -43,11 +41,8 @@ export default function App() {
 				<Route path="/taskable/password" component={Password} exact />
 				<Route path="/taskable/register" component={Register} exact />
 				<Route path="/taskable/expanded-list" component={ExpandedList} exact />
-
 				<Route path="/taskable/listas" component={Listas} exact />
 				<Route path="/taskable/tablero" component={Tablero} exact />
-
-				<Route path="/taskable/kanban" component={HomeOld} exact />
 				<Route component={Error} />
 			</Switch>
 		</BrowserRouter>

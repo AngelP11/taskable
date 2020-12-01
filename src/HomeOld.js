@@ -7,8 +7,6 @@ import uuid from 'uuid/v4'
 //import './styles/Home.css'
 
 import Layout from './components/Layout'
-import Kanban from './components/Kanban'
-
 
 const items = [
   { id: uuid(), content: "First task" },
@@ -42,7 +40,6 @@ function HomeOld() {
   return (
     <React.Fragment>
       <Layout>
-        <Kanban columns={columns} />
       </Layout>
     </React.Fragment>
   )

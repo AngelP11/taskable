@@ -159,7 +159,7 @@ export default function Lista(){
 
 	const [open, setOpen] = React.useState(false)
 	const [checked, setChecked] = React.useState([0]);
-	
+
 	const handleChange = (panel) => (event, isExpanded) => {
 		setExpanded(isExpanded ? panel : false);
 	}
@@ -253,21 +253,19 @@ export default function Lista(){
 								<Typography className={classes.heading}>Finalizadas</Typography>
 							</AccordionSummary>
 							<AccordionDetails style={{ padding: 0 }}>
-								
 								<List className={classes.raiz}>
 									{ arr.map((value, index) => {
-										
 										return (
-											<ListItem 
-												alignItems="center" 
-												className={ classes.border } 
-												key={index} 
-												role={undefined} 
+											<ListItem
+												alignItems="center"
+												className={ classes.border }
+												key={index}
+												role={undefined}
 												dense
 											>
 												<Grid container>
-													<Grid 
-														onClick={ () => openDetailedList(value) } 
+													<Grid
+														onClick={ () => openDetailedList(value) }
 														item
 														className={ classes.br }
 														xs={ (isShowedDetailedList) ? 12 : 5 }
@@ -296,10 +294,10 @@ export default function Lista(){
 															<Grid item className={ classes.br } xs>
 																<div className={ classes.div }>
 																	<ScheduleOutlined style={{ fontSize: 13, margin: '-3px  3px', color: '#ff8d8d' }} />
-																	{ value.timeLeft ? 
+																	{ value.timeLeft ?
 																		( <small className={ classes.caption }>Finalizado</small> )
-																		: 
-																		( <small className={ classes.caption }>2 días restantes</small> ) 
+																		:
+																		( <small className={ classes.caption }>2 días restantes</small> )
 																	}
 																</div>
 															</Grid>
@@ -324,7 +322,6 @@ export default function Lista(){
 								</List>
 							</AccordionDetails>
 						</Accordion>
-						
 						<Accordion expanded={ expanded === 'panel2' } onChange={ handleChange('panel2') } style={{ boxShadow: 'none' }} >
 							<AccordionSummary
 								expandIcon={ <ExpandMoreIcon /> }
@@ -334,16 +331,15 @@ export default function Lista(){
 								<Typography className={classes.heading}>Sin comenzar</Typography>
 							</AccordionSummary>
 							<AccordionDetails style={{ padding: 0 }}>
-								
 								<List className={classes.raiz}>
 									{ arr.map((value, index) => {
 
 										return (
-											<ListItem 
-												alignItems="center" 
-												className={ classes.border } 
-												key={index} 
-												role={undefined} 
+											<ListItem
+												alignItems="center"
+												className={ classes.border }
+												key={index}
+												role={undefined}
 												dense
 											>
 												<Grid container>
@@ -370,10 +366,10 @@ export default function Lista(){
 													<Grid item className={ classes.br } xs>
 														<div className={ classes.div }>
 															<ScheduleOutlined style={{ fontSize: 13, margin: '-3px  3px', color: '#ff8d8d' }} />
-															{ value.timeLeft ? 
+															{ value.timeLeft ?
 																( <small className={ classes.caption }>Finalizado</small> )
-																: 
-																( <small className={ classes.caption }>2 días restantes</small> ) 
+																:
+																( <small className={ classes.caption }>2 días restantes</small> )
 															}
 														</div>
 													</Grid>
@@ -406,17 +402,17 @@ export default function Lista(){
 								<Typography className={classes.heading}>Asignaciones terminadas</Typography>
 							</AccordionSummary>
 							<AccordionDetails style={{ padding: 0 }}>
-								
+
 								<List className={classes.raiz}>
 									{ arr.map((value, index) => {
-										
+
 
 										return (
-											<ListItem 
-												alignItems="center" 
-												className={ classes.border } 
-												key={index} 
-												role={undefined} 
+											<ListItem
+												alignItems="center"
+												className={ classes.border }
+												key={index}
+												role={undefined}
 												dense
 											>
 												<Grid container>
@@ -443,10 +439,10 @@ export default function Lista(){
 													<Grid item className={ classes.br } xs>
 														<div className={ classes.div }>
 															<ScheduleOutlined style={{ fontSize: 13, margin: '-3px  3px', color: '#ff8d8d' }} />
-															{ value.timeLeft ? 
+															{ value.timeLeft ?
 																( <small className={ classes.caption }>Finalizado</small> )
-																: 
-																( <small className={ classes.caption }>2 días restantes</small> ) 
+																:
+																( <small className={ classes.caption }>2 días restantes</small> )
 															}
 														</div>
 													</Grid>
@@ -479,17 +475,17 @@ export default function Lista(){
 								<Typography className={classes.heading}>En progreso</Typography>
 							</AccordionSummary>
 							<AccordionDetails style={{ padding: 0 }}>
-								
+
 								<List className={classes.raiz}>
 									{ arr.map((value, index) => {
-										
+
 
 										return (
-											<ListItem 
-												alignItems="center" 
-												className={ classes.border } 
-												key={index} 
-												role={undefined} 
+											<ListItem
+												alignItems="center"
+												className={ classes.border }
+												key={index}
+												role={undefined}
 												dense
 											>
 												<Grid container>
@@ -516,10 +512,10 @@ export default function Lista(){
 													<Grid item className={ classes.br } xs>
 														<div className={ classes.div }>
 															<ScheduleOutlined style={{ fontSize: 13, margin: '-3px  3px', color: '#ff8d8d' }} />
-															{ value.timeLeft ? 
+															{ value.timeLeft ?
 																( <small className={ classes.caption }>Finalizado</small> )
-																: 
-																( <small className={ classes.caption }>2 días restantes</small> ) 
+																:
+																( <small className={ classes.caption }>2 días restantes</small> )
 															}
 														</div>
 													</Grid>
@@ -546,11 +542,11 @@ export default function Lista(){
 					{ (isShowedDetailedList) ? (
 
 						<Grid item container style={{ padding: 13, borderLeft: '1px solid lightgrey' }} xs={6}>
-							
+
 							<Grid container item justify="space-between" alignItems="center" style={{ marginBottom: '20px' }}>
 								<IconButton><Icon onClick={ () => closeDetailedList() } fontSize="small">close</Icon></IconButton>
-								<Button 
-									variant="outlined" 
+								<Button
+									variant="outlined"
 									color="primary"
 									className={[ classes.button_high, classes.btn ]}
 									startIcon={ <Icon fontSize="small">check</Icon> }
@@ -670,7 +666,7 @@ export default function Lista(){
 										placeholder="Realiza una pregunta pública"
 										fullWidth
 										rows={5}
-										variant="outlined" 
+										variant="outlined"
 										style={{ fontSize: 12, backgroundColor: '#fff', borderRadius: 5 }}
 									/>
 								</Grid>
@@ -705,8 +701,8 @@ export default function Lista(){
 					<DialogContentText id="alert-dialog-description">
 						<Grid container justify="space-between" alignItems="center" style={{ marginBottom: '20px' }}>
 							<IconButton><Icon fontSize="small">close</Icon></IconButton>
-							<Button 
-								variant="outlined" 
+							<Button
+								variant="outlined"
 								color="primary"
 								className={[ classes.button_high, classes.btn ]}
 								startIcon={ <Icon fontSize="small">check</Icon> }
@@ -826,7 +822,7 @@ export default function Lista(){
 									placeholder="Realiza una pregunta pública"
 									fullWidth
 									rows={5}
-									variant="outlined" 
+									variant="outlined"
 									style={{ fontSize: 12, backgroundColor: '#fff', borderRadius: 5 }}
 								/>
 							</Grid>
