@@ -100,6 +100,15 @@ const useStyles = makeStyles((theme) => ({
 		marginLeft: 0,
 		color: 'grey'
 	},
+	blueBorder: {
+		border: '1px solid #2979ff'
+	},
+	buttonRightContainer: {
+		color: 'grey',
+		fontSize: 12,
+		display: 'flex',
+		alignItems: 'center',
+	}
 }))
 
 export default function Lista(){
@@ -118,7 +127,7 @@ export default function Lista(){
 		setExpanded(isExpanded ? panel : false);
 	}
 
-	const handleToggle = (value) => () => {
+	const handleToggle = (value) => (e) => {
 		const currentIndex = checked.indexOf(value);
 		const newChecked = [...checked];
 
@@ -162,7 +171,10 @@ export default function Lista(){
 		}
 	]
 
-	const openDetailedList = (value) => {
+	const openDetailedList = (value) => (e) => {
+
+		e.target.parentNode.parentNode.style = "display: flex; justify-content: flex-between; border-top: 1px solid #2979ff; border-bottom: 1px solid #2979ff; border-left: 1px solid #2979ff;"
+
 		setIsShowedDetailedList(true)
 		setListWidth(6)
 		setValue(value)
@@ -222,10 +234,9 @@ export default function Lista(){
 												dense
 											>
 												<Grid container>
-													<Grid 
-														onClick={ () => openDetailedList(value) } 
+													<Grid
 														item
-														style={{ cursor: 'pointer', display: 'flex', justifyContent: 'space-between' }}
+														style={{ display: 'flex', justifyContent: 'flex-between' }}
 														className={ classes.br }
 														xs={ (isShowedDetailedList) ? 12 : 5 }
 													>
@@ -241,12 +252,10 @@ export default function Lista(){
 																label={ value.nombre }
 															/>
 														</div>
-														{ ( isShowedDetailedList ) ? (
-															<div style={{ color: 'grey', fontSize: 12, display: 'flex', alignItems: 'center' }}>
-																<small>Detalles </small>
-																<MoreHorizIcon style={{ marginLeft: 5 }} />
-															</div>
-														) : null }
+														<div className={ classes.buttonRightContainer }>
+															<small style={{ cursor: 'pointer' }} onClick={ openDetailedList(value) }>Detalles </small>
+															<MoreHorizIcon style={{ marginLeft: 5 }} />
+														</div>
 													</Grid>
 													{ ( ! isShowedDetailedList ) ? (
 														<>
@@ -307,7 +316,7 @@ export default function Lista(){
 					</Grid>
 					{ (isShowedDetailedList) ? (
 
-						<Grid item container style={{ padding: 13, borderLeft: '1px solid lightgrey' }} xs={6}>
+						<Grid item container className={ classes.blueBorder } style={{ padding: 13 }} xs={6}>
 							
 							<ExpandedList onCerrar={ () => closeDetailedList() } value={ value } />
 

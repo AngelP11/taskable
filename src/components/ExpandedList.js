@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
 	...buttons,
 	btn: {
 		backgroundColor: '#fff',
+		borderColor: '#2979ff',
 		color: '#2979ff',
 		'&:hover': {
 			cursor: 'pointer',

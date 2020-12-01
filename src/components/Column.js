@@ -34,7 +34,9 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 	isDraggingOverClass: {
-		backgroundColor: "lightgrey"
+		backgroundColor: "lightgrey",
+		borderRadius: 8,
+		padding: 5
 	},
 	m8: {
 		margin: 8
@@ -66,7 +68,6 @@ export default function Column (props) {
 			{(provided) => (
 				<>
 					<div
-						style={{ width: 260 }}
 						{...provided.draggableProps}
 						innerRef={provided.innerRef}
 					>
@@ -86,18 +87,19 @@ export default function Column (props) {
 						{/* Tareas */}
 						<Droppable droppableId={props.column.id} type="task">
 							{(provided, snapshot) => (
-								<Grid
-									item
-									xs={12}
-									{...provided.droppableProps}
-									innerRef={provided.innerRef}
-									className={  snapshot.isDraggingOver ? [classes.isDraggingOverClass] : "" }
-								>
-									{ props.tasks.map((task, index) => { 
-										return <CardTask onClick={ () => setOpen(true) } key={task.id} task={task} index={index}/> }) 
-									}
-									{ provided.placeholder }
-								</Grid>
+								<div style={{ width: 275 }}>
+									<Grid
+										item
+										{...provided.droppableProps}
+										innerRef={provided.innerRef}
+										className={  snapshot.isDraggingOver ? [classes.isDraggingOverClass] : "" }
+									>
+										{ props.tasks.map((task, index) => { 
+											return <CardTask onClick={ () => setOpen(true) } key={task.id} task={task} index={index}/> }) 
+										}
+										{ provided.placeholder }
+									</Grid>
+								</div>
 							)}
 						</Droppable>
 					</div>

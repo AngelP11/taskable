@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
 		justifyContent: 'space-between'
 	},
 	divContainer: {
-		width: '100%',
 		display: 'flex',
 		justifyContent: 'flex-start'
 	}
@@ -133,13 +132,11 @@ export default function Tablero(){
 							})}
 							{provided.placeholder}
 							<div style={{ width: 260, margin: 8 }}>
-								<div style={{ width: '100%' }}>
-									<Button className={[ classes.button_column_name ]}>
-										<div style={{ display:'flex', justifyContent: 'flex-start' }}>
-											<Add /> Añadir sección
-										</div>
-									</Button>
-								</div>
+								<Button className={[ classes.button_column_name ]}>
+									<div style={{ display:'flex', justifyContent: 'flex-start' }}>
+										<Add style={{ marginRight: 5 }} /> Añadir sección
+									</div>
+								</Button>
 							</div>
 						</div>
 					)}
