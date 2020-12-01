@@ -132,3 +132,8 @@ p {
 .MuiInputBase-formControl {
 	/*height: 42px !important;*/
 }
+
+
+.MuiFormControlLabel-label {
+	font-weight: 300 !important
+}

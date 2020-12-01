@@ -7,6 +7,7 @@ import {
 
 import { ScheduleOutlined } from '@material-ui/icons';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import Add from '@material-ui/icons/Add';
 import DragIndicator from '@material-ui/icons/DragIndicator';
 
@@ -62,6 +63,7 @@ const useStyles = makeStyles((theme) => ({
 		},
 		paddingLeft: 6,
 		paddingRight: 6,
+		color: 'grey'
 	},
 	caption: {
 		color: '#ff5861',
@@ -87,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 	div: {
-		paddingTop: 15,
+		paddingTop: 12,
 		textAlign: 'center',
 	},
 	divCenter: {
@@ -223,19 +225,28 @@ export default function Lista(){
 													<Grid 
 														onClick={ () => openDetailedList(value) } 
 														item
-														style={{ cursor: 'pointer' }}
+														style={{ cursor: 'pointer', display: 'flex', justifyContent: 'space-between' }}
 														className={ classes.br }
 														xs={ (isShowedDetailedList) ? 12 : 5 }
 													>
-														<DragIndicator style={{ color: 'grey' }}></DragIndicator>
-														<FormControlLabel
-															aria-label="Acknowledge"
-															className={ classes.ml }
-															onClick={ handleToggle(index) }
-															onFocus={(event) => event.stopPropagation()}
-															control={ <Checkbox color="lightgrey" checked={checked.indexOf(index) !== -1} /> }
-															label={ value.nombre }
-														/>
+														<div>
+															<DragIndicator style={{ color: 'grey' }}></DragIndicator>
+															<FormControlLabel
+																aria-label="Acknowledge"
+																className={ classes.ml }
+																onClick={ handleToggle(index) }
+																style={{ fontWeight: 200 }}
+																onFocus={(event) => event.stopPropagation()}
+																control={ <Checkbox color="lightgrey" checked={checked.indexOf(index) !== -1} /> }
+																label={ value.nombre }
+															/>
+														</div>
+														{ ( isShowedDetailedList ) ? (
+															<div style={{ color: 'grey', fontSize: 12, display: 'flex', alignItems: 'center' }}>
+																<small>Detalles </small>
+																<MoreHorizIcon style={{ marginLeft: 5 }} />
+															</div>
+														) : null }
 													</Grid>
 													{ ( ! isShowedDetailedList ) ? (
 														<>
@@ -266,7 +277,7 @@ export default function Lista(){
 															</Grid>
 															<Grid item className={ classes.br } xs>
 																<div className={ classes.divCenter }>
-																	Etiqueta
+																	
 																</div>
 															</Grid>
 														</> ) : null
@@ -281,9 +292,9 @@ export default function Lista(){
 										role={undefined}
 										dense
 									>
-										<Grid container style={{ opacity: 0.6, padding: 6 }}>
+										<Grid container style={{ opacity: 0.5, padding: 6 }} alignItems="center">
 											<Grid item className={ classes.br } container xs>
-												<Add style={{ color: 'grey', fontSize: 16, marginRight: 4 }}></Add>
+												<Add style={{ marginRight: 5, paddingBottom: 4 }}></Add>
 												<span>Añadir tarea</span>
 											</Grid>
 										</Grid>
