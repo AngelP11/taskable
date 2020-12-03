@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+
+import { Button, Grid, Dialog, DialogContent, DialogContentText } from '@material-ui/core';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { makeStyles } from '@material-ui/core/styles'
-import { Button, Grid } from '@material-ui/core';
+
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import Add from '@material-ui/icons/Add';
 
 /* Components */
@@ -25,6 +28,11 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex',
 		justifyContent: 'space-between'
 	},
+	divContainer: {
+		width: '100%',
+		display: 'flex',
+		justifyContent: 'flex-start'
+	}
 }))
 
 export default function Tablero(){
@@ -81,6 +89,7 @@ export default function Tablero(){
 
 		const startTaskIds = Array.from(start.taskIds)
 		startTaskIds.splice(source.index, 1)
+		
 		const newStart = {
 			...start,
 			taskIds: startTaskIds
@@ -88,6 +97,7 @@ export default function Tablero(){
 
 		const finishTaskIds = Array.from(finish.taskIds)
 		finishTaskIds.splice(destination.index, 0, draggableId)
+		
 		const newFinish = {
 			...finish,
 			taskIds: finishTaskIds
@@ -106,33 +116,32 @@ export default function Tablero(){
 
 	return (
 		<Layout>
+
 			<DragDropContext onDragEnd={onDragEnd}>
-				<Droppable droppableId="all-columns" direction="horizontal" type="column">
+				<Droppable droppableId="all-columns" direction="horizontal" type="column" >
 					{(provided) => (
-						<Grid
-							container
-							spacing={2}
-							alignItems="flex-start"
+						<div
+							className={ classes.divContainer }
 							{...provided.droppableProps}
 							innerRef={provided.innerRef}
 						>
 							{state.columnsOrder.map((columnId, index) => {
 								const column = state.columns[columnId]
-								const tasks = column.taskIds.map(taskId => state.tasks[taskId])
+								const tasks  = column.taskIds.map(taskId => state.tasks[taskId])
 
 								return <Column key={column.id} column={column} tasks={tasks} index={index} />
 							})}
 							{provided.placeholder}
-							<Grid item container xs={3} spacing={2}>
-								<Grid item xs={12}>
+							<div style={{ width: 260, margin: 8 }}>
+								<div style={{ width: '100%' }}>
 									<Button className={[ classes.button_column_name ]}>
 										<div style={{ display:'flex', justifyContent: 'flex-start' }}>
 											<Add /> Añadir sección
 										</div>
 									</Button>
-								</Grid>
-							</Grid>
-						</Grid>
+								</div>
+							</div>
+						</div>
 					)}
 				</Droppable>
 			</DragDropContext>

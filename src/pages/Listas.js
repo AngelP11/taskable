@@ -322,6 +322,7 @@ export default function Lista(){
 								</List>
 							</AccordionDetails>
 						</Accordion>
+
 						<Accordion expanded={ expanded === 'panel2' } onChange={ handleChange('panel2') } style={{ boxShadow: 'none' }} >
 							<AccordionSummary
 								expandIcon={ <ExpandMoreIcon /> }
@@ -331,6 +332,7 @@ export default function Lista(){
 								<Typography className={classes.heading}>Sin comenzar</Typography>
 							</AccordionSummary>
 							<AccordionDetails style={{ padding: 0 }}>
+
 								<List className={classes.raiz}>
 									{ arr.map((value, index) => {
 

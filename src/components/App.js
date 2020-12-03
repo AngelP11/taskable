@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 import Login from '../pages/Login'
 import Register from '../pages/Register'
 import Password from '../pages/Password'
-import ExpandedList from './ExpandedList'
 import Error from '../pages/Error'
 
 import Tablero from '../pages/Tablero'
@@ -40,12 +39,11 @@ export default function App() {
 				<Route path="/taskable/login" component={Login} exact />
 				<Route path="/taskable/password" component={Password} exact />
 				<Route path="/taskable/register" component={Register} exact />
-				<Route path="/taskable/expanded-list" component={ExpandedList} exact />
 				<Route path="/taskable/listas" component={Listas} exact />
 				<Route path="/taskable/tablero" component={Tablero} exact />
 				<Route component={Error} />
 			</Switch>
 		</BrowserRouter>
-  	);
+	);
 }
 

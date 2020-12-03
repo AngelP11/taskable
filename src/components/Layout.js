@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	container: {
 		borderTopLeftRadius: 40,
-		padding: 30,
+		padding: '30px 0px 30px 30px',
 		backgroundColor: '#fafafa',
 	},
 	nested: {

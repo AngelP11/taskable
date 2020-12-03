@@ -9,10 +9,6 @@ import { buttons } from '../styles/buttons'
 import Team from '../components/Team'
 import BarraProgreso from '../components/BarraProgreso'
 
-// import persona1 from '../assets/imagen-4.png'
-// import persona2 from '../assets/imagen-24.png'
-// import persona3 from '../assets/imagen-25.png'
-
 const useStyles = makeStyles((theme) => ({
 	...buttons,
 	btn_priority: {
@@ -34,8 +30,11 @@ const useStyles = makeStyles((theme) => ({
 	},
 	card: {
 		borderRadius: '8px',
-		marginBottom: '8px',
-		boxShadow: '0 1px 3px 0 rgba(45, 45, 55, 0.12);'
+		boxShadow: '0 1px 3px 0 rgba(45, 45, 55, 0.12);',
+		cursor: 'pointer',
+		marginBottom: 12,
+		width: 260,
+		margin: 8
 	},
 	icons: {
 		fontSize: '10px',
@@ -67,6 +66,7 @@ export default function CardTask(props){
 		<Draggable draggableId={props.task.id} index={props.index}>
 			{(provided, snapshot) => (
 				<Card
+					{...props}
 					className={ props.isCompleted || snapshot.isDragging ? [ classes.card, classes.completed ] : classes.card }
 					{...provided.draggableProps}
 					{...provided.dragHandleProps}
