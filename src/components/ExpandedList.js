@@ -180,6 +180,7 @@ function ExpandedList(props) {
 											checked={checked.indexOf(value) !== -1}
 											tabIndex={-1}
 											disableRipple
+											color="primary"
 											inputProps={{ 'aria-labelledby': labelId }}
 										/>
 									</ListItemIcon>

@@ -173,7 +173,14 @@ export default function Lista(){
 
 	const openDetailedList = (value) => (e) => {
 
-		e.target.parentNode.parentNode.style = "display: flex; justify-content: flex-between; border-top: 1px solid #2979ff; border-bottom: 1px solid #2979ff; border-left: 1px solid #2979ff;"
+		// eliminar el borde azul de las demás listas...
+		let listas = document.querySelectorAll('.listas')
+		listas.forEach((v, i) => {
+			v.style = "display: flex; justify-content: space-between; border: none;"
+		})
+
+		// ... menos a la que le estoy dándole click.
+		e.target.parentNode.parentNode.style = "display: flex; justify-content: space-between; border-top: 1px solid #2979ff; border-bottom: 1px solid #2979ff; border-left: 1px solid #2979ff;"
 
 		setIsShowedDetailedList(true)
 		setListWidth(6)
@@ -181,6 +188,13 @@ export default function Lista(){
 	}
 
 	const closeDetailedList = () => {
+
+		// eliminar el borde azul de todas las listas
+		let listas = document.querySelectorAll('.listas')
+		listas.forEach((v, i) => {
+			v.style = "display: flex; justify-content: space-between; border: none;"
+		})
+
 		setIsShowedDetailedList(false)
 		setListWidth(12)
 		setValue(null)
@@ -236,8 +250,8 @@ export default function Lista(){
 												<Grid container>
 													<Grid
 														item
-														style={{ display: 'flex', justifyContent: 'flex-between' }}
-														className={ classes.br }
+														style={{ display: 'flex', justifyContent: 'space-between' }}
+														className={[ classes.br, 'listas']}
 														xs={ (isShowedDetailedList) ? 12 : 5 }
 													>
 														<div>
