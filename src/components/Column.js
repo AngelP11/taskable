@@ -69,7 +69,7 @@ export default function Column (props) {
 				<>
 					<div
 						{...provided.draggableProps}
-						innerRef={provided.innerRef}
+						ref={provided.innerRef}
 					>
 						{/* Titulo */}
 						<div className={ classes.m8 }>
@@ -94,8 +94,8 @@ export default function Column (props) {
 										innerRef={provided.innerRef}
 										className={  snapshot.isDraggingOver ? [classes.isDraggingOverClass] : "" }
 									>
-										{ props.tasks.map((task, index) => { 
-											return <CardTask onClick={ () => setOpen(true) } key={task.id} task={task} index={index}/> }) 
+										{ props.tasks.map((task, index) => {
+											return <CardTask onClick={ () => setOpen(true) } key={task.id} task={task} index={index}/> })
 										}
 										{ provided.placeholder }
 									</Grid>

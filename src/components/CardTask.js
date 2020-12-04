@@ -70,7 +70,7 @@ export default function CardTask(props){
 					className={ props.isCompleted || snapshot.isDragging ? [ classes.card, classes.completed ] : classes.card }
 					{...provided.draggableProps}
 					{...provided.dragHandleProps}
-					innerRef={provided.innerRef}
+					ref={provided.innerRef}
 				>
 					<CardContent>
 						<div style={{ marginBottom: 5 }}>

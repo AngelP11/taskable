@@ -121,7 +121,7 @@ export default function Tablero(){
 						<div
 							className={ classes.divContainer }
 							{...provided.droppableProps}
-							innerRef={provided.innerRef}
+							ref={provided.innerRef}
 						>
 							{state.columnsOrder.map((columnId, index) => {
 								const column = state.columns[columnId]
