@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
 	...buttons,
 	btn: {
 		backgroundColor: '#fff',
+		borderColor: '#2979ff',
 		color: '#2979ff',
 		'&:hover': {
 			cursor: 'pointer',
@@ -158,7 +159,7 @@ function ExpandedList(props) {
 					<Typography variant="body2"  style={{ color: 'grey' }} gutterBottom >Descripción</Typography>
 				</Grid>
 				<Grid item >
-					<Typography variant="caption" component="small" gutterBottom >Añade mas detalles a esta actividad...</Typography>
+					<Typography variant="caption" style={{ color: 'grey' }} component="small" gutterBottom >Añade mas detalles a esta actividad...</Typography>
 				</Grid>
 			</Grid>
 			<Grid container alignItems="center" style={{ margin: '15px 0px 15px 0px' }}>
@@ -182,7 +183,7 @@ function ExpandedList(props) {
 											inputProps={{ 'aria-labelledby': labelId }}
 										/>
 									</ListItemIcon>
-									<ListItemText id={labelId} primary={`List item ${value + 1}`} />
+									<ListItemText id={labelId} style={{ color: 'grey' }} primary={`List item ${value + 1}`} />
 									<ListItemSecondaryAction>
 										<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
 									</ListItemSecondaryAction>

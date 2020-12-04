@@ -132,3 +132,16 @@ p {
 .MuiInputBase-formControl {
 	/*height: 42px !important;*/
 }
+
+
+.MuiFormControlLabel-label {
+	font-weight: 300 !important
+}
+
+.MuiDrawer-paperAnchorDockedLeft {
+	border-right: none !important
+}
+
+.blue {
+	border: '1px solid #2979ff' !important
+}

@@ -1,9 +1,6 @@
 /* DRAWER */
-.MuiDrawer-paperAnchorDockedLeft {
-	border-right: none !important
-}
 
-.MuiListItem-root.Mui-selected, .MuiListItem-root.Mui-selected:hover {
+.MuiListItem-root.Mui-selected {
 	background-color : rgba(41, 121, 255, .12) !important; 
 }
 
@@ -11,7 +8,7 @@
 	border-left: 4px solid #2979ff !important;
 }
 
-.MuiListItem-root.Mui-selected, 
+.MuiListItem-root.Mui-selected,
 .MuiListItem-root:hover {
 	border-top-right-radius: 40px;
 	border-bottom-right-radius: 40px;

@@ -3,8 +3,7 @@ import React, { useState } from 'react'
 import { Button, Grid, Dialog, DialogContent, DialogContentText } from '@material-ui/core';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { makeStyles } from '@material-ui/core/styles'
-
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+// import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import Add from '@material-ui/icons/Add';
 
 /* Components */
@@ -29,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
 		justifyContent: 'space-between'
 	},
 	divContainer: {
-		width: '100%',
 		display: 'flex',
 		justifyContent: 'flex-start'
 	}
@@ -89,7 +87,7 @@ export default function Tablero(){
 
 		const startTaskIds = Array.from(start.taskIds)
 		startTaskIds.splice(source.index, 1)
-		
+
 		const newStart = {
 			...start,
 			taskIds: startTaskIds
@@ -97,7 +95,7 @@ export default function Tablero(){
 
 		const finishTaskIds = Array.from(finish.taskIds)
 		finishTaskIds.splice(destination.index, 0, draggableId)
-		
+
 		const newFinish = {
 			...finish,
 			taskIds: finishTaskIds
@@ -133,13 +131,11 @@ export default function Tablero(){
 							})}
 							{provided.placeholder}
 							<div style={{ width: 260, margin: 8 }}>
-								<div style={{ width: '100%' }}>
-									<Button className={[ classes.button_column_name ]}>
-										<div style={{ display:'flex', justifyContent: 'flex-start' }}>
-											<Add /> Añadir sección
-										</div>
-									</Button>
-								</div>
+								<Button className={[ classes.button_column_name ]}>
+									<div style={{ display:'flex', justifyContent: 'flex-start' }}>
+										<Add style={{ marginRight: 5 }} /> Añadir sección
+									</div>
+								</Button>
 							</div>
 						</div>
 					)}

@@ -30,11 +30,20 @@ const paraBorrar = () => {
 	)
 }
 
+const paraBorrar2 = () => {
+	return (
+		<>
+			<p>Aqui no hay nada compadre, llegate mejor al <Link to="/taskable/tablero">tablero</Link></p>
+		</>
+	)
+}
+
 
 export default function App() {
 	return (
 		<BrowserRouter>
 			<Switch>
+				<Route path="/" component={paraBorrar2} exact />
 				<Route path="/taskable" component={paraBorrar} exact />
 				<Route path="/taskable/login" component={Login} exact />
 				<Route path="/taskable/password" component={Password} exact />

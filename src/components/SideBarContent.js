@@ -1,7 +1,7 @@
 import React from 'react'
 import { List, ListItem, ListItemIcon, ListItemText, Collapse } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
-import styled from 'styled-components';
+import { makeStyles, withStyles } from '@material-ui/core/styles'
+// import styled from 'styled-components';
 // import { styled } from '@material-ui/core/styles';
 
 
@@ -12,7 +12,7 @@ import { CheckBoxOutlined, ExpandLess,
 import ArrowRightOutlined from '@material-ui/icons/ArrowRightOutlined'
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 
-import './styles/sidebarStyles.css'
+// import './styles/sidebarStyles.css'
 
 const useStyles = makeStyles((theme) => ({
 	listText: {
@@ -40,28 +40,35 @@ const useStyles = makeStyles((theme) => ({
 	},
 	width: {
 		width: '85%'
+	},
+	listItemRoot: {
+		
 	}
 }))
 
-const StyledListItem = styled(ListItem)`
-	.MuiListItem-root.Mui-selected {
-		border-left: 4px solid #2979ff;
-
-		
-	}
-`
-
-// const StyledListItem = styled(ListItem)({
-
-// 	root: {
-// 		'&$selected': {
-// 			borderLeft: '4px solid #2979ff',
-// 			'&$hover': {
-// 				backgroundColor: 'rgba(41, 121, 255, .12)',
-// 			}
-// 		},
-// 	},
-// })
+const StyledListItem = withStyles({
+	root: {
+		'&:hover' : {
+			borderTopRightRadius: '40px',
+			borderBottomRightRadius: '40px',
+		}
+	},
+	selected: {
+		borderLeft: '4px solid #2979ff',
+		borderTopRightRadius: '40px',
+		borderBottomRightRadius: '40px',
+		backgroundColor : 'rgba(41, 121, 255, .12)',
+		'&:hover' : {
+			borderLeft: '4px solid #2979ff',
+		},
+		'& .MuiListItemIcon-root': {
+			color : '#2979ff',
+		},
+		'& .MuiListItemText-root span': {
+			color : '#2979ff',
+		}
+	},
+})(ListItem)
 
 export default function SideBarContent(){
 
@@ -92,7 +99,7 @@ export default function SideBarContent(){
 					<ListItemText classes={{ primary: classes.listText }} primary="Inicio" />
 				</StyledListItem>
 				
-				<ListItem 
+				<StyledListItem 
 					button 
 					onClick={handleClick}
 				>
@@ -101,37 +108,37 @@ export default function SideBarContent(){
 					</ListItemIcon>
 					<ListItemText classes={{ primary: classes.listText }} primary="Proyectos" />
 					{ open ? <ExpandLess /> : <ExpandMore /> }
-				</ListItem>
+				</StyledListItem>
 				<Collapse in={open} timeout="auto" unmountOnExit>
 					
 					<List component="div" disablePadding>
 						
-						<ListItem button className={classes.nested}>
+						<StyledListItem button className={classes.nested}>
 							<ListItemIcon className={ classes.listItemIcon2 }>
 								<ArrowRightOutlined />
 							</ListItemIcon>
 							<ListItemText classes={{ primary: classes.listText }} primary="Multiceras" />
-						</ListItem>
+						</StyledListItem>
 						
-						<ListItem button className={classes.nested}>
+						<StyledListItem button className={classes.nested}>
 							<ListItemIcon className={ classes.listItemIcon2 }>
 								<ArrowRightOutlined />
 							</ListItemIcon>
 							<ListItemText classes={{ primary: classes.listText }} primary="Producción" />
-						</ListItem>
+						</StyledListItem>
 
-						<ListItem button className={classes.nested}>
+						<StyledListItem button className={classes.nested}>
 							<ListItemIcon className={ classes.listItemIcon2 }>
 								<ArrowRightOutlined />
 							</ListItemIcon>
 							<ListItemText classes={{ primary: classes.listText }} primary="Gerencia" />
-						</ListItem>
+						</StyledListItem>
 					
 					</List>
 
 				</Collapse>
 
-				<ListItem button
+				<StyledListItem button
 					selected={ selectedIndex === 1 }
 					onClick={ (event) => handleListItemClick(event, 1) }
 				>
@@ -139,9 +146,9 @@ export default function SideBarContent(){
 						<DashboardOutlined />
 					</ListItemIcon>
 					<ListItemText classes={{ primary: classes.listText }} primary="Dashboard" />
-				</ListItem>
+				</StyledListItem>
 
-				<ListItem button
+				<StyledListItem button
 					selected={ selectedIndex === 2 }
 					onClick={ (event) => handleListItemClick(event, 2) }
 				>
@@ -149,9 +156,9 @@ export default function SideBarContent(){
 						<ListAltOutlined />
 					</ListItemIcon>
 					<ListItemText classes={{ primary: classes.listText }} primary="Inventario" />
-				</ListItem>
+				</StyledListItem>
 
-				<ListItem button
+				<StyledListItem button
 					selected={ selectedIndex === 3 }
 					onClick={ (event) => handleListItemClick(event, 3) }
 				>
@@ -159,9 +166,9 @@ export default function SideBarContent(){
 						<FolderOutlined />
 					</ListItemIcon>
 					<ListItemText classes={{ primary: classes.listText }} primary="Ventas" />
-				</ListItem>
+				</StyledListItem>
 
-				<ListItem button
+				<StyledListItem button
 					selected={ selectedIndex === 4 }
 					onClick={ (event) => handleListItemClick(event, 4) }
 				>
@@ -169,7 +176,7 @@ export default function SideBarContent(){
 						<GroupOutlined />
 					</ListItemIcon>
 					<ListItemText classes={{ primary: classes.listText }} primary="Clientes" />
-				</ListItem>
+				</StyledListItem>
 
 			</List>
 			
