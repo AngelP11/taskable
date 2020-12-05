@@ -189,7 +189,7 @@ export default function Lista(){
 
 	const closeDetailedList = () => {
 
-		// eliminar el borde azul de todas las listas
+		// eliminar el borde azul de todas las listas.
 		let listas = document.querySelectorAll('.listas')
 		listas.forEach((v, i) => {
 			v.style = "display: flex; justify-content: space-between; border: none;"
