@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { Button } from '@material-ui/core';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { makeStyles } from '@material-ui/core/styles'
-
 import Add from '@material-ui/icons/Add';
 
 /* Components */
@@ -87,7 +86,7 @@ export default function Tablero(){
 
 		const startTaskIds = Array.from(start.taskIds)
 		startTaskIds.splice(source.index, 1)
-		
+
 		const newStart = {
 			...start,
 			taskIds: startTaskIds
@@ -95,7 +94,7 @@ export default function Tablero(){
 
 		const finishTaskIds = Array.from(finish.taskIds)
 		finishTaskIds.splice(destination.index, 0, draggableId)
-		
+
 		const newFinish = {
 			...finish,
 			taskIds: finishTaskIds
@@ -121,7 +120,7 @@ export default function Tablero(){
 						<div
 							className={ classes.divContainer }
 							{...provided.droppableProps}
-							innerRef={provided.innerRef}
+							ref={provided.innerRef}
 						>
 							{state.columnsOrder.map((columnId, index) => {
 								const column = state.columns[columnId]
