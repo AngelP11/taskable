@@ -2,10 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {
 	Paper, Accordion, Button, Grid, Typography, AccordionDetails,
-	List, ListItem, Checkbox, FormControlLabel, TextField, Dialog,
-	ListItemSecondaryAction, ListItemIcon, AccordionSummary,
-	Icon, IconButton, DialogContent, DialogContentText,
-	Divider, ListItemText
+	List, ListItem, Checkbox, FormControlLabel, AccordionSummary
 } from '@material-ui/core';
 
 import { ScheduleOutlined } from '@material-ui/icons';
@@ -13,14 +10,12 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import Add from '@material-ui/icons/Add';
 
-import imagen1 from "../assets/imagen-4@3x.png"
-import imagen2 from "../assets/imagen-24@2x.png"
-import imagen3 from "../assets/imagen-25@2x.png"
 
 import '../components/styles/Header.css'
 import Team from '../components/Team'
 import BarraProgreso from '../components/BarraProgreso'
 import Layout from '../components/Layout'
+import ExpandedList from '../components/ExpandedList'
 
 import { buttons } from '../styles/buttons.js'
 
@@ -48,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	heading: {
 		fontSize: theme.typography.pxToRem(20),
-		flexBasis: '33.33%',
+		flexBasis: '100%',
 		flexShrink: 0,
 		color: '#424242',
 	},
@@ -144,7 +139,6 @@ export default function Lista(){
 	const [isShowedDetailedList, setIsShowedDetailedList] = React.useState(false);
 	const [listWidth, setListWidth] = React.useState(12);
 
-	const [open, setOpen] = React.useState(false)
 	const [checked, setChecked] = React.useState([0]);
 
 	const handleChange = (panel) => (event, isExpanded) => {
@@ -212,7 +206,7 @@ export default function Lista(){
 
 	const closeDetailedList = () => {
 
-		// eliminar el borde azul de todas las listas
+		// eliminar el borde azul de todas las listas.
 		let listas = document.querySelectorAll('.listas')
 		listas.forEach((v, i) => {
 			v.style = "display: flex; justify-content: space-between; border: none;"
@@ -350,15 +344,13 @@ export default function Lista(){
 							<AccordionSummary
 								expandIcon={ <ExpandMoreIcon /> }
 								aria-controls="panel2bh-content"
-								id="panel1bh-header"
+								id="panel2bh-header"
 							>
-								<Typography className={classes.heading}>Sin comenzar</Typography>
+								<Typography className={classes.heading}>En progeso</Typography>
 							</AccordionSummary>
 							<AccordionDetails style={{ padding: 0 }}>
-
 								<List className={classes.raiz}>
 									{ arr.map((value, index) => {
-
 										return (
 											<ListItem
 												alignItems="center"
@@ -368,52 +360,80 @@ export default function Lista(){
 												dense
 											>
 												<Grid container>
-													<Grid item className={ classes.br } xs={5}>
-														<FormControlLabel
-															aria-label="Acknowledge"
-															className={ classes.ml }
-															onClick={ handleToggle(index) }
-															onFocus={(event) => event.stopPropagation()}
-															control={ <Checkbox checked={checked.indexOf(index) !== -1} /> }
-															label={ value.nombre }
-														/>
-													</Grid>
-													<Grid item className={ classes.br } xs>
-														<div className={ classes.div }>
-															<Team />
+													<Grid
+														item
+														style={{ display: 'flex', justifyContent: 'space-between' }}
+														className={[ classes.br, 'listas']}
+														xs={ (isShowedDetailedList) ? 12 : 5 }
+													>
+														<div>
+															{/* <DragIndicator style={{ color: 'grey' }}></DragIndicator> */}
+															<FormControlLabel
+																aria-label="Acknowledge"
+																className={ classes.ml }
+																onClick={ handleToggle(index) }
+																style={{ fontWeight: 200 }}
+																onFocus={(event) => event.stopPropagation()}
+																control={ <Checkbox color="lightgrey" checked={checked.indexOf(index) !== -1} /> }
+																label={ value.nombre }
+															/>
 														</div>
-													</Grid>
-													<Grid item className={ classes.br } xs>
-														<div className={ classes.div }>
-															<BarraProgreso />
+														<div className={ classes.buttonRightContainer }>
+															<small style={{ cursor: 'pointer' }} onClick={ openDetailedList(value) }>Detalles </small>
+															<MoreHorizIcon style={{ marginLeft: 5 }} />
 														</div>
+
 													</Grid>
-													<Grid item className={ classes.br } xs>
-														<div className={ classes.div }>
-															<ScheduleOutlined style={{ fontSize: 13, margin: '-3px  3px', color: '#ff8d8d' }} />
-															{ value.timeLeft ?
-																( <small className={ classes.caption }>Finalizado</small> )
-																:
-																( <small className={ classes.caption }>2 días restantes</small> )
-															}
-														</div>
-													</Grid>
-													<Grid item className={ classes.br } xs>
-														<div className={ classes.div }>
-															<Button className={ classes.btn_priority } >Alta</Button>
-														</div>
-													</Grid>
-													<Grid item className={ classes.br } xs>
-														<div className={ classes.divCenter }>
-															<IconButton onClick={ () => setOpen(true) }>
-																{/* <ViewList /> */}
-															</IconButton>
-														</div>
-													</Grid>
+													{ ( ! isShowedDetailedList ) ? (
+														<>
+															<Grid item className={ classes.br } xs>
+																<div className={ classes.div }>
+																	<Team />
+																</div>
+															</Grid>
+															<Grid item className={ classes.br } xs>
+																<div className={ classes.div }>
+																	<BarraProgreso />
+																</div>
+															</Grid>
+															<Grid item className={ classes.br } xs>
+																<div className={ classes.div }>
+																	<ScheduleOutlined style={{ fontSize: 13, margin: '-3px  3px', color: '#ff8d8d' }} />
+																	{ value.timeLeft ?
+																		( <small className={ classes.caption }>Finalizado</small> )
+																		:
+																		( <small className={ classes.caption }>2 días restantes</small> )
+																	}
+																</div>
+															</Grid>
+															<Grid item className={ classes.br } xs>
+																<div className={ classes.div }>
+																	<Button className={ classes.btn_priority } >Alta</Button>
+																</div>
+															</Grid>
+															<Grid item className={ classes.br } xs>
+																<div className={ classes.divCenter }>
+																</div>
+															</Grid>
+														</> ) : null
+													}
 												</Grid>
 											</ListItem>
 										);
 									})}
+									<ListItem
+										alignItems="center"
+										className={ classes.border }
+										role={undefined}
+										dense
+									>
+										<Grid container style={{ opacity: 0.5, padding: 6 }} alignItems="center">
+											<Grid item className={ classes.br } container xs>
+												<Add style={{ marginRight: 5, paddingBottom: 4 }}></Add>
+												<span>Añadir tarea</span>
+											</Grid>
+										</Grid>
+									</ListItem>
 								</List>
 							</AccordionDetails>
 						</Accordion>
@@ -422,16 +442,13 @@ export default function Lista(){
 							<AccordionSummary
 								expandIcon={ <ExpandMoreIcon /> }
 								aria-controls="panel3bh-content"
-								id="panel1bh-header"
+								id="panel3bh-header"
 							>
-								<Typography className={classes.heading}>Asignaciones terminadas</Typography>
+								<Typography className={classes.heading}>En espera de aprobación por los ejecutivos principales de la empresa</Typography>
 							</AccordionSummary>
 							<AccordionDetails style={{ padding: 0 }}>
-
 								<List className={classes.raiz}>
 									{ arr.map((value, index) => {
-
-
 										return (
 											<ListItem
 												alignItems="center"
@@ -441,290 +458,98 @@ export default function Lista(){
 												dense
 											>
 												<Grid container>
-													<Grid item className={ classes.br } xs={5}>
-														<FormControlLabel
-															aria-label="Acknowledge"
-															className={ classes.ml }
-															onClick={ handleToggle(index) }
-															onFocus={(event) => event.stopPropagation()}
-															control={ <Checkbox checked={checked.indexOf(index) !== -1} /> }
-															label={ value.nombre }
-														/>
-													</Grid>
-													<Grid item className={ classes.br } xs>
-														<div className={ classes.div }>
-															<Team />
+													<Grid
+														item
+														style={{ display: 'flex', justifyContent: 'space-between' }}
+														className={[ classes.br, 'listas']}
+														xs={ (isShowedDetailedList) ? 12 : 5 }
+													>
+														<div>
+															{/* <DragIndicator style={{ color: 'grey' }}></DragIndicator> */}
+															<FormControlLabel
+																aria-label="Acknowledge"
+																className={ classes.ml }
+																onClick={ handleToggle(index) }
+																style={{ fontWeight: 200 }}
+																onFocus={(event) => event.stopPropagation()}
+																control={ <Checkbox color="lightgrey" checked={checked.indexOf(index) !== -1} /> }
+																label={ value.nombre }
+															/>
 														</div>
-													</Grid>
-													<Grid item className={ classes.br } xs>
-														<div className={ classes.div }>
-															<BarraProgreso />
+														<div className={ classes.buttonRightContainer }>
+															<small style={{ cursor: 'pointer' }} onClick={ openDetailedList(value) }>Detalles </small>
+															<MoreHorizIcon style={{ marginLeft: 5 }} />
 														</div>
+
 													</Grid>
-													<Grid item className={ classes.br } xs>
-														<div className={ classes.div }>
-															<ScheduleOutlined style={{ fontSize: 13, margin: '-3px  3px', color: '#ff8d8d' }} />
-															{ value.timeLeft ?
-																( <small className={ classes.caption }>Finalizado</small> )
-																:
-																( <small className={ classes.caption }>2 días restantes</small> )
-															}
-														</div>
-													</Grid>
-													<Grid item className={ classes.br } xs>
-														<div className={ classes.div }>
-															<Button className={ classes.btn_priority } >Alta</Button>
-														</div>
-													</Grid>
-													<Grid item className={ classes.br } xs>
-														<div className={ classes.divCenter }>
-															<IconButton onClick={ () => setOpen(true) }>
-																{/* <ViewList /> */}
-															</IconButton>
-														</div>
-													</Grid>
+													{ ( ! isShowedDetailedList ) ? (
+														<>
+															<Grid item className={ classes.br } xs>
+																<div className={ classes.div }>
+																	<Team />
+																</div>
+															</Grid>
+															<Grid item className={ classes.br } xs>
+																<div className={ classes.div }>
+																	<BarraProgreso />
+																</div>
+															</Grid>
+															<Grid item className={ classes.br } xs>
+																<div className={ classes.div }>
+																	<ScheduleOutlined style={{ fontSize: 13, margin: '-3px  3px', color: '#ff8d8d' }} />
+																	{ value.timeLeft ?
+																		( <small className={ classes.caption }>Finalizado</small> )
+																		:
+																		( <small className={ classes.caption }>2 días restantes</small> )
+																	}
+																</div>
+															</Grid>
+															<Grid item className={ classes.br } xs>
+																<div className={ classes.div }>
+																	<Button className={ classes.btn_priority } >Alta</Button>
+																</div>
+															</Grid>
+															<Grid item className={ classes.br } xs>
+																<div className={ classes.divCenter }>
+																</div>
+															</Grid>
+														</> ) : null
+													}
 												</Grid>
 											</ListItem>
 										);
 									})}
+									<ListItem
+										alignItems="center"
+										className={ classes.border }
+										role={undefined}
+										dense
+									>
+										<Grid container style={{ opacity: 0.5, padding: 6 }} alignItems="center">
+											<Grid item className={ classes.br } container xs>
+												<Add style={{ marginRight: 5, paddingBottom: 4 }}></Add>
+												<span>Añadir tarea</span>
+											</Grid>
+										</Grid>
+									</ListItem>
 								</List>
 							</AccordionDetails>
 						</Accordion>
 
-						<Accordion expanded={ expanded === 'panel4' } onChange={ handleChange('panel4') } style={{ boxShadow: 'none' }} >
-							<AccordionSummary
-								expandIcon={ <ExpandMoreIcon /> }
-								aria-controls="panel4bh-content"
-								id="panel1bh-header"
-							>
-								<Typography className={classes.heading}>En progreso</Typography>
-							</AccordionSummary>
-							<AccordionDetails style={{ padding: 0 }}>
-
-								<List className={classes.raiz}>
-									{ arr.map((value, index) => {
 
 
-										return (
-											<ListItem
-												alignItems="center"
-												className={ classes.border }
-												key={index}
-												role={undefined}
-												dense
-											>
-												<Grid container>
-													<Grid item className={ classes.br } xs={5}>
-														<FormControlLabel
-															aria-label="Acknowledge"
-															className={ classes.ml }
-															onClick={ handleToggle(index) }
-															onFocus={(event) => event.stopPropagation()}
-															control={ <Checkbox checked={checked.indexOf(index) !== -1} /> }
-															label={ value.nombre }
-														/>
-													</Grid>
-													<Grid item className={ classes.br } xs>
-														<div className={ classes.div }>
-															<Team />
-														</div>
-													</Grid>
-													<Grid item className={ classes.br } xs>
-														<div className={ classes.div }>
-															<BarraProgreso />
-														</div>
-													</Grid>
-													<Grid item className={ classes.br } xs>
-														<div className={ classes.div }>
-															<ScheduleOutlined style={{ fontSize: 13, margin: '-3px  3px', color: '#ff8d8d' }} />
-															{ value.timeLeft ?
-																( <small className={ classes.caption }>Finalizado</small> )
-																:
-																( <small className={ classes.caption }>2 días restantes</small> )
-															}
-														</div>
-													</Grid>
-													<Grid item className={ classes.br } xs>
-														<div className={ classes.div }>
-															<Button className={ classes.btn_priority } >Alta</Button>
-														</div>
-													</Grid>
-													<Grid item className={ classes.br } xs>
-														<div className={ classes.divCenter }>
-															<IconButton onClick={ () => setOpen(true) }>
-																{/* <ViewList /> */}
-															</IconButton>
-														</div>
-													</Grid>
-												</Grid>
-											</ListItem>
-										);
-									})}
-								</List>
-							</AccordionDetails>
-						</Accordion>
 					</Grid>
 					{ (isShowedDetailedList) ? (
 						<Grid item container className={ classes.blueBorder } style={{ padding: 13 }} xs={6}>
-							{/* <ExpandedList onCerrar={ () => closeDetailedList() } value={ value } /> */}
+							<ExpandedList onCerrar={ () => closeDetailedList() } value={ [] } />
 						</Grid> ) : null
 					}
 				</Grid>
 			</Paper>
 
-			<Dialog
-				open={open}
-				onClose={ () => setOpen(false) }
-				fullWidth={true}
-				scroll="body"
-				maxWidth="sm"
-				aria-labelledby="alert-dialog-title"
-				aria-describedby="alert-dialog-description"
-			>
-				<DialogContent>
-					<DialogContentText id="alert-dialog-description">
-						<Grid container justify="space-between" alignItems="center" style={{ marginBottom: '20px' }}>
-							<IconButton><Icon fontSize="small">close</Icon></IconButton>
-							<Button
-								variant="outlined"
-								color="primary"
-								className={[ classes.button_high, classes.btn ]}
-								startIcon={ <Icon fontSize="small">check</Icon> }
-							>
-								Marcar como realizada
-							</Button>
-						</Grid>
-						<Grid container spacing={2}>
-							<Grid item>
-								<Typography className={ classes.black } variant="h5" component="h5" gutterBottom >
-									Emitir factura
-								</Typography>
-							</Grid>
-						</Grid>
-						<Grid container alignItems="center" spacing={1} >
-							<Grid item >
-								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Responsable</Typography>
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<Typography variant="caption" className={ classes.black } component="span" gutterBottom >Richard Jimenez</Typography>
-							</Grid>
-						</Grid>
-						<Grid container alignItems="center" spacing={1} >
-							<Grid item >
-								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Colaboradores</Typography>
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen2 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen3 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen2 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen3 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen2 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<img alt="404" src={ imagen3 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid item >
-								<Add />
-							</Grid>
-						</Grid>
-						<Grid container alignItems="center" style={{ margin: '15px 0px' }}>
-							<Grid item >
-								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Fecha de entrega</Typography>
-							</Grid>
-							<Grid item style={{ marginLeft: 15, marginRight: 5 }}>
-								<Icon >event_note</Icon>
-							</Grid>
-							<Grid item >
-								<Typography style={{ marginBottom: 3 }} variant="caption" component="p">17 Jul</Typography>
-							</Grid>
-						</Grid>
-						<Grid container alignItems="center" spacing={3}>
-							<Grid item >
-								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Prioridad</Typography>
-							</Grid>
-							<Grid item >
-								<Button size="small" className={[ classes.button_high, classes.btn_priority_dialog ]} variant="contained">Alta</Button>
-							</Grid>
-						</Grid>
-						<Grid container alignItems="center" spacing={3}>
-							<Grid item >
-								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Descripción</Typography>
-							</Grid>
-							<Grid item >
-								<Typography variant="caption" component="small" gutterBottom >Añade mas detalles a esta actividad...</Typography>
-							</Grid>
-						</Grid>
-						<Grid container alignItems="center" style={{ margin: '15px 0px 15px 0px' }}>
-							<Grid item xs={12} >
-								<Typography variant="body2" component="p" style={{ color: 'grey' }} gutterBottom >Subtareas</Typography>
-							</Grid>
-							<Grid item xs={12} >
-								<List className={classes.rootDialog}>
-									<Divider />
-									{[0, 1].map((value) => {
-										const labelId = `checkbox-list-label-${value}`;
+			
 
-										return (
-											<ListItem key={value} role={undefined} dense divider alignItems="center" onClick={ handleToggle(value) }>
-												<ListItemIcon>
-													<Checkbox
-														edge="start"
-														checked={checked.indexOf(value) !== -1}
-														tabIndex={-1}
-														disableRipple
-														inputProps={{ 'aria-labelledby': labelId }}
-													/>
-												</ListItemIcon>
-												<ListItemText id={labelId} primary={`List item ${value + 1}`} />
-												<ListItemSecondaryAction>
-													<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
-												</ListItemSecondaryAction>
-											</ListItem>
-										);
-									})}
-								</List>
-							</Grid>
-						</Grid>
-						<Grid container spacing={3} style={{ backgroundColor: '#f5f5f5' }} >
-							<Grid xs={1} item >
-								<img alt="404" src={ imagen1 } className={ classes.imgcircle } />
-							</Grid>
-							<Grid xs={11} item >
-								<TextField
-									multiline
-									placeholder="Realiza una pregunta pública"
-									fullWidth
-									rows={5}
-									variant="outlined"
-									style={{ fontSize: 12, backgroundColor: '#fff', borderRadius: 5 }}
-								/>
-							</Grid>
-							<Grid xs={12} alignItems="center" item  justify="flex-end" container>
-								<Grid item>
-									<Button
-										className={[ classes.button_high, classes.button_reject_task ]}
-										size="small"
-								        startIcon={ <Icon>remove_circle</Icon> }
-								    >
-								        Abandonar la tarea
-								    </Button>
-								</Grid>
-							</Grid>
-						</Grid>
-					</DialogContentText>
-				</DialogContent>
-			</Dialog>
+
 		</Layout>
 	)
 }
