@@ -190,7 +190,6 @@ export default function Lista(){
 	]
 
 	const openDetailedList = (value) => (e) => {
-
 		// eliminar el borde azul de las demás listas...
 		let listas = document.querySelectorAll('.listas')
 		listas.forEach((v, i) => {
@@ -205,7 +204,6 @@ export default function Lista(){
 	}
 
 	const closeDetailedList = () => {
-
 		// eliminar el borde azul de todas las listas.
 		let listas = document.querySelectorAll('.listas')
 		listas.forEach((v, i) => {
@@ -535,10 +533,8 @@ export default function Lista(){
 								</List>
 							</AccordionDetails>
 						</Accordion>
-
-
-
 					</Grid>
+
 					{ (isShowedDetailedList) ? (
 						<Grid item container className={ classes.blueBorder } style={{ padding: 13 }} xs={6}>
 							<ExpandedList onCerrar={ () => closeDetailedList() } value={ [] } />
@@ -546,10 +542,6 @@ export default function Lista(){
 					}
 				</Grid>
 			</Paper>
-
-			
-
-
 		</Layout>
 	)
 }
