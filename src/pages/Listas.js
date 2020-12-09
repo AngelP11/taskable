@@ -135,15 +135,10 @@ export default function Lista(){
 
 	const classes = useStyles()
 
-	const [expanded, setExpanded] = React.useState(false);
 	const [isShowedDetailedList, setIsShowedDetailedList] = React.useState(false);
 	const [listWidth, setListWidth] = React.useState(12);
 
 	const [checked, setChecked] = React.useState([0]);
-
-	const handleChange = (panel) => (event, isExpanded) => {
-		setExpanded(isExpanded ? panel : false);
-	}
 
 	const handleToggle = (value) => (e) => {
 		const currentIndex = checked.indexOf(value);
@@ -240,7 +235,7 @@ export default function Lista(){
 
 				<Grid container>
 					<Grid item xs={ listWidth }>
-						<Accordion expanded={ expanded === 'panel1' } onChange={ handleChange('panel1') } style={{ boxShadow: 'none' }} >
+						<Accordion style={{ boxShadow: 'none' }} >
 							<AccordionSummary
 								expandIcon={ <ExpandMoreIcon /> }
 								aria-controls="panel1bh-content"
@@ -338,7 +333,7 @@ export default function Lista(){
 							</AccordionDetails>
 						</Accordion>
 
-						<Accordion expanded={ expanded === 'panel2' } onChange={ handleChange('panel2') } style={{ boxShadow: 'none' }} >
+						<Accordion style={{ boxShadow: 'none' }} >
 							<AccordionSummary
 								expandIcon={ <ExpandMoreIcon /> }
 								aria-controls="panel2bh-content"
@@ -436,7 +431,7 @@ export default function Lista(){
 							</AccordionDetails>
 						</Accordion>
 
-						<Accordion expanded={ expanded === 'panel3' } onChange={ handleChange('panel3') } style={{ boxShadow: 'none' }} >
+						<Accordion style={{ boxShadow: 'none' }} >
 							<AccordionSummary
 								expandIcon={ <ExpandMoreIcon /> }
 								aria-controls="panel3bh-content"
