@@ -50,8 +50,6 @@ export default function Column (props) {
 	const [value, setValue]     = React.useState(false)
 	// const [checked, setChecked] = React.useState([0]);
 
-
-
 	return (
 		<Draggable draggableId={props.column.id} index={props.index}>
 			{(provided) => (

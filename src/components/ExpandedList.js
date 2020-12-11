@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Typography, Divider, Grid, TextField,
-	ListItemText, Checkbox, ListItemSecondaryAction, ListItem, 
+	ListItemText, Checkbox, ListItemSecondaryAction, ListItem,
 	Icon, IconButton, ListItemIcon, List } from '@material-ui/core'
 import Add from '@material-ui/icons/Add';
 
@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
 function ExpandedList(props) {
 
 	const classes = useStyles()
-	
+
 	const [checked, setChecked] = React.useState([0]);
 
 	const handleToggle = (value) => () => {
@@ -78,12 +78,11 @@ function ExpandedList(props) {
 	};
 
 	return (
-		
 		<>
 			<Grid container justify="space-between" alignItems="center" style={{ marginBottom: '20px' }}>
 				<IconButton onClick={ () => props.onCerrar() }><Icon fontSize="small">close</Icon></IconButton>
-				<Button 
-					variant="outlined" 
+				<Button
+					variant="outlined"
 					color="primary"
 					className={[ classes.button_high, classes.btn ]}
 					startIcon={ <Icon fontSize="small">check</Icon> }
@@ -204,7 +203,7 @@ function ExpandedList(props) {
 						placeholder="Realiza una pregunta pública"
 						fullWidth
 						rows={5}
-						variant="outlined" 
+						variant="outlined"
 						style={{ fontSize: 12, backgroundColor: '#fff', borderRadius: 5 }}
 					/>
 				</Grid>

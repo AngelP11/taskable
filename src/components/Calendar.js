@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react'
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-//import timeGridPlugin from '@fullcalendar/timegrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
-//import timelinePlugin from '@fullcalendar/timeline';
+import timelinePlugin from '@fullcalendar/timeline';
 import moment from 'moment'
 
 let events = [
@@ -21,21 +21,21 @@ let events = [
       start: new Date(2015, 3, 7),
       end: new Date(2015, 3, 10)
     },
-  
+
     {
       id: 2,
       title: "DTS STARTS",
       start: new Date(2016, 2, 13, 0, 0, 0),
       end: new Date(2016, 2, 20, 0, 0, 0)
     },
-  
+
     {
       id: 3,
       title: "DTS ENDS",
       start: new Date(2016, 10, 6, 0, 0, 0),
       end: new Date(2016, 10, 13, 0, 0, 0)
     },
-  
+
     {
       id: 4,
       title: "Some Event",
@@ -108,35 +108,35 @@ let events = [
     }
 ];
 
-function MyCalendar (props) {
+function MyCalendar () {
     const calendarRef = useRef(null);
     const [date, setDate] = useState(moment('2019-07-30 08:00:00').toDate());
 
     return (
         <FullCalendar
-            allDayMaintainDuration
-            defaultDate={date}
-            droppable
-            editable
-            eventResizableFromStart
-            events='https://fullcalendar.io/demo-events.json?overload-day'
-            header={{
-                left: 'prev,next today',
-                center: 'title',
-                right: 'dayGridMonth,timeGridWeek,timeGridDay'
-            }}
-            height='100vh'
-            plugins={[
-                dayGridPlugin,
-                //timeGridPlugin,
-                interactionPlugin,
-                listPlugin,
-                //timelinePlugin
-            ]}
-            ref={calendarRef}
-            selectable
+          plugins={[
+            dayGridPlugin,
+            timeGridPlugin,
+            interactionPlugin,
+            listPlugin,
+            timelinePlugin
+          ]}
+          allDayMaintainDuration
+          defaultDate={date}
+          droppable
+          editable
+          eventResizableFromStart
+          events={events}
+          header={{
+              left: 'prev,next today',
+              center: 'title',
+              right: 'dayGridMonth,timeGridWeek,timeGridDay'
+          }}
+          height='100vh'
+          ref={calendarRef}
+          selectable
         />
- )
+  )
 }
 
 export default MyCalendar

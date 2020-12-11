@@ -1,51 +1,23 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {
-	Paper, Accordion, Button, Grid, Typography, AccordionDetails,
-	List, ListItem, Checkbox, FormControlLabel, AccordionSummary
-} from '@material-ui/core';
-
-import { ScheduleOutlined } from '@material-ui/icons';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import Add from '@material-ui/icons/Add';
+import { Paper, Grid } from '@material-ui/core';
 
 
-import '../components/styles/Header.css'
-import Team from '../components/Team'
-import BarraProgreso from '../components/BarraProgreso'
+/* Components */
 import Layout from '../components/Layout'
 import ExpandedList from '../components/ExpandedList'
+import ListColumn from '../components/ListColumn'
 
+/* Assets */
+import '../components/styles/Header.css'
 import { buttons } from '../styles/buttons.js'
+
+/* Initial Data*/
+import initialData from '../initial_data';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
-	},
-	raiz: {
-		width: '100%',
-		backgroundColor: theme.palette.background.paper,
-		display: 'flex',
-		flexDirection: 'column',
-		alignItems: 'center',
-		padding: 0,
-	},
-	border: {
-		borderTop: '1px solid #e1e2e6',
-		'&:last-child': {
-			borderBottom: '1px solid #e1e2e6',
-		},
-		padding: 0
-	},
-	text: {
-		color: '#757575'
-	},
-	heading: {
-		fontSize: theme.typography.pxToRem(20),
-		flexBasis: '100%',
-		flexShrink: 0,
-		color: '#424242',
 	},
 	grid_borders: {
 		borderTop: '1px solid #e1e2e6',
@@ -57,86 +29,14 @@ const useStyles = makeStyles((theme) => ({
 		},
 		textAlign: 'center'
 	},
-	br: {
-		borderRight: '1px solid #e1e2e6',
-		padding: 0,
-		'&:last-child': {
-			borderRight: 0,
-		},
-		paddingLeft: 6,
-		paddingRight: 6,
-		color: 'grey'
-	},
-	caption: {
-		color: '#ff5861',
-		fontWeight: 300,
-		fontSize: '10px',
-		fontFamily: 'Inter-regular',
-	},
-	btn_priority: {
-		backgroundColor: '#ffd3d4',
-		height: 20,
-		color: '#ff5861',
-		fontSize:10,
-		textTransform: 'capitalize',
-		minWidth: 20,
-		lineHeight: '0px',
-		padding: 10,
-		borderRadius: '4px',
-		boxShadow: 'none',
-		'&:hover': {
-			cursor: 'pointer',
-			backgroundColor: '#ffbdbd',
-			boxShadow: 'none',
-		},
-	},
-	div: {
-		paddingTop: 12,
-		textAlign: 'center',
-	},
-	divCenter: {
-		textAlign: 'center',
-		paddingTop: 6
-	},
-	ml: {
-		marginLeft: 0
-	},
-
-	...buttons,
-	btn: {
-		backgroundColor: '#fff',
-		color: '#2979ff',
-		'&:hover': {
-			cursor: 'pointer',
-			backgroundColor: '#fafafa',
-			boxShadow: '0 0px 0px 0px rgba(0, 0, 0, 0)',
-		},
-	},
-	black: {
-		color: '#000'
-	},
-	imgcircle: {
-		borderRadius: '50%',
-		width: 33,
-		height: 30
-	},
-	blueBorder: {
-		border: '1px solid #2979ff'
-	},
-	buttonRightContainer: {
-		color: 'grey',
-		fontSize: 12,
-		display: 'flex',
-		alignItems: 'center',
-	}
 }))
 
 export default function Lista(){
-
 	const classes = useStyles()
 
 	const [isShowedDetailedList, setIsShowedDetailedList] = React.useState(false);
 	const [listWidth, setListWidth] = React.useState(12);
+	const [data, setData] = React.useState(initialData);
 
 	const [checked, setChecked] = React.useState([0]);
 
@@ -153,36 +53,6 @@ export default function Lista(){
 
 		setChecked(newChecked);
 	};
-
-	let arr = [
-		{
-			id: 1,
-			nombre: 'Tarea name',
-			personas: ['fulanito', 'menganito'],
-			progreso: 68,
-			timeLeft: true,
-			priority: 'Alta',
-			tag: null
-		},
-		{
-			id: 2,
-			nombre: 'Tarea name',
-			personas: ['fulanito', 'menganito'],
-			progreso: 68,
-			timeLeft: true,
-			priority: 'Alta',
-			tag: null
-		},
-		{
-			id: 3,
-			nombre: 'Otra tarea con nombre distintro',
-			personas: ['fulanito', 'menganito', 'pedrito'],
-			progreso: 68,
-			timeLeft: false,
-			priority: 'Alta',
-			tag: null
-		}
-	]
 
 	const openDetailedList = (value) => (e) => {
 		// eliminar el borde azul de las demás listas...
@@ -235,299 +105,21 @@ export default function Lista(){
 
 				<Grid container>
 					<Grid item xs={ listWidth }>
-						<Accordion style={{ boxShadow: 'none' }} >
-							<AccordionSummary
-								expandIcon={ <ExpandMoreIcon /> }
-								aria-controls="panel1bh-content"
-								id="panel1bh-header"
-							>
-								<Typography className={classes.heading}>Finalizadas</Typography>
-							</AccordionSummary>
-							<AccordionDetails style={{ padding: 0 }}>
-								<List className={classes.raiz}>
-									{ arr.map((value, index) => {
-										return (
-											<ListItem
-												alignItems="center"
-												className={ classes.border }
-												key={index}
-												role={undefined}
-												dense
-											>
-												<Grid container>
-													<Grid
-														item
-														style={{ display: 'flex', justifyContent: 'space-between' }}
-														className={[ classes.br, 'listas']}
-														xs={ (isShowedDetailedList) ? 12 : 5 }
-													>
-														<div>
-															{/* <DragIndicator style={{ color: 'grey' }}></DragIndicator> */}
-															<FormControlLabel
-																aria-label="Acknowledge"
-																className={ classes.ml }
-																onClick={ handleToggle(index) }
-																style={{ fontWeight: 200 }}
-																onFocus={(event) => event.stopPropagation()}
-																control={ <Checkbox color="lightgrey" checked={checked.indexOf(index) !== -1} /> }
-																label={ value.nombre }
-															/>
-														</div>
-														<div className={ classes.buttonRightContainer }>
-															<small style={{ cursor: 'pointer' }} onClick={ openDetailedList(value) }>Detalles </small>
-															<MoreHorizIcon style={{ marginLeft: 5 }} />
-														</div>
+						{data.columnsOrder.map((columnId, index) => {
+							const column = data.columns[columnId]
+							const tasks  = column.taskIds.map(taskId => data.tasks[taskId])
 
-													</Grid>
-													{ ( ! isShowedDetailedList ) ? (
-														<>
-															<Grid item className={ classes.br } xs>
-																<div className={ classes.div }>
-																	<Team />
-																</div>
-															</Grid>
-															<Grid item className={ classes.br } xs>
-																<div className={ classes.div }>
-																	<BarraProgreso />
-																</div>
-															</Grid>
-															<Grid item className={ classes.br } xs>
-																<div className={ classes.div }>
-																	<ScheduleOutlined style={{ fontSize: 13, margin: '-3px  3px', color: '#ff8d8d' }} />
-																	{ value.timeLeft ?
-																		( <small className={ classes.caption }>Finalizado</small> )
-																		:
-																		( <small className={ classes.caption }>2 días restantes</small> )
-																	}
-																</div>
-															</Grid>
-															<Grid item className={ classes.br } xs>
-																<div className={ classes.div }>
-																	<Button className={ classes.btn_priority } >Alta</Button>
-																</div>
-															</Grid>
-															<Grid item className={ classes.br } xs>
-																<div className={ classes.divCenter }>
-																</div>
-															</Grid>
-														</> ) : null
-													}
-												</Grid>
-											</ListItem>
-										);
-									})}
-									<ListItem
-										alignItems="center"
-										className={ classes.border }
-										role={undefined}
-										dense
-									>
-										<Grid container style={{ opacity: 0.5, padding: 6 }} alignItems="center">
-											<Grid item className={ classes.br } container xs>
-												<Add style={{ marginRight: 5, paddingBottom: 4 }}></Add>
-												<span>Añadir tarea</span>
-											</Grid>
-										</Grid>
-									</ListItem>
-								</List>
-							</AccordionDetails>
-						</Accordion>
-
-						<Accordion style={{ boxShadow: 'none' }} >
-							<AccordionSummary
-								expandIcon={ <ExpandMoreIcon /> }
-								aria-controls="panel2bh-content"
-								id="panel2bh-header"
-							>
-								<Typography className={classes.heading}>En progeso</Typography>
-							</AccordionSummary>
-							<AccordionDetails style={{ padding: 0 }}>
-								<List className={classes.raiz}>
-									{ arr.map((value, index) => {
-										return (
-											<ListItem
-												alignItems="center"
-												className={ classes.border }
-												key={index}
-												role={undefined}
-												dense
-											>
-												<Grid container>
-													<Grid
-														item
-														style={{ display: 'flex', justifyContent: 'space-between' }}
-														className={[ classes.br, 'listas']}
-														xs={ (isShowedDetailedList) ? 12 : 5 }
-													>
-														<div>
-															{/* <DragIndicator style={{ color: 'grey' }}></DragIndicator> */}
-															<FormControlLabel
-																aria-label="Acknowledge"
-																className={ classes.ml }
-																onClick={ handleToggle(index) }
-																style={{ fontWeight: 200 }}
-																onFocus={(event) => event.stopPropagation()}
-																control={ <Checkbox color="lightgrey" checked={checked.indexOf(index) !== -1} /> }
-																label={ value.nombre }
-															/>
-														</div>
-														<div className={ classes.buttonRightContainer }>
-															<small style={{ cursor: 'pointer' }} onClick={ openDetailedList(value) }>Detalles </small>
-															<MoreHorizIcon style={{ marginLeft: 5 }} />
-														</div>
-
-													</Grid>
-													{ ( ! isShowedDetailedList ) ? (
-														<>
-															<Grid item className={ classes.br } xs>
-																<div className={ classes.div }>
-																	<Team />
-																</div>
-															</Grid>
-															<Grid item className={ classes.br } xs>
-																<div className={ classes.div }>
-																	<BarraProgreso />
-																</div>
-															</Grid>
-															<Grid item className={ classes.br } xs>
-																<div className={ classes.div }>
-																	<ScheduleOutlined style={{ fontSize: 13, margin: '-3px  3px', color: '#ff8d8d' }} />
-																	{ value.timeLeft ?
-																		( <small className={ classes.caption }>Finalizado</small> )
-																		:
-																		( <small className={ classes.caption }>2 días restantes</small> )
-																	}
-																</div>
-															</Grid>
-															<Grid item className={ classes.br } xs>
-																<div className={ classes.div }>
-																	<Button className={ classes.btn_priority } >Alta</Button>
-																</div>
-															</Grid>
-															<Grid item className={ classes.br } xs>
-																<div className={ classes.divCenter }>
-																</div>
-															</Grid>
-														</> ) : null
-													}
-												</Grid>
-											</ListItem>
-										);
-									})}
-									<ListItem
-										alignItems="center"
-										className={ classes.border }
-										role={undefined}
-										dense
-									>
-										<Grid container style={{ opacity: 0.5, padding: 6 }} alignItems="center">
-											<Grid item className={ classes.br } container xs>
-												<Add style={{ marginRight: 5, paddingBottom: 4 }}></Add>
-												<span>Añadir tarea</span>
-											</Grid>
-										</Grid>
-									</ListItem>
-								</List>
-							</AccordionDetails>
-						</Accordion>
-
-						<Accordion style={{ boxShadow: 'none' }} >
-							<AccordionSummary
-								expandIcon={ <ExpandMoreIcon /> }
-								aria-controls="panel3bh-content"
-								id="panel3bh-header"
-							>
-								<Typography className={classes.heading}>En espera de aprobación por los ejecutivos principales de la empresa</Typography>
-							</AccordionSummary>
-							<AccordionDetails style={{ padding: 0 }}>
-								<List className={classes.raiz}>
-									{ arr.map((value, index) => {
-										return (
-											<ListItem
-												alignItems="center"
-												className={ classes.border }
-												key={index}
-												role={undefined}
-												dense
-											>
-												<Grid container>
-													<Grid
-														item
-														style={{ display: 'flex', justifyContent: 'space-between' }}
-														className={[ classes.br, 'listas']}
-														xs={ (isShowedDetailedList) ? 12 : 5 }
-													>
-														<div>
-															{/* <DragIndicator style={{ color: 'grey' }}></DragIndicator> */}
-															<FormControlLabel
-																aria-label="Acknowledge"
-																className={ classes.ml }
-																onClick={ handleToggle(index) }
-																style={{ fontWeight: 200 }}
-																onFocus={(event) => event.stopPropagation()}
-																control={ <Checkbox color="lightgrey" checked={checked.indexOf(index) !== -1} /> }
-																label={ value.nombre }
-															/>
-														</div>
-														<div className={ classes.buttonRightContainer }>
-															<small style={{ cursor: 'pointer' }} onClick={ openDetailedList(value) }>Detalles </small>
-															<MoreHorizIcon style={{ marginLeft: 5 }} />
-														</div>
-
-													</Grid>
-													{ ( ! isShowedDetailedList ) ? (
-														<>
-															<Grid item className={ classes.br } xs>
-																<div className={ classes.div }>
-																	<Team />
-																</div>
-															</Grid>
-															<Grid item className={ classes.br } xs>
-																<div className={ classes.div }>
-																	<BarraProgreso />
-																</div>
-															</Grid>
-															<Grid item className={ classes.br } xs>
-																<div className={ classes.div }>
-																	<ScheduleOutlined style={{ fontSize: 13, margin: '-3px  3px', color: '#ff8d8d' }} />
-																	{ value.timeLeft ?
-																		( <small className={ classes.caption }>Finalizado</small> )
-																		:
-																		( <small className={ classes.caption }>2 días restantes</small> )
-																	}
-																</div>
-															</Grid>
-															<Grid item className={ classes.br } xs>
-																<div className={ classes.div }>
-																	<Button className={ classes.btn_priority } >Alta</Button>
-																</div>
-															</Grid>
-															<Grid item className={ classes.br } xs>
-																<div className={ classes.divCenter }>
-																</div>
-															</Grid>
-														</> ) : null
-													}
-												</Grid>
-											</ListItem>
-										);
-									})}
-									<ListItem
-										alignItems="center"
-										className={ classes.border }
-										role={undefined}
-										dense
-									>
-										<Grid container style={{ opacity: 0.5, padding: 6 }} alignItems="center">
-											<Grid item className={ classes.br } container xs>
-												<Add style={{ marginRight: 5, paddingBottom: 4 }}></Add>
-												<span>Añadir tarea</span>
-											</Grid>
-										</Grid>
-									</ListItem>
-								</List>
-							</AccordionDetails>
-						</Accordion>
+							return <ListColumn
+										key={columnId}
+										column={column}
+										tasks={tasks}
+										index={index}
+										handleToggle={handleToggle}
+										openDetailedList={openDetailedList}
+										isShowedDetailedList={isShowedDetailedList}
+										checked={checked}
+									/>
+						})}
 					</Grid>
 
 					{ (isShowedDetailedList) ? (

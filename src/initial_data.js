@@ -14,7 +14,8 @@ const initialData = {
 			progress: 68,
 			timeLeft: true,
 			priority: 'Alta',
-			tag: null
+            tag: null,
+            subTaskIds: ['subTask-1', 'subTask-2']
         },
         'task-2': {
             id: 'task-2',
@@ -23,7 +24,8 @@ const initialData = {
 			progress: 68,
 			timeLeft: true,
 			priority: 'Alta',
-			tag: null
+            tag: null,
+            subTaskIds: ['subTask-3']
         },
         'task-3': {
             id: 'task-3',
@@ -32,7 +34,8 @@ const initialData = {
 			progress: 68,
 			timeLeft: true,
 			priority: 'Alta',
-			tag: null
+            tag: null,
+            subTaskIds: ['subTask-4']
         },
         'task-4': {
             id: 'task-4',
@@ -41,7 +44,8 @@ const initialData = {
 			progress: 68,
 			timeLeft: true,
 			priority: 'Alta',
-			tag: null
+            tag: null,
+            subTaskIds: ['subTask-5']
         },
     },
     columns: {

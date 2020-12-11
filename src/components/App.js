@@ -6,17 +6,15 @@ import Login from '../pages/Login'
 import Register from '../pages/Register'
 import Password from '../pages/Password'
 import Error from '../pages/Error'
-
 import Tablero from '../pages/Tablero'
 import Listas from '../pages/Listas'
 
 /* Components */
-// import Layout from './Layout'
 // import Guilines from '../pages/Guilines';
 
 const paraBorrar = () => {
 	return (
-		<>
+		<React.Fragment>
 			<p>Crear una pagina de inicio para mostrar aquí. Las rutas disponibles son:</p>
 			<ul>
 				<li><Link to="/taskable/login">/taskable/login</Link></li>
@@ -26,7 +24,7 @@ const paraBorrar = () => {
 				<li><Link to="/taskable/tablero">/taskable/tablero</Link></li>
 				<li><Link to="/taskable/expanded-list">/taskable/expanded-list</Link></li>
 			</ul>
-		</>
+		</React.Fragment>
 	)
 }
 
