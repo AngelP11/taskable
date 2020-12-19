@@ -91,7 +91,11 @@
     position: relative;
 }
 .persona1 {
-    margin-right: 10px
+    margin-right: 5px;
+    border-right: 1px solid #dfe1e5;
+    padding-right: 5px;
+    display: flex;
+    align-items: center;
 }
 
 .Header-infoTeam img {

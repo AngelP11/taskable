@@ -25,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
 	addTaskBtn: {
 		width: '100%',
 		backgroundColor:'#fff',
-		color: 'grey',
+		color: '#2d2d37',
+		opacity: '56%',
 		textTransform: 'capitalize',
 		borderRadius: '8px',
 		boxShadow: '0 1px 3px 0 rgba(45, 45, 55, 0.12);',
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 		padding: 5
 	},
 	m8: {
-		margin: 8
+		margin: 10
 	}
 }))
 
@@ -74,7 +75,7 @@ export default function Column (props) {
 						{/* Tareas */}
 						<Droppable droppableId={props.column.id} type="task">
 							{(provided, snapshot) => (
-								<div style={{ width: 275 }}>
+								<div style={{ width: 295 }}>
 									<Grid
 										item
 										{...provided.droppableProps}

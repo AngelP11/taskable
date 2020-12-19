@@ -33,10 +33,16 @@ const useStyles = makeStyles((theme) => ({
 		boxShadow: '0 1px 3px 0 rgba(45, 45, 55, 0.12);',
 		cursor: 'pointer',
 		marginBottom: 12,
-		width: 260,
-		margin: 8
+		width: 280,
+		height: 140,
+		marginLeft: 10,
+		marginTop: 15
 	},
 	icons: {
+		fontSize: '12px',
+		color: '#c0c0c0',
+	},
+	iconsText: {
 		fontSize: '10px',
 		color: '#c0c0c0',
 		fontFamily: 'Inter-regular',
@@ -72,14 +78,16 @@ export default function CardTask(props){
 					{...provided.dragHandleProps}
 					ref={provided.innerRef}
 				>
-					<CardContent>
+					<CardContent style={{ paddingTop: 0, paddingBottom: 5 }}>
 						<div style={{ marginBottom: 5 }}>
 							<h2 className={ classes.cardTitle }>{ props.task.content }</h2>
-							<Button className={ classes.btn_priority }>Alta</Button>
-							<ScheduleOutlined style={{ fontSize: 14, margin: '-3px  5px', color: '#ff8d8d' }} />
-							{
-								props.isCompleted ? ( <small className={ classes.caption }>Finalizado</small> ) : ( <small className={ classes.caption }>2 días restantes</small> )
-							}
+							<div style={{ display: 'flex', alignItems: 'center' }}>
+								<Button className={ classes.btn_priority }>Alta</Button>
+								<ScheduleOutlined style={{ fontSize: 16, margin: '-3px  5px', color: '#ff8d8d' }} />
+								{
+									props.isCompleted ? ( <small className={ classes.caption }>Finalizado</small> ) : ( <small className={ classes.caption }>2 días restantes</small> )
+								}
+							</div>
 						</div>
 						<div style={{ width: '100%', }}>
 							<BarraProgreso />
@@ -88,11 +96,11 @@ export default function CardTask(props){
 							<Team />
 							<div className="team_container">
 								<div style={{ marginRight: '5px' }}>
-									<spam className={classes.icons}>0/2 </spam>
+									<spam className={classes.iconsText}>0/2 </spam>
 									<AssignmentTurnedIn className={classes.icons} />
 								</div>
 								<div >
-									<spam className={classes.icons}>1 </spam>
+									<spam className={classes.iconsText}>1 </spam>
 									<AttachFile className={classes.icons} />
 								</div>
 							</div>

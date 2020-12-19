@@ -11,7 +11,6 @@ import ListColumn from '../components/ListColumn'
 
 /* Assets */
 import '../components/styles/Header.css'
-import { buttons } from '../styles/buttons.js'
 
 /* Initial Data*/
 import initialData from '../initial_data';
