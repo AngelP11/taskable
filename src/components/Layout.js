@@ -8,6 +8,11 @@ import SideBarContent from './SideBarContent'
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
+	'@global': {
+		body: {
+			
+		}
+	},
 	root: {
 		display: 'flex',
 		backgroundColor: 'white'

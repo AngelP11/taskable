@@ -110,15 +110,15 @@ export default function Lista(){
 							const tasks  = column.taskIds.map(taskId => data.tasks[taskId])
 
 							return <ListColumn
-										key={columnId}
-										column={column}
-										tasks={tasks}
-										index={index}
-										handleToggle={handleToggle}
-										openDetailedList={openDetailedList}
-										isShowedDetailedList={isShowedDetailedList}
-										checked={checked}
-									/>
+								key={columnId}
+								column={column}
+								tasks={tasks}
+								index={index}
+								handleToggle={handleToggle}
+								openDetailedList={openDetailedList}
+								isShowedDetailedList={isShowedDetailedList}
+								checked={checked}
+							/>
 						})}
 					</Grid>
 
