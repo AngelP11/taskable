@@ -1,4 +1,5 @@
 import React from 'react';
+import { DragDropContext } from 'react-beautiful-dnd'
 import { makeStyles } from '@material-ui/core/styles';
 import { Paper, Grid } from '@material-ui/core';
 
@@ -36,7 +37,7 @@ export default function Lista(){
 
 	const [isShowedDetailedList, setIsShowedDetailedList] = React.useState(false);
 	const [listWidth, setListWidth] = React.useState(12);
-	const [data, setData] = React.useState(initialData);
+	const [state, setState] = React.useState(initialData);
 
 	const [checked, setChecked] = React.useState([0]);
 
@@ -79,6 +80,81 @@ export default function Lista(){
 		setListWidth(12)
 	}
 
+	const onDragEnd = (result) => {
+		const { destination, source, draggableId, type } = result
+
+		if (!destination) return
+
+		if (destination.droppableId === source.droppableId &&
+			destination.index === source.index
+		) {
+			return
+		}
+
+		if (type === 'column') {
+			const newColumnOrder = Array.from(state.columnsOrder)
+			newColumnOrder.splice(source.index, 1)
+			newColumnOrder.splice(destination.index, 0, draggableId)
+
+			setState({
+				...state,
+				columnsOrder: newColumnOrder
+			})
+
+			return
+		}
+
+		const start = state.columns[source.droppableId]
+		const finish = state.columns[destination.droppableId]
+
+		if (finish === start) {
+			const newTaskIds = Array.from(start.taskIds)
+			newTaskIds.splice(source.index, 1)
+			newTaskIds.splice(destination.index, 0, draggableId)
+
+			const newColumn = {
+				...start,
+				taskIds: newTaskIds
+			}
+
+			setState({
+				...state,
+				columns: {
+					...state.columns,
+					[newColumn.id]: newColumn,
+				}
+			})
+
+			return
+		}
+
+		const startTaskIds = Array.from(start.taskIds)
+		startTaskIds.splice(source.index, 1)
+
+		const newStart = {
+			...start,
+			taskIds: startTaskIds
+		}
+
+		const finishTaskIds = Array.from(finish.taskIds)
+		finishTaskIds.splice(destination.index, 0, draggableId)
+
+		const newFinish = {
+			...finish,
+			taskIds: finishTaskIds
+		}
+
+		setState({
+			...state,
+			columns: {
+				...state.columns,
+				[newStart.id]: newStart,
+				[newFinish.id]: newFinish,
+			}
+		})
+
+	}
+
 	return (
 		<Layout>
 			<Paper className={classes.root} style={{ padding: 20 }}>
@@ -103,31 +179,33 @@ export default function Lista(){
 					</Grid>
 				</Grid>
 
-				<Grid container>
-					<Grid item xs={ listWidth }>
-						{data.columnsOrder.map((columnId, index) => {
-							const column = data.columns[columnId]
-							const tasks  = column.taskIds.map(taskId => data.tasks[taskId])
+				<DragDropContext onDragEnd={onDragEnd}>
+					<Grid container>
+						<Grid item xs={ listWidth }>
+							{state.columnsOrder.map((columnId, index) => {
+								const column = state.columns[columnId]
+								const tasks  = column.taskIds.map(taskId => state.tasks[taskId])
 
-							return <ListColumn
-										key={columnId}
-										column={column}
-										tasks={tasks}
-										index={index}
-										handleToggle={handleToggle}
-										openDetailedList={openDetailedList}
-										isShowedDetailedList={isShowedDetailedList}
-										checked={checked}
-									/>
-						})}
+								return <ListColumn
+											key={columnId}
+											column={column}
+											tasks={tasks}
+											index={index}
+											handleToggle={handleToggle}
+											openDetailedList={openDetailedList}
+											isShowedDetailedList={isShowedDetailedList}
+											checked={checked}
+										/>
+							})}
+						</Grid>
+
+						{ (isShowedDetailedList) ? (
+							<Grid item container className={ classes.blueBorder } style={{ padding: 13 }} xs={6}>
+								<ExpandedList onCerrar={ () => closeDetailedList() } value={ [] } />
+							</Grid> ) : null
+						}
 					</Grid>
-
-					{ (isShowedDetailedList) ? (
-						<Grid item container className={ classes.blueBorder } style={{ padding: 13 }} xs={6}>
-							<ExpandedList onCerrar={ () => closeDetailedList() } value={ [] } />
-						</Grid> ) : null
-					}
-				</Grid>
+				</DragDropContext>
 			</Paper>
 		</Layout>
 	)
