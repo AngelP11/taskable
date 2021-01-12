@@ -1,9 +1,8 @@
 import React from 'react'
-import { List, ListItem, ListItemIcon, ListItemText, Collapse } from '@material-ui/core'
+import { List, ListItem, ListItemIcon, ListItemText, Collapse, Typography, Button } from '@material-ui/core'
 import { makeStyles, withStyles } from '@material-ui/core/styles'
 // import styled from 'styled-components';
 // import { styled } from '@material-ui/core/styles';
-
 
 import { CheckBoxOutlined, ExpandLess, 
 	ExpandMore, DashboardOutlined, FolderOutlined,
@@ -11,6 +10,7 @@ import { CheckBoxOutlined, ExpandLess,
 } from '@material-ui/icons';
 import ArrowRightOutlined from '@material-ui/icons/ArrowRightOutlined'
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 // import './styles/sidebarStyles.css'
 
@@ -19,6 +19,10 @@ const useStyles = makeStyles((theme) => ({
 		color: '#8f92a1',
 		fontSize: 14,
 		fontFamily: 'Inter-regular',
+	},
+	listButtonText: {
+		extend: 'listText',
+		fontWeight: 'bolder'
 	},
 	textTeam: {
 		color: '#8f92a1',
@@ -41,8 +45,26 @@ const useStyles = makeStyles((theme) => ({
 	width: {
 		width: '85%'
 	},
-	listItemRoot: {
-		
+	buttonList: {
+		marginLeft: 35
+	},
+	button: {
+		marginBottom: 15,
+		backgroundColor: '#fafafa',
+		width: '80%',
+		borderRadius: 12,
+		padding: '5px',
+		'& span': {
+			color: '#2d2d37',
+			fontSize: 12,
+			textTransform: 'none',
+			fontFamily: 'Inter-regular',
+			fontWeight:'bold'
+		},
+		'& .MuiButton-startIcon': {
+			color: '#2d2d37',
+			opacity: '87%'
+		}
 	}
 }))
 
@@ -180,23 +202,31 @@ export default function SideBarContent(){
 
 			</List>
 			
-			<p className={ classes.textTeam }>TEAMS</p>
-			
-			<List>
-				<ListItem button>
-					<ListItemIcon className={ classes.listItemIcon }>
-						<FolderOutlined />
-					</ListItemIcon>
-					<ListItemText classes={{ primary: classes.listText }} primary="Multiceras" />
-				</ListItem>
+			<div>
+				<p className={ classes.textTeam }>TEAMS</p>
+					
+				<div className={ classes.buttonList }>
+					<Button
+						className={ classes.button }
+						disableElevation
+						size="large"
+						startIcon={<CloudUploadIcon />}
+					>
+						<div>
+							<span style={{ display: 'block' }}>Multiceras</span>
+							<span style={{ fontSize: 10, color: '#a0a0a0' }}>@multicerasve</span>
+						</div>
+					</Button>
 
-				<ListItem button>
-					<ListItemIcon className={ classes.listItemIcon }>
-						<Add />
-					</ListItemIcon>
-					<ListItemText classes={{ primary: classes.listText }} primary="Add new team" />
-				</ListItem>  
-			</List>
+					<Button 
+						className={ classes.button } 
+						size="large"
+						variant="contained" 
+						disableElevation
+						startIcon={<Add />}
+					>Add New Team</Button>
+				</div>
+			</div>
 		</div>
 	)
 }
