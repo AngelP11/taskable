@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	drawerPaper: {
 		width: drawerWidth,
+		marginTop: 45
 	},
 	drawerContainer: {
 		overflow: 'auto',
@@ -31,9 +32,7 @@ const useStyles = makeStyles((theme) => ({
 		flexGrow: 1,
 	},
 	container: {
-		borderTopLeftRadius: 40,
-		padding: '30px 0px 30px 30px',
-		backgroundColor: '#fafafa',
+		marginTop: 50
 	},
 	nested: {
 		paddingLeft: theme.spacing(4),
@@ -63,14 +62,12 @@ export default function Layout({ children }) {
 				}}
 			>
 				<Toolbar />
-				<Toolbar />
 
 				{/* SIDEBAR */}
 				<SideBarContent />
 
 			</Drawer>
 			<main className={classes.content}>
-				<Toolbar />
 				<Toolbar />
 				
 				{/* ONTENIDO DE LA PAGINA */}

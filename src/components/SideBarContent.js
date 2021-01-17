@@ -73,13 +73,13 @@ const StyledListItem = withStyles({
 		'&:hover' : {
 			borderTopRightRadius: '40px',
 			borderBottomRightRadius: '40px',
-		}
+		},
 	},
 	selected: {
 		borderLeft: '4px solid #2979ff',
 		borderTopRightRadius: '40px',
 		borderBottomRightRadius: '40px',
-		backgroundColor : 'rgba(41, 121, 255, .12)',
+		backgroundColor : 'rgba(41, 121, 255, .12) !important',
 		'&:hover' : {
 			borderLeft: '4px solid #2979ff',
 		},

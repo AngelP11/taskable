@@ -127,22 +127,28 @@ function ListTask(props) {
 				>
 					<div>
 						{/* <DragIndicator style={{ color: 'grey' }}></DragIndicator> */}
+
 						<FormControlLabel
 							aria-label="Acknowledge"
 							className={ classes.ml }
-							onClick={ props.handleToggle(props.index) }
 							style={{ fontWeight: 200 }}
 							onFocus={(event) => event.stopPropagation()}
-							control={ <Checkbox color="lightgrey" checked={props.checked.indexOf(props.index) !== -1} /> }
 							label={ props.task.content }
+							control={
+								<Checkbox 
+									onChange={props.handleToggle(props.index, props.task)}
+									color="lightgrey"
+									checked={props.checked.indexOf(props.index) !== -1}
+								/>
+							}
 						/>
 					</div>
 					<div className={ classes.buttonRightContainer }>
 						<small style={{ cursor: 'pointer' }} onClick={ props.openDetailedList(props.task) }>Detalles </small>
 						<MoreHorizIcon style={{ marginLeft: 5 }} />
 					</div>
-
 				</Grid>
+				
 				{ ( ! props.isShowedDetailedList ) ? (
 					<>
 						<Grid item className={ classes.br } xs>

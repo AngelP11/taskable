@@ -31,7 +31,8 @@ const useStyles = makeStyles((theme) => ({
 	second_toolbar: {
 		marginLeft: 240,
 		display: 'flex',
-		justifyContent: 'space-between'
+		justifyContent: 'space-between',
+		
 	},
 	...buttons,
 	
@@ -94,7 +95,7 @@ function Header() {
 				</div>
 			</Toolbar>
 			
-			<Toolbar disableGutters={true} className={ classes.second_toolbar } >
+			<Toolbar disableGutters={true} variant="dense" className={ classes.second_toolbar } >
 				<div>
 					<Button 
 						to="/taskable/listas" 
