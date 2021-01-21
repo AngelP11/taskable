@@ -102,14 +102,27 @@ const useStyles = makeStyles((theme) => ({
 	buttonRightContainer: {
 		color: 'grey',
 		fontSize: 12,
-		display: 'flex',
 		alignItems: 'center',
-	}
+		display: 'flex',
+		opacity: 0
+	},
+	detalles: { cursor: 'pointer' },
 }))
+
 
 function ListTask(props) {
     const classes = useStyles()
 
+    // efecto hover los elementos "detalles" y los "tres puntos"
+    document.addEventListener('DOMContentLoaded', () => {
+	    let hover = document.querySelector('#hover_container')
+	    let detalle = document.querySelector('#detalle_3puntos')
+
+	    hover.addEventListener('mouseover', () => {
+	    	detalle.style = "opacity: 1; transition: opacity 0.5s"
+	    })
+    })
+    
     return (
 		<ListItem
 			alignItems="center"
@@ -125,26 +138,22 @@ function ListTask(props) {
 					className={[ classes.br, 'listas']}
 					xs={ (props.isShowedDetailedList) ? 12 : 5 }
 				>
-					<div>
+					<div id="hover_container">
 						{/* <DragIndicator style={{ color: 'grey' }}></DragIndicator> */}
 
-						<FormControlLabel
-							aria-label="Acknowledge"
-							className={ classes.ml }
-							style={{ fontWeight: 200 }}
-							onFocus={(event) => event.stopPropagation()}
-							label={ props.task.content }
-							control={
-								<Checkbox 
-									onChange={props.handleToggle(props.index, props.task)}
-									color="lightgrey"
-									checked={props.checked.indexOf(props.index) !== -1}
-								/>
-							}
+						<Checkbox 
+							onChange={props.handleToggle(props.index, props.task)}
+							color="lightgrey"
+							checked={props.checked.indexOf(props.index) !== -1}
 						/>
+						<label
+							onClick={ props.openDetailedList(props.task) }
+							style={{ fontWeight: 200, cursor: 'pointer' }}>
+							{ props.task.content }
+						</label>
 					</div>
-					<div className={ classes.buttonRightContainer }>
-						<small style={{ cursor: 'pointer' }} onClick={ props.openDetailedList(props.task) }>Detalles </small>
+					<div id="detalle_3puntos" className={ classes.buttonRightContainer }>
+						<small className={ classes.detalles } onClick={ props.openDetailedList(props.task) }>Detalles </small>
 						<MoreHorizIcon style={{ marginLeft: 5 }} />
 					</div>
 				</Grid>
