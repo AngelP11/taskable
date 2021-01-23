@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	button: {
 		marginBottom: 15,
-		backgroundColor: '#fafafa',
+		backgroundColor: '#f6f6f8',
 		width: '80%',
 		borderRadius: 12,
 		padding: '5px',

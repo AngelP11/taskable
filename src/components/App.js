@@ -8,6 +8,7 @@ import Password from '../pages/Password'
 import Error from '../pages/Error'
 import Tablero from '../pages/Tablero'
 import Listas from '../pages/Listas'
+import Home from '../pages/Home'
 
 /* Components */
 // import Guilines from '../pages/Guilines';
@@ -20,6 +21,7 @@ const paraBorrar = () => {
 				<li><Link to="/taskable/login">/taskable/login</Link></li>
 				<li><Link to="/taskable/register">/taskable/register</Link></li>
 				<li><Link to="/taskable/password">/taskable/password</Link></li>
+				<li><Link to="/taskable/home">/taskable/home</Link></li>
 				<li><Link to="/taskable/listas">/taskable/listas</Link></li>
 				<li><Link to="/taskable/tablero">/taskable/tablero</Link></li>
 				<li><Link to="/taskable/expanded-list">/taskable/expanded-list</Link></li>
@@ -48,6 +50,7 @@ export default function App() {
 				<Route path="/taskable/register" component={Register} exact />
 				<Route path="/taskable/listas" component={Listas} exact />
 				<Route path="/taskable/tablero" component={Tablero} exact />
+				<Route path="/taskable/home" component={Home} exact />
 				<Route component={Error} />
 			</Switch>
 		</BrowserRouter>
