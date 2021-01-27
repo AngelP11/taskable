@@ -41,15 +41,24 @@ const useStyles = makeStyles((theme) => ({
 		paddingRight: 6,
 		color: 'grey'
 	},
+    icon: {
+        order: -1,
+        padding: 0,
+        marginRight: 5
+    }
 }))
 
 function ListColumn(props) {
     const classes = useStyles()
 
     return (
-        <Accordion style={{ boxShadow: 'none' }} >
+        <Accordion
+            style={{ boxShadow: 'none' }}
+            defaultExpanded={true}
+        >
             <AccordionSummary
                 expandIcon={ <ExpandMoreIcon /> }
+                classes={{ expandIcon: classes.icon }}
                 aria-controls="panel1bh-content"
                 id="panel1bh-header"
             >

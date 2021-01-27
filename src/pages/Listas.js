@@ -40,21 +40,8 @@ export default function Lista(){
 
 	const [checked, setChecked] = React.useState([0]);
 
-	const handleToggle = (value) => (e) => {
-		const currentIndex = checked.indexOf(value);
-		const newChecked = [...checked];
 
-		if (currentIndex === -1) {
-			newChecked.push(value);
-		}
-		else {
-			newChecked.splice(currentIndex, 1);
-		}
-
-		setChecked(newChecked);
-	};
-
-	const openDetailedList = (value) => (e) => {
+	const openDetailedList = (task) => (e) => {
 		// eliminar el borde azul de las demás listas...
 		let listas = document.querySelectorAll('.listas')
 		listas.forEach((v, i) => {
@@ -67,6 +54,23 @@ export default function Lista(){
 		setIsShowedDetailedList(true)
 		setListWidth(6)
 	}
+	
+
+	const handleToggle = (index, task) => (e) => {
+		const currentIndex = checked.indexOf(index, task);
+		const newChecked = [...checked];
+
+		if (currentIndex === -1) {
+			newChecked.push(index, task);
+		}
+		else {
+			newChecked.splice(currentIndex, 1);
+		}
+
+		openDetailedList(task)
+
+		setChecked(newChecked);
+	};
 
 	const closeDetailedList = () => {
 		// eliminar el borde azul de todas las listas.
@@ -156,7 +160,7 @@ export default function Lista(){
 
 	return (
 		<Layout>
-			<Paper className={classes.root} style={{ padding: 20 }}>
+			<Paper className={classes.root} elevation={0} style={{ marginRight: 20 }}>
 				<Grid container style={{ marginBottom: 10 }}>
 					<Grid item className={ classes.grid_borders } xs={5}>
 						<p style={{ paddingLeft: 20 }}>Tareas</p>
