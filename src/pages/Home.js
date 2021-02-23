@@ -23,8 +23,9 @@ const useStyles = makeStyles((theme) => ({
 	},
 	cardBody: {
 		backgroundColor: 'white',
-		padding: '27px 48px 0 38px',
+		padding: '27px px 0 38px',
 		borderRadius: 10,
+		position: 'relative',
 	},
 	caption: {
 		color: '#ff5861',
@@ -118,6 +119,7 @@ export default function Home(props) {
 					<NovedadesCard />
 					<NovedadesCard />
 					<NovedadesCard />
+					<NovedadesCard />
 				</div>
 
 				<div className={classes.cardBody}>
@@ -127,12 +129,12 @@ export default function Home(props) {
 						onChange={handleChange}
 						aria-label="simple tabs example"
 					>
-						<Tab classes={{ wrapper: classes.wrapper }} label="Tareas por completar" {...a11yProps(0)} />
-						<Tab label="Nuevas" {...a11yProps(1)} />
+						<Tab className={classes.wrapper} label="Tareas por completar" {...a11yProps(0)} />
+						<Tab className={classes.wrapper} label="Nuevas" {...a11yProps(1)} />
 					</Tabs>
 					<TabPanel value={value} index={0}>
 						
-						<List className={classes.root}>
+						<List >
 							{[0, 1, 2, 3].map((value) => {
 								const labelId = `checkbox-list-label-${value}`;
 

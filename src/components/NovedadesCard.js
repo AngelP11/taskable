@@ -7,7 +7,7 @@ import persona1 from '../assets/imagen-4.png'
 const useStyles = makeStyles((theme) => ({
 	card: {
 		borderRadius: 20,
-		padding: '24px 24px 24px 23px',
+		padding: '6px 23px 2px 23px',
 		width: 420,
 		margin: '0 32px 0 0',
 	},
@@ -47,10 +47,11 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: 16
 	},
 	cardTextContainer: {
-		padding: '17px 16px 16px',
+		padding: '4px 12px 12px',
 		borderRadius: 10,
 		backgroundColor: '#f6f6f8',
-		marginTop: 24
+		marginBottom: 20,
+		marginTop: 18
 	}
 }));
 
