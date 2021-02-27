@@ -22,13 +22,18 @@ export default function BarraProgreso(props){
 	let classes = useStyles()
 
 	return (
-		<>
+		<React.Fragment>
 			<Box style={{ display: 'flex', justifyContent: 'flex-end' }} minWidth={35}>
 				<Typography variant="caption" className={ classes.icons }>69%</Typography>
 			</Box>
 			<Box width="100%" mr={1}>
-				<LinearProgress variant="determinate" className={ classes.linearProgress } classes={{ barColorPrimary: classes.barColorPrimary }} value={69} />
+				<LinearProgress
+					variant="determinate"
+					className={ classes.linearProgress }
+					classes={{ barColorPrimary: classes.barColorPrimary }}
+					value={69}
+				/>
 			</Box>
-		</>
+		</React.Fragment>
 	)
 }

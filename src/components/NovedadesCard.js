@@ -63,7 +63,7 @@ export default function NovedadesCard(props) {
 			<div>
 				<span className={classes.small}>Hace 4 horas</span>
 			</div>
-			
+
 			<div className={classes.cardTitleContainer}>
 				<div className={classes.imageContainer}>
 					<img className={classes.img} src={persona1} alt="1"/>

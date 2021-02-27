@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Button, Typography, Link } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { NavLink } from 'react-router-dom'
 
-import { NotificationsOutlined, SettingsOutlined, 
+import { NotificationsOutlined, SettingsOutlined,
 	ViewListOutlined, AssessmentOutlined, SwapVertOutlined,
 	FilterListOutlined, MoreVertOutlined, TodayOutlined, AssignmentOutlined
 } from '@material-ui/icons';
@@ -19,7 +19,7 @@ import persona3 from '../assets/imagen-25.png'
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-	  flexGrow: 1,
+		flexGrow: 1,
 	},
 	mr2: {
 		marginRight: theme.spacing(2)
@@ -32,10 +32,10 @@ const useStyles = makeStyles((theme) => ({
 		marginLeft: 240,
 		display: 'flex',
 		justifyContent: 'space-between',
-		
+
 	},
 	...buttons,
-	
+
 	button_high_local: {
 		backgroundColor: 'transparent',
 		color: 'grey',
@@ -57,12 +57,12 @@ function Header() {
 	return (
 
 		<AppBar position="fixed" className={classes.appBar} color="white">
-				
+
 			<Toolbar disableGutters={true} style={{ borderBottom: '1px solid lightgrey' }}>
 				<div className={classes.root}>
 					<div className="container">
 						<div  className="Header-logoContainer">
-							<Link href="http://localhost:3000/taskable/" underline="none">
+							<Link href="http://localhost:3000/taskable/home" underline="none">
 								<Typography variant="h5" className={classes.title} gutterBottom>Taskable <span className={ classes.appText }>app</span></Typography>
 							</Link>
 						</div>
@@ -94,12 +94,12 @@ function Header() {
 					</div>
 				</div>
 			</Toolbar>
-			
+
 			<Toolbar disableGutters={true} variant="dense" className={ classes.second_toolbar } >
 				<div>
-					<Button 
-						to="/taskable/listas" 
-						className={[ classes.button_high, classes.button_high_local ]} 
+					<Button
+						to="/taskable/listas"
+						className={[ classes.button_high, classes.button_high_local ]}
 						component={NavLink}
 						startIcon={ <ViewListOutlined />}
 						activeClassName={ classes.active }
@@ -134,11 +134,11 @@ function Header() {
 						Cronograma
 					</Button>
 				</div>
-				<div> 
+				<div>
 					<Button className={[ classes.button_high, classes.button_high_local ]} startIcon={ <SwapVertOutlined />} >Ordenar</Button>
 					<Button className={[ classes.button_high, classes.button_high_local ]} startIcon={ <FilterListOutlined />} >Filtrar</Button>
 					<Button className={[ classes.button_high, classes.button_high_local ]} startIcon={ <MoreVertOutlined />} ></Button>
-				</div> 
+				</div>
 			</Toolbar>
 
 		</AppBar>
