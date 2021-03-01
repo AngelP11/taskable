@@ -8,6 +8,8 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { EditIcon } from "./../../components/Icons/EditIcon";
 import { Breadcrumb } from "./../../components/Breadcrumb";
 import { TableSaleDetails } from "./TableSaleDetails";
+import { TableOrderInformation } from "./TableOrderInformation";
+import { TablePaymentAndDeliveryStatus } from "./TablePaymentAndDeliveryStatus";
 
 import Grid from "@material-ui/core/Grid";
 
@@ -114,6 +116,9 @@ export const SaleDetails = () => {
                     </IconButton>
                   </div>
                 </div>
+                <div style={{ marginTop: 20 }}>
+                  <TableOrderInformation />
+                </div>
               </div>
             </Grid>
             <Grid item xs={6}>
@@ -131,6 +136,9 @@ export const SaleDetails = () => {
                       <EditIcon fontSize="inherit" />
                     </IconButton>
                   </div>
+                </div>
+                <div style={{ marginTop: 20 }}>
+                  <TablePaymentAndDeliveryStatus />
                 </div>
               </div>
             </Grid>
