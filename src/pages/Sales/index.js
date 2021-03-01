@@ -2,6 +2,8 @@ import React from "react";
 import Layout from "./../../components/Layout";
 import { makeStyles } from "@material-ui/core/styles";
 
+import { Link } from "react-router-dom";
+
 import IconButton from "@material-ui/core/IconButton";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { Breadcrumb } from "./../../components/Breadcrumb";
@@ -29,7 +31,7 @@ const useStyles = makeStyles(() => ({
     padding: 0,
     opacity: "0.87",
     fontFamily: "Manrope",
-    fontSize: "32px",
+    fontSize: "25px",
     fontWeight: "bold",
     fontStretch: "normal",
     fontStyle: "normal",
@@ -71,6 +73,11 @@ export const Sales = () => {
                 <MoreVertIcon fontSize="inherit" />
               </IconButton>
             </div>
+          </div>
+          <div>
+            <Link to="/taskable/sales/descripcion-de-la-oden-superwax-n0012">
+              /taskable/sales/descripcion-de-la-oden-superwax-n0012
+            </Link>
           </div>
         </div>
       </div>

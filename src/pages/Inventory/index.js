@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 0,
     opacity: "0.87",
     fontFamily: "Manrope",
-    fontSize: "32px",
+    fontSize: "25px",
     fontWeight: "bold",
     fontStretch: "normal",
     fontStyle: "normal",
