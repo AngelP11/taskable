@@ -1,0 +1,15 @@
+<svg id="Icono_team" data-name="Icono team" xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ff870e;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <rect id="Rectángulo_194" data-name="Rectángulo 194" class="cls-1" width="45" height="45" rx="12"/>
+  <path id="Trazado_187" data-name="Trazado 187" class="cls-2" d="M48.049,25.522a1.125,1.125,0,0,1-.092.462l-2.71,6.544a2.305,2.305,0,0,1-4.373-.37l-.015-.092-.693-2.741H37.733a1.544,1.544,0,0,1-1.54-1.54V17.008a1.544,1.544,0,0,1,1.54-1.54h6.159a1.544,1.544,0,0,1,1.54,1.54v7.329h1.432A1.186,1.186,0,0,1,48.049,25.522Z" transform="translate(-19.769 -1.448)"/>
+</svg>

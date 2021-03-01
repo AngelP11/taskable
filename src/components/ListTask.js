@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import {  Button, Grid, ListItem, Checkbox, FormControlLabel } from '@material-ui/core';
+import {  Button, Grid, ListItem, Checkbox } from '@material-ui/core';
 
 /* Icons */
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';

@@ -9,6 +9,8 @@ import Add from '@material-ui/icons/Add';
 import Layout from '../components/Layout';
 import Column from '../components/Column';
 
+import { SecondToolbar } from "../components/SecondToolbar/index";
+
 
 /* Data */
 import initialData from '../initial_data';
@@ -116,7 +118,7 @@ export default function Tablero(){
 
 	return (
 		<Layout>
-
+			<SecondToolbar/>
 			<DragDropContext onDragEnd={onDragEnd}>
 				<Droppable droppableId="all-columns" direction="horizontal" type="column" >
 					{(provided) => (
