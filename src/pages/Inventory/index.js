@@ -10,7 +10,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 
 import IconButton from "@material-ui/core/IconButton";
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 import { SearchProducts } from "./SearchProducts";
 import { FilteredBy } from "./FilteredBy";
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     padding: 0,
     opacity: "0.87",
-    fontFamily: "Manrope",
+    fontFamily: "Manrope !important",
     fontSize: "25px",
     fontWeight: "bold",
     fontStretch: "normal",

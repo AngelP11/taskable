@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 		color: '#ff5861',
 		fontWeight: 300,
 		fontSize: '10px',
-		fontFamily: 'Inter-regular',
+		fontFamily: 'Inter-regular !important',
 	},
 	btn_priority: {
 		backgroundColor: '#ffd3d4',

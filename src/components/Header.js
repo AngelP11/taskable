@@ -1,11 +1,9 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, Link } from "@material-ui/core";
+import { Link } from "react-router-dom";
+import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-import {
-  NotificationsOutlined,
-  SettingsOutlined,
-} from "@material-ui/icons";
+import { NotificationsOutlined, SettingsOutlined } from "@material-ui/icons";
 
 import { buttons } from "../styles/buttons.js";
 import globals from "../styles/globals.js";
@@ -61,7 +59,7 @@ function Header() {
         <div className={classes.root}>
           <div className="container">
             <div className="Header-logoContainer">
-              <Link href="http://localhost:3000/taskable/" underline="none">
+              <Link to="/taskable" style={{ textDecoration: "none" }}>
                 <Typography variant="h5" className={classes.title} gutterBottom>
                   Taskable <span className={classes.appText}>app</span>
                 </Typography>
@@ -101,7 +99,6 @@ function Header() {
           </div>
         </div>
       </Toolbar>
-
     </AppBar>
   );
 }

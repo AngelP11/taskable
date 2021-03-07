@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: 14,
 		color: '#2d2d37',
 		opacity: '.86',
-		fontFamily: 'Inter-regular'
+		fontFamily: 'Inter-regular !important'
 	},
 	imageContainer: {
 		// border: '1px solid',
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 		color: '#2d2d37'
 	},
 	cardTitle: {
-		fontFamily: 'Manrope',
+		fontFamily: 'Manrope !important',
 		fontSize: 20,
 		color: '#a2a2a2'
 	},

@@ -30,7 +30,7 @@ const useStyles = makeStyles(() => ({
   listText: {
     color: "#8f92a1",
     fontSize: 14,
-    fontFamily: "Inter-regular",
+    fontFamily: "Inter-regular !important",
   },
   listButtonText: {
     extend: "listText",
@@ -40,7 +40,7 @@ const useStyles = makeStyles(() => ({
     color: "#8f92a1",
     fontSize: 11,
     fontWeight: 600,
-    fontFamily: "Inter-regular",
+    fontFamily: "Inter-regular !important",
     marginLeft: 15,
   },
   listItemIcon: {
@@ -70,7 +70,7 @@ const useStyles = makeStyles(() => ({
       color: "#2d2d37",
       fontSize: 12,
       textTransform: "none",
-      fontFamily: "Inter-regular",
+      fontFamily: "Inter-regular !important",
       fontWeight: "bold",
     },
     "& .MuiButton-startIcon": {

@@ -65,7 +65,7 @@ const paraBorrar2 = () => {
     <>
       <p>
         Aqui no hay nada compadre, llegate mejor al{" "}
-        <Link to="/taskable/tablero">tablero</Link>
+        <Link to="/taskable">tablero</Link>
       </p>
     </>
   );

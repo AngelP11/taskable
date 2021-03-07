@@ -59,7 +59,7 @@ const useStyles = makeStyles(() => ({
     color: "#2d2d37",
     opacity: 0.87,
     fontSize: 24,
-    fontFamily: "Inter-light",
+    fontFamily: "Inter-light !important",
     fontWeight: 600,
   },
   text: {

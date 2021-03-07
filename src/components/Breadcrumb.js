@@ -10,10 +10,11 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     gap: "5px",
     height: "24px",
+    fontFamily: "Manrope !important",
   },
   listItem: {
     listStyle: "none",
-    fontFamily: "Manrope",
+    fontFamily: "Manrope !important",
     fontSize: "18px",
     fontWeight: "500",
     fontStretch: "normal",

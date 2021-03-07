@@ -7,7 +7,7 @@
   src: url(./assets/fonts/Inter-Light-slnt=0.ttf);
 }
 @font-face {
-  font-family: "Inter-regular";
+  font-family: "Inter-regular" !important;
   src: url(./assets/fonts/Inter-Regular-slnt=0.ttf);
 }
 /****  :|  ****/
@@ -18,76 +18,76 @@
 /* SELECT */
 body {
   background-color: #f6f6f8 !important;
-  font-family: "Inter-regular";
+  font-family: "Inter-regular" !important;
 }
 h1 {
-  font-family: "Inter-light", sans-serif;
+  font-family: "Inter-light", sans-serif !important;
   font-weight: 300;
   font-size: 96px;
   letter-spacing: -1.5px;
 }
 h2 {
-  font-family: "Inter-light", sans-serif;
+  font-family: "Inter-light", sans-serif !important;
   font-weight: 300;
   font-size: 60px;
   letter-spacing: -0.5px;
 }
 h4 {
-  font-family: "Inter-light", sans-serif;
+  font-family: "Inter-light", sans-serif !important;
   font-weight: 300;
   font-size: 34px;
   letter-spacing: 0.25px;
 }
 h5 {
-  font-family: "Inter-light", sans-serif;
+  font-family: "Inter-light", sans-serif !important;
   font-weight: 300;
   font-size: 24px;
   letter-spacing: 0;
 }
 h3 {
-  font-family: "Manrope", sans-serif;
+  font-family: "Manrope", sans-serif !important;
   font-weight: 500;
   font-size: 48px;
   letter-spacing: 0;
 }
 h6 {
-  font-family: "Manrope", sans-serif;
+  font-family: "Manrope", sans-serif !important;
   font-weight: 500;
   font-size: 20px;
   letter-spacing: 1.15px;
 }
 .subtitle-2 {
-  font-family: "Manrope", sans-serif;
+  font-family: "Manrope", sans-serif !important;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: 1.1px;
 }
 .body-1 {
-  font-family: "Inter-regular";
+  font-family: "Inter-regular" !important;
   font-weight: 400;
   font-size: 16px;
   letter-spacing: 1.15px;
 }
 .body-2 {
-  font-family: "Inter-regular";
+  font-family: "Inter-regular" !important;
   font-weight: 400;
   font-size: 14px;
   letter-spacing: 1.15px;
 }
 .subtitle-1 {
-  font-family: "Inter-regular";
+  font-family: "Inter-regular" !important;
   font-weight: 400;
   font-size: 16px;
   letter-spacing: 1.15px;
 }
 .caption {
-  font-family: "Inter-regular";
+  font-family: "Inter-regular" !important;
   font-weight: 400;
   font-size: 12px;
   letter-spacing: 0.4px;
 }
 .overline {
-  font-family: "Inter-regular";
+  font-family: "Inter-regular" !important;
   font-weight: 400;
 }
 * {
@@ -202,7 +202,6 @@ p {
 
 .MuiFormLabel-root {
   opacity: 0.68;
-  font-family: Manrope;
   font-size: 14px;
   font-weight: 500;
   font-stretch: normal;

@@ -41,27 +41,27 @@ const useStyles = makeStyles((theme) => ({
     color: "#ff5861",
     fontWeight: 300,
     fontSize: 16,
-    fontFamily: "Inter-regular",
+    fontFamily: "Inter-regular !important",
   },
   wrapper: {
     "& span": {
-      fontFamily: "Manrope",
+      fontFamily: "Manrope !important",
       fontVariant: "small-caps",
     },
   },
   primary: {
-    fontFamily: "Manrope",
+    fontFamily: "Manrope !important",
     fontSize: 20,
     color: "#2d2d37",
   },
   secondary: {
     color: "#2d2d37",
     opacity: 0.68,
-    fontFamily: "Inter-regular",
+    fontFamily: "Inter-regular !important",
     fontSize: 16,
   },
   primaryLink: {
-    fontFamily: "Inter-regular",
+    fontFamily: "Inter-regular !important",
     fontSize: 14,
   },
 }));

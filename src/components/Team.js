@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
 	icons: {
 		fontSize: '10px',
 		color: '#c0c0c0',
-		fontFamily: 'Inter-regular',
+		fontFamily: 'Inter-regular !important',
 	}
 }))
 

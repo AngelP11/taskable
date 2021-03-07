@@ -35,7 +35,7 @@ const useStyles = makeStyles(() => ({
     margin: 0,
     padding: 0,
     opacity: "0.87",
-    fontFamily: "Manrope",
+    fontFamily: "Manrope !important",
     fontSize: "25px",
     fontWeight: "bold",
     fontStretch: "normal",

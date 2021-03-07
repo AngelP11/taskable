@@ -21,7 +21,7 @@ const useStyles = makeStyles(() => ({
   },
   button: {
     opacity: "0.54",
-    fontFamily: "Manrope",
+    fontFamily: "Manrope !important",
     fontSize: "18px",
     fontWeight: "500",
     fontStretch: "normal",
@@ -35,7 +35,7 @@ const useStyles = makeStyles(() => ({
   },
   active: {
     opacity: "1",
-    fontFamily: "Manrope",
+    fontFamily: "Manrope !important",
     fontSize: "18px",
     fontWeight: "500",
     fontStretch: "normal",
