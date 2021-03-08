@@ -15,12 +15,12 @@ const useStyles = makeStyles((theme) => ({
 		backgroundColor: '#ffd3d4',
 		height: 20,
 		color: '#ff5861',
-		fontSize:10,
+		fontSize:14,
 		textTransform: 'capitalize',
 		minWidth: 20,
 		lineHeight: '0px',
-		padding: 10,
-		borderRadius: '4px',
+		padding: 12,
+		borderRadius: '6px',
 		boxShadow: 'none',
 		'&:hover': {
 			cursor: 'pointer',
@@ -32,11 +32,8 @@ const useStyles = makeStyles((theme) => ({
 		borderRadius: '8px',
 		boxShadow: '0 1px 3px 0 rgba(45, 45, 55, 0.12);',
 		cursor: 'pointer',
-		marginBottom: 12,
-		width: 280,
-		height: 140,
-		marginLeft: 10,
-		marginTop: 15
+		margin: 10,
+		paddingTop: 18,
 	},
 	icons: {
 		fontSize: '12px',
@@ -48,15 +45,16 @@ const useStyles = makeStyles((theme) => ({
 		fontFamily: 'Inter-regular',
 	},
 	cardTitle: {
-		fontFamily: 'Inter-regular',
+		fontFamily: 'Inter-medium',
 		fontSize: '16px',
 		color: '#2d2d37',
 		fontWeight: 500,
+		margin: 0
 	},
 	caption: {
 		color: '#ff5861',
 		fontWeight: 300,
-		fontSize: '11px',
+		fontSize: '14px',
 		fontFamily: 'Inter-regular',
 	},
 	completed: {
@@ -81,7 +79,7 @@ export default function CardTask(props){
 					<CardContent style={{ paddingTop: 0, paddingBottom: 5 }}>
 						<div style={{ marginBottom: 5 }}>
 							<h2 className={ classes.cardTitle }>{ props.task.content }</h2>
-							<div style={{ display: 'flex', alignItems: 'center' }}>
+							<div style={{ display: 'flex', alignItems: 'center', marginTop: 12 }}>
 								<Button className={ classes.btn_priority }>Alta</Button>
 								<ScheduleOutlined style={{ fontSize: 16, margin: '-3px  5px', color: '#ff8d8d' }} />
 								{
@@ -92,15 +90,15 @@ export default function CardTask(props){
 						<div style={{ width: '100%', }}>
 							<BarraProgreso />
 						</div>
-						<div className="Header-infoTeamContainer" style={{ marginTop: 10 }}>
+						<div className="Header-infoTeamContainer" style={{ marginTop: 10, marginBottom: 10,  }}>
 							<Team />
 							<div className="team_container">
 								<div style={{ marginRight: '5px' }}>
-									<spam className={classes.iconsText}>0/2 </spam>
+									<span className={classes.iconsText}>0/2 </span>
 									<AssignmentTurnedIn className={classes.icons} />
 								</div>
 								<div >
-									<spam className={classes.iconsText}>1 </spam>
+									<span className={classes.iconsText}>1 </span>
 									<AttachFile className={classes.icons} />
 								</div>
 							</div>

@@ -9,7 +9,7 @@ const initialData = {
     tasks: {
         'task-1': {
             id: 'task-1',
-            content: "Consumir el API",
+            content: "Realizar vistas de sección de estatus y salud de maquinas",
             persons: ['fulanito', 'menganito'],
 			progress: 68,
 			timeLeft: true,
