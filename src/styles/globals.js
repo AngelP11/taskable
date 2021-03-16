@@ -1,4 +1,4 @@
-export default {
+const globals = {
   FondoSeccin: {
     padding: "32px 58px 66px 54px;",
     backgroundColor: "#f5f5f7",
@@ -53,3 +53,5 @@ export default {
     borderRadius: 6,
   },
 };
+
+export default globals;
