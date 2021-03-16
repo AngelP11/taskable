@@ -108,15 +108,28 @@ h6 {
 }
 .MuiTableCell-root,
 .MuiTypography-root {
-  font-family: Manrope !important;
+  font-family: "Manrope" !important;
 }
+
+.MuiTableHead-root {
+  .MuiTableCell-root {
+    font-size: 20px !important;
+  }
+}
+
+.MuiTableBody-root {
+  .MuiTableCell-root {
+    font-family: "Inter-regular" !important;
+  }
+}
+
 p {
   color: #2d2d37;
   font-size: 14px;
 }
 .MuiOutlinedInput-root {
   border-radius: 6px !important;
-  font-family: Manrope !important;
+  font-family: "Manrope" !important;
 }
 .MuiOutlinedInput-root.Mui-focused {
   .MuiOutlinedInput-notchedOutline {
@@ -210,7 +223,7 @@ p {
   letter-spacing: 0.02px;
   text-align: left;
   color: #2d2d37;
-  font-family: Manrope !important;
+  font-family: "Manrope" !important;
 }
 
 .MuiAlert-standardSuccess {
