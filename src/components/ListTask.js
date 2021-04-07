@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import {  Button, Grid, ListItem, Checkbox, FormControlLabel } from '@material-ui/core';
+import {  Button, Grid, ListItem, Checkbox } from '@material-ui/core';
 
 /* Icons */
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 		color: '#ff5861',
 		fontWeight: 300,
 		fontSize: '10px',
-		fontFamily: 'Inter-regular',
+		fontFamily: 'Inter-regular !important',
 	},
 	btn_priority: {
 		backgroundColor: '#ffd3d4',

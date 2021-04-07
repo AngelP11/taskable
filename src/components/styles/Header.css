@@ -8,7 +8,7 @@
 
 .Header-logoContainer p {
     opacity: 0.56;
-    font-family: Manrope;
+    font-family: Manrope !important;
     font-size: 24px;
     font-weight: bold;
     font-stretch: normal;
@@ -63,7 +63,7 @@
 .Header-infoTitle {
     max-height: 64px;
     margin: 0;
-    font-family: Manrope;
+    font-family: Manrope !important;
     font-size: 20px;
     font-weight: 500;
     font-stretch: normal;
@@ -76,14 +76,13 @@
 .Header-infoCompany {
     max-height: 64px;
     margin: 0;
-    font-family: Inter;
+    font-family: Inter !important;
     font-size: 16px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.25;
     letter-spacing: 0.02px;
-    font-family: Inter-regular;
     color: rgba(0, 0, 0, .38);
 }
 

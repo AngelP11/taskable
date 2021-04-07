@@ -45,10 +45,10 @@ const useStyles = makeStyles((theme) => ({
 	iconsText: {
 		fontSize: '10px',
 		color: '#c0c0c0',
-		fontFamily: 'Inter-regular',
+		fontFamily: 'Inter-regular !important',
 	},
 	cardTitle: {
-		fontFamily: 'Inter-medium',
+		fontFamily: 'Inter-regular !important',
 		fontSize: '16px',
 		color: '#2d2d37',
 		fontWeight: 500,
@@ -57,8 +57,8 @@ const useStyles = makeStyles((theme) => ({
 	caption: {
 		color: '#ff5861',
 		fontWeight: 300,
-		fontSize: '14px',
-		fontFamily: 'Inter-regular',
+		fontSize: '11px',
+		fontFamily: 'Inter-regular !important',
 	},
 	completed: {
 		opacity: '0.54'
