@@ -4,6 +4,9 @@ import { Card, CardContent, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { ScheduleOutlined, AssignmentTurnedIn, AttachFile } from '@material-ui/icons';
 
+/* Components */
+import Label from './Label'
+
 import './styles/Header.css'
 import { buttons } from '../styles/buttons'
 import Team from '../components/Team'
@@ -80,7 +83,8 @@ export default function CardTask(props){
 						<div style={{ marginBottom: 5 }}>
 							<h2 className={ classes.cardTitle }>{ props.task.content }</h2>
 							<div style={{ display: 'flex', alignItems: 'center', marginTop: 12 }}>
-								<Button className={ classes.btn_priority }>Alta</Button>
+								<Label value="Baja" priority="low" />
+								{/* <Button className={ classes.btn_priority }>Alta</Button> */}
 								<ScheduleOutlined style={{ fontSize: 16, margin: '-3px  5px', color: '#ff8d8d' }} />
 								{
 									props.isCompleted ? ( <small className={ classes.caption }>Finalizado</small> ) : ( <small className={ classes.caption }>2 días restantes</small> )

@@ -1,0 +1,25 @@
+.Label__container {
+    margin-right: 11px;
+}
+
+.Label__text {
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin: 0;
+    font-size: 14px;
+}
+
+.Label__priority-high {
+    background-color: #ffd3d4;
+    color: #ff5861;
+}
+
+.Label__priority-medium {
+    background-color: #ffebdb;
+    color: #ff9844;
+}
+
+.Label__priority-low {
+    background-color: #cdf8ea;
+    color: #1dd29a;
+}
