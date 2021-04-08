@@ -7,8 +7,8 @@
   src: url(./assets/fonts/Inter-Light-slnt=0.ttf);
 }
 @font-face {
-  font-family: "Inter-regular" !important;
-  src: url(./assets/fonts/Inter-Regular-slnt=0.ttf);
+  font-family: "Inter-regular";
+  src: url(./assets/fonts/Inter-Regular.ttf);
 }
 /****  :|  ****/
 /* INPUTS */
@@ -144,7 +144,7 @@ p {
   color: #2979ff !important;
 }
 .MuiOutlinedInput-input {
-  font-family: "Inter-regular" !important;
+  font-family: "Inter" !important;
   font-size: 14px !important;
 }
 .MuiInputLabel-formControl {

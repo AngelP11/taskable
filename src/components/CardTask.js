@@ -1,6 +1,6 @@
 import React from 'react'
 import { Draggable } from 'react-beautiful-dnd'
-import { Card, CardContent, Button } from '@material-ui/core'
+import { Card, CardContent } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { ScheduleOutlined, AssignmentTurnedIn, AttachFile } from '@material-ui/icons';
 
